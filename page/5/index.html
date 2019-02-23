@@ -142,6 +142,51 @@
     <ul class="post-list">
     
         <li class="post-list-item fade">
+            <article id="post-25-python-奇淫巧技"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-02-17 10:13:05" datetime="2017-02-17T02:13:05.000Z"  itemprop="datePublished">2017-02-17</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2017/02/17/25-python-奇淫巧技/">python 奇淫巧技</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        tail -f 的粗略方法while 1:    where = file.tell()      # 指针位置    line = file.readline()   # 一次读取一行    if not line:            # 如果为空        time.sleep(1)       #  休眠一秒            file.seek(where)    else:        print line, # already has newline
+    
+
+        <a href="/2017/02/17/25-python-奇淫巧技/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
             <article id="post-24-python正则re"
   class="article-card article-type-post" itemprop="blogPost">
 
@@ -561,51 +606,6 @@
     
 
         <a href="/2016/11/29/14-python-递归/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-13-python-modules"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2016-11-29 16:36:08" datetime="2016-11-29T08:36:08.000Z"  itemprop="datePublished">2016-11-29</time>
-
-        
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2016/11/29/13-python-modules/">python modules</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        md5加密解密#encoding: utf-8import hashlibdef md5_str(string, salt=''):    md5 = hashlib.md5()    if salt != '':        string = '%s$$%s' % (salt, string)    md5.update(str(string))    return md5.hexdig...
-    
-
-        <a href="/2016/11/29/13-python-modules/" class="post-more waves-effect waves-button">
             阅读全文…
         </a>
     </div>
