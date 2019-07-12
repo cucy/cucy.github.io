@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://zhourudong.cn/"/>
-  <updated>2019-06-10T01:41:14.890Z</updated>
+  <updated>2019-06-12T02:26:19.526Z</updated>
   <id>http://zhourudong.cn/</id>
   
   <author>
@@ -17,13 +17,37 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Jenkins资源</title>
+    <link href="http://zhourudong.cn/2019/06/12/76-Jenkins%E8%B5%84%E6%BA%90/"/>
+    <id>http://zhourudong.cn/2019/06/12/76-Jenkins资源/</id>
+    <published>2019-06-12T01:20:55.000Z</published>
+    <updated>2019-06-12T02:26:19.526Z</updated>
+    
+    <content type="html"><![CDATA[<p># </p><p><a href="https://www.cloudbees.com/blog?_escaped_fragment_=&amp;view=550&amp;page=2" target="_blank" rel="external">https://www.cloudbees.com/blog?_escaped_fragment_=&amp;view=550&amp;page=2</a></p><h1 id="jenkins"><a href="#jenkins" class="headerlink" title="jenkins"></a>jenkins</h1><p><a href="http://www.tsbakker.nl/jenkins.html" target="_blank" rel="external">http://www.tsbakker.nl/jenkins.html</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;# &lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.cloudbees.com/blog?_escaped_fragment_=&amp;amp;view=550&amp;amp;page=2&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://www
+      
+    
+    </summary>
+    
+    
+      <category term="jenkins" scheme="http://zhourudong.cn/tags/jenkins/"/>
+    
+  </entry>
+  
+  <entry>
     <title>k8s-resource</title>
     <link href="http://zhourudong.cn/2019/06/10/75-k8s-resource/"/>
     <id>http://zhourudong.cn/2019/06/10/75-k8s-resource/</id>
     <published>2019-06-10T01:40:21.000Z</published>
-    <updated>2019-06-10T01:41:14.890Z</updated>
+    <updated>2019-07-12T05:49:50.817Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="部署工具"><a href="#部署工具" class="headerlink" title="部署工具"></a>部署工具</h1><p><a href="https://zhaohuabing.com/2018/04/16/using-helm-to-deploy-to-kubernetes/" target="_blank" rel="external">https://zhaohuabing.com/2018/04/16/using-helm-to-deploy-to-kubernetes/</a></p>]]></content>
+    <content type="html"><![CDATA[<h1 id="部署工具"><a href="#部署工具" class="headerlink" title="部署工具"></a>部署工具</h1><p><a href="https://zhaohuabing.com/2018/04/16/using-helm-to-deploy-to-kubernetes/" target="_blank" rel="external">https://zhaohuabing.com/2018/04/16/using-helm-to-deploy-to-kubernetes/</a></p><h1 id="学习网站"><a href="#学习网站" class="headerlink" title="学习网站"></a>学习网站</h1><p><a href="https://www.katacoda.com/courses/kubernetes/launch-single-node-cluster" target="_blank" rel="external">https://www.katacoda.com/courses/kubernetes/launch-single-node-cluster</a></p><p><a href="https://labs.play-with-k8s.com" target="_blank" rel="external">https://labs.play-with-k8s.com</a></p><p># </p><p><a href="https://developer.ibm.com/opentech/2017/06/21/tour-kubernetes-source-code-part-one-kubectl-api-server/" target="_blank" rel="external">https://developer.ibm.com/opentech/2017/06/21/tour-kubernetes-source-code-part-one-kubectl-api-server/</a></p><h1 id="培训"><a href="#培训" class="headerlink" title="培训"></a>培训</h1><p>kadm-2019-06.container.training<br>qconuk2019.container.training<br>container.training<br>intro-2019-01.container.training/#1<br>kadm-2019-04.container.training<br>pycon2019.container.training<br>k8s2d.container.training<br>oscon2019.container.training<br>gotochgo2019.container.training<br>intro-2019-01.container.training</p><p>tinyshellscript.com/kubernetes-bootstrap.html<br>tinyshellscript.com/kubernetes-ops-week.html<br>tinyshellscript.com/training.html<br>training.play-with-kubernetes.com/</p>]]></content>
     
     <summary type="html">
     
@@ -241,9 +265,9 @@
     <link href="http://zhourudong.cn/2018/09/06/67-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E5%92%8C%E5%B7%A5%E5%85%B7/"/>
     <id>http://zhourudong.cn/2018/09/06/67-常用命令和工具/</id>
     <published>2018-09-06T10:52:21.000Z</published>
-    <updated>2019-02-22T05:28:07.848Z</updated>
+    <updated>2019-07-12T05:49:23.388Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="网站"><a href="#网站" class="headerlink" title="网站"></a>网站</h1><p>iptraf-ng</p><h1 id="git-拉取所有远程分支"><a href="#git-拉取所有远程分支" class="headerlink" title="git 拉取所有远程分支"></a>git 拉取所有远程分支</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git branch -r | grep -v &apos;\-&gt;&apos; | while read remote; do git branch --track &quot;$&#123;remote#origin/&#125;&quot; &quot;$remote&quot;; done</span><br><span class="line">git fetch --all</span><br><span class="line">git pull --all</span><br></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<h1 id="网站"><a href="#网站" class="headerlink" title="网站"></a>网站</h1><p>iptraf-ng</p><h1 id="git-拉取所有远程分支"><a href="#git-拉取所有远程分支" class="headerlink" title="git 拉取所有远程分支"></a>git 拉取所有远程分支</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git branch -r | grep -v &apos;\-&gt;&apos; | while read remote; do git branch --track &quot;$&#123;remote#origin/&#125;&quot; &quot;$remote&quot;; done</span><br><span class="line">git fetch --all</span><br><span class="line">git pull --all</span><br></pre></td></tr></table></figure><h1 id="谷歌浏览历史记录查看-导出"><a href="#谷歌浏览历史记录查看-导出" class="headerlink" title="谷歌浏览历史记录查看 导出"></a>谷歌浏览历史记录查看 导出</h1><p>History Trends Unlimited</p><p>kadm-2019-06.container.training<br>qconuk2019.container.training<br>container.training<br>intro-2019-01.container.training/#1<br>kadm-2019-04.container.training<br>pycon2019.container.training<br>k8s2d.container.training<br>oscon2019.container.training<br>gotochgo2019.container.training<br>intro-2019-01.container.training</p><p>tinyshellscript.com/kubernetes-bootstrap.html<br>tinyshellscript.com/kubernetes-ops-week.html<br>tinyshellscript.com/training.html<br>training.play-with-kubernetes.com/</p>]]></content>
     
     <summary type="html">
     
@@ -447,30 +471,6 @@
 &lt;li&gt;&lt;p&gt;外部样式表&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul
-      
-    
-    </summary>
-    
-    
-      <category term="css" scheme="http://zhourudong.cn/tags/css/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>html-css网站收藏</title>
-    <link href="http://zhourudong.cn/2018/04/23/56-html-css%E7%BD%91%E7%AB%99%E6%94%B6%E8%97%8F/"/>
-    <id>http://zhourudong.cn/2018/04/23/56-html-css网站收藏/</id>
-    <published>2018-04-23T02:06:58.000Z</published>
-    <updated>2019-02-22T05:28:07.839Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="w3c"><a href="#w3c" class="headerlink" title="w3c"></a>w3c</h2><ul><li>DOM:<br><a href="http://www.w3school.com.cn/htmldom" target="_blank" rel="external">http://www.w3school.com.cn/htmldom</a></li></ul><h2 id="css-checked-checkbox-hack"><a href="#css-checked-checkbox-hack" class="headerlink" title="css checked checkbox hack"></a>css checked checkbox hack</h2><p><a href="https://www.thecssninja.com/demo/css_tree/" target="_blank" rel="external">https://www.thecssninja.com/demo/css_tree/</a><br><a href="https://css-tricks.com/the-checkbox-hack/" target="_blank" rel="external">https://css-tricks.com/the-checkbox-hack/</a><br><a href="https://css-tricks.com/almanac/properties/t/transition/" target="_blank" rel="external">https://css-tricks.com/almanac/properties/t/transition/</a><br><a href="http://timpietrusky.com/advanced-checkbox-hack" target="_blank" rel="external">http://timpietrusky.com/advanced-checkbox-hack</a></p><h2 id="css-网站"><a href="#css-网站" class="headerlink" title="css 网站"></a>css 网站</h2><p><a href="https://css-tricks.com/box-sizing/" target="_blank" rel="external">https://css-tricks.com/box-sizing/</a></p><h2 id="静态博客"><a href="#静态博客" class="headerlink" title="静态博客"></a>静态博客</h2><p><a href="https://vuepress.vuejs.org/zh/" target="_blank" rel="external">https://vuepress.vuejs.org/zh/</a></p><h2 id="css-动画"><a href="#css-动画" class="headerlink" title="css 动画"></a>css 动画</h2><p><a href="https://css-tricks.com/iron-mans-arc-reactor-using-css3-transforms-and-animations/" target="_blank" rel="external">https://css-tricks.com/iron-mans-arc-reactor-using-css3-transforms-and-animations/</a></p><h2 id="modal实现"><a href="#modal实现" class="headerlink" title="modal实现"></a>modal实现</h2><p><a href="https://css-tricks.com/sticky-as-a-local-fixed/" target="_blank" rel="external">https://css-tricks.com/sticky-as-a-local-fixed/</a></p><h2 id="css-变量"><a href="#css-变量" class="headerlink" title="css 变量"></a>css 变量</h2><p><a href="https://css-tricks.com/theming-with-variables-globals-and-locals/" target="_blank" rel="external">https://css-tricks.com/theming-with-variables-globals-and-locals/</a><br><a href="https://gumroad.com/l/lwaUh" target="_blank" rel="external">https://gumroad.com/l/lwaUh</a><br><a href="https://medium.freecodecamp.org/everything-you-need-to-know-about-css-variables-c74d922ea855" target="_blank" rel="external">https://medium.freecodecamp.org/everything-you-need-to-know-about-css-variables-c74d922ea855</a></p><h2 id="autofixer"><a href="#autofixer" class="headerlink" title="autofixer"></a>autofixer</h2><p><a href="http://pleeease.io/play/" target="_blank" rel="external">http://pleeease.io/play/</a><br><a href="https://autoprefixer.github.io/" target="_blank" rel="external">https://autoprefixer.github.io/</a></p><h2 id="布局样式"><a href="#布局样式" class="headerlink" title="布局样式"></a>布局样式</h2><p><a href="https://mediaqueri.es/lyc/" target="_blank" rel="external">https://mediaqueri.es/lyc/</a><br><a href="https://mediaqueri.es/neo/" target="_blank" rel="external">https://mediaqueri.es/neo/</a><br><a href="https://mediaqueri.es/mod/" target="_blank" rel="external">https://mediaqueri.es/mod/</a><br><a href="https://mediaqueri.es/owl/" target="_blank" rel="external">https://mediaqueri.es/owl/</a><br><a href="https://mediaqueri.es/ala/" target="_blank" rel="external">https://mediaqueri.es/ala/</a><br><a href="http://foodsense.is/" target="_blank" rel="external">http://foodsense.is/</a><br><a href="https://mediaqueri.es/ffg/" target="_blank" rel="external">https://mediaqueri.es/ffg/</a><br><a href="https://www.kaemingk.com/en/" target="_blank" rel="external">https://www.kaemingk.com/en/</a></p><h2 id="浏览器存储localstore"><a href="#浏览器存储localstore" class="headerlink" title="浏览器存储localstore"></a>浏览器存储localstore</h2><p><a href="https://blog.csdn.net/mjzhang1993/article/details/70820868" target="_blank" rel="external">https://blog.csdn.net/mjzhang1993/article/details/70820868</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;w3c&quot;&gt;&lt;a href=&quot;#w3c&quot; class=&quot;headerlink&quot; title=&quot;w3c&quot;&gt;&lt;/a&gt;w3c&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;DOM:&lt;br&gt;&lt;a href=&quot;http://www.w3school.com.cn/htmldom&quot; target=
       
     
     </summary>
