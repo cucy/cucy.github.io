@@ -45,9 +45,9 @@
     <link href="http://zhourudong.cn/2019/06/10/75-k8s-resource/"/>
     <id>http://zhourudong.cn/2019/06/10/75-k8s-resource/</id>
     <published>2019-06-10T01:40:21.000Z</published>
-    <updated>2019-07-12T05:49:50.817Z</updated>
+    <updated>2019-07-12T05:58:32.706Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="部署工具"><a href="#部署工具" class="headerlink" title="部署工具"></a>部署工具</h1><p><a href="https://zhaohuabing.com/2018/04/16/using-helm-to-deploy-to-kubernetes/" target="_blank" rel="external">https://zhaohuabing.com/2018/04/16/using-helm-to-deploy-to-kubernetes/</a></p><h1 id="学习网站"><a href="#学习网站" class="headerlink" title="学习网站"></a>学习网站</h1><p><a href="https://www.katacoda.com/courses/kubernetes/launch-single-node-cluster" target="_blank" rel="external">https://www.katacoda.com/courses/kubernetes/launch-single-node-cluster</a></p><p><a href="https://labs.play-with-k8s.com" target="_blank" rel="external">https://labs.play-with-k8s.com</a></p><p># </p><p><a href="https://developer.ibm.com/opentech/2017/06/21/tour-kubernetes-source-code-part-one-kubectl-api-server/" target="_blank" rel="external">https://developer.ibm.com/opentech/2017/06/21/tour-kubernetes-source-code-part-one-kubectl-api-server/</a></p><h1 id="培训"><a href="#培训" class="headerlink" title="培训"></a>培训</h1><p>kadm-2019-06.container.training<br>qconuk2019.container.training<br>container.training<br>intro-2019-01.container.training/#1<br>kadm-2019-04.container.training<br>pycon2019.container.training<br>k8s2d.container.training<br>oscon2019.container.training<br>gotochgo2019.container.training<br>intro-2019-01.container.training</p><p>tinyshellscript.com/kubernetes-bootstrap.html<br>tinyshellscript.com/kubernetes-ops-week.html<br>tinyshellscript.com/training.html<br>training.play-with-kubernetes.com/</p>]]></content>
+    <content type="html"><![CDATA[<h1 id="部署工具"><a href="#部署工具" class="headerlink" title="部署工具"></a>部署工具</h1><p><a href="https://zhaohuabing.com/2018/04/16/using-helm-to-deploy-to-kubernetes/" target="_blank" rel="external">https://zhaohuabing.com/2018/04/16/using-helm-to-deploy-to-kubernetes/</a></p><h1 id="学习网站"><a href="#学习网站" class="headerlink" title="学习网站"></a>学习网站</h1><p><a href="https://www.katacoda.com/courses/kubernetes/launch-single-node-cluster" target="_blank" rel="external">https://www.katacoda.com/courses/kubernetes/launch-single-node-cluster</a></p><p><a href="https://labs.play-with-k8s.com" target="_blank" rel="external">https://labs.play-with-k8s.com</a></p><p># </p><p><a href="https://developer.ibm.com/opentech/2017/06/21/tour-kubernetes-source-code-part-one-kubectl-api-server/" target="_blank" rel="external">https://developer.ibm.com/opentech/2017/06/21/tour-kubernetes-source-code-part-one-kubectl-api-server/</a></p><h1 id="培训"><a href="#培训" class="headerlink" title="培训"></a>培训</h1><p>kadm-2019-06.container.training<br>qconuk2019.container.training<br>container.training<br>intro-2019-01.container.training/#1<br>kadm-2019-04.container.training<br>pycon2019.container.training<br>k8s2d.container.training<br>oscon2019.container.training<br>gotochgo2019.container.training<br>intro-2019-01.container.training</p><p>tinyshellscript.com/kubernetes-bootstrap.html<br>tinyshellscript.com/kubernetes-ops-week.html<br>tinyshellscript.com/training.html<br>training.play-with-kubernetes.com</p>]]></content>
     
     <summary type="html">
     
@@ -238,6 +238,30 @@
   </entry>
   
   <entry>
+    <title>常用命令和工具</title>
+    <link href="http://zhourudong.cn/2018/09/06/67-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E5%92%8C%E5%B7%A5%E5%85%B7/"/>
+    <id>http://zhourudong.cn/2018/09/06/67-常用命令和工具/</id>
+    <published>2018-09-06T10:52:21.000Z</published>
+    <updated>2019-07-12T06:40:34.054Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="网站"><a href="#网站" class="headerlink" title="网站"></a>网站</h1><p>iptraf-ng</p><h1 id="git-拉取所有远程分支"><a href="#git-拉取所有远程分支" class="headerlink" title="git 拉取所有远程分支"></a>git 拉取所有远程分支</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git branch -r | grep -v &apos;\-&gt;&apos; | while read remote; do git branch --track &quot;$&#123;remote#origin/&#125;&quot; &quot;$remote&quot;; done</span><br><span class="line">git fetch --all</span><br><span class="line">git pull --all</span><br></pre></td></tr></table></figure><h1 id="谷歌浏览历史记录查看-导出"><a href="#谷歌浏览历史记录查看-导出" class="headerlink" title="谷歌浏览历史记录查看 导出"></a>谷歌浏览历史记录查看 导出</h1><p>History Trends Unlimited</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;网站&quot;&gt;&lt;a href=&quot;#网站&quot; class=&quot;headerlink&quot; title=&quot;网站&quot;&gt;&lt;/a&gt;网站&lt;/h1&gt;&lt;p&gt;iptraf-ng&lt;/p&gt;
+&lt;h1 id=&quot;git-拉取所有远程分支&quot;&gt;&lt;a href=&quot;#git-拉取所有远程分支&quot; class=&quot;hea
+      
+    
+    </summary>
+    
+    
+      <category term="命令工具" scheme="http://zhourudong.cn/tags/%E5%91%BD%E4%BB%A4%E5%B7%A5%E5%85%B7/"/>
+    
+  </entry>
+  
+  <entry>
     <title>微服务</title>
     <link href="http://zhourudong.cn/2018/09/06/66-%E5%BE%AE%E6%9C%8D%E5%8A%A1/"/>
     <id>http://zhourudong.cn/2018/09/06/66-微服务/</id>
@@ -257,30 +281,6 @@
     
     
       <category term="微服务" scheme="http://zhourudong.cn/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>常用命令和工具</title>
-    <link href="http://zhourudong.cn/2018/09/06/67-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E5%92%8C%E5%B7%A5%E5%85%B7/"/>
-    <id>http://zhourudong.cn/2018/09/06/67-常用命令和工具/</id>
-    <published>2018-09-06T10:52:21.000Z</published>
-    <updated>2019-07-12T05:49:23.388Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="网站"><a href="#网站" class="headerlink" title="网站"></a>网站</h1><p>iptraf-ng</p><h1 id="git-拉取所有远程分支"><a href="#git-拉取所有远程分支" class="headerlink" title="git 拉取所有远程分支"></a>git 拉取所有远程分支</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git branch -r | grep -v &apos;\-&gt;&apos; | while read remote; do git branch --track &quot;$&#123;remote#origin/&#125;&quot; &quot;$remote&quot;; done</span><br><span class="line">git fetch --all</span><br><span class="line">git pull --all</span><br></pre></td></tr></table></figure><h1 id="谷歌浏览历史记录查看-导出"><a href="#谷歌浏览历史记录查看-导出" class="headerlink" title="谷歌浏览历史记录查看 导出"></a>谷歌浏览历史记录查看 导出</h1><p>History Trends Unlimited</p><p>kadm-2019-06.container.training<br>qconuk2019.container.training<br>container.training<br>intro-2019-01.container.training/#1<br>kadm-2019-04.container.training<br>pycon2019.container.training<br>k8s2d.container.training<br>oscon2019.container.training<br>gotochgo2019.container.training<br>intro-2019-01.container.training</p><p>tinyshellscript.com/kubernetes-bootstrap.html<br>tinyshellscript.com/kubernetes-ops-week.html<br>tinyshellscript.com/training.html<br>training.play-with-kubernetes.com/</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;网站&quot;&gt;&lt;a href=&quot;#网站&quot; class=&quot;headerlink&quot; title=&quot;网站&quot;&gt;&lt;/a&gt;网站&lt;/h1&gt;&lt;p&gt;iptraf-ng&lt;/p&gt;
-&lt;h1 id=&quot;git-拉取所有远程分支&quot;&gt;&lt;a href=&quot;#git-拉取所有远程分支&quot; class=&quot;hea
-      
-    
-    </summary>
-    
-    
-      <category term="命令工具" scheme="http://zhourudong.cn/tags/%E5%91%BD%E4%BB%A4%E5%B7%A5%E5%85%B7/"/>
     
   </entry>
   
