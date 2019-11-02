@@ -13,26 +13,26 @@
     
     
     
-    <title>常用命令和工具 | Cucy的博客</title>
+    <title>centos8通用配置 | Cucy的博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#3F51B5">
     
     
-    <meta name="keywords" content="命令工具">
-    <meta name="description" content="网站iptraf-ng
-git 拉取所有远程分支git branch -r | grep -v &amp;apos;\-&amp;gt;&amp;apos; | while read remote; do git branch --track &amp;quot;$&amp;#123;remote#origin/&amp;#125;&amp;quot; &amp;quot;$remote&amp;quot;; donegit fetch --allgit pull -">
+    <meta name="keywords" content="centos8">
+    <meta name="description" content="yum源配置
+[AppStream]name=CentOS-$releasever - AppStreambaseurl=https://mirrors.aliyun.com/centos/8/AppStream/x86_64/os/gpgcheck=0enabled=1gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-centosofficial[BaseOS">
 <meta property="og:type" content="article">
-<meta property="og:title" content="常用命令和工具">
-<meta property="og:url" content="http://zhourudong.cn/2018/09/06/67-常用命令和工具/index.html">
+<meta property="og:title" content="centos8通用配置">
+<meta property="og:url" content="http://zhourudong.cn/2019/11/02/77-centos8通用配置/index.html">
 <meta property="og:site_name" content="Cucy的博客">
-<meta property="og:description" content="网站iptraf-ng
-git 拉取所有远程分支git branch -r | grep -v &amp;apos;\-&amp;gt;&amp;apos; | while read remote; do git branch --track &amp;quot;$&amp;#123;remote#origin/&amp;#125;&amp;quot; &amp;quot;$remote&amp;quot;; donegit fetch --allgit pull -">
-<meta property="og:updated_time" content="2019-07-12T06:40:34.054Z">
+<meta property="og:description" content="yum源配置
+[AppStream]name=CentOS-$releasever - AppStreambaseurl=https://mirrors.aliyun.com/centos/8/AppStream/x86_64/os/gpgcheck=0enabled=1gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-centosofficial[BaseOS">
+<meta property="og:updated_time" content="2019-11-02T07:17:24.449Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="常用命令和工具">
-<meta name="twitter:description" content="网站iptraf-ng
-git 拉取所有远程分支git branch -r | grep -v &amp;apos;\-&amp;gt;&amp;apos; | while read remote; do git branch --track &amp;quot;$&amp;#123;remote#origin/&amp;#125;&amp;quot; &amp;quot;$remote&amp;quot;; donegit fetch --allgit pull -">
+<meta name="twitter:title" content="centos8通用配置">
+<meta name="twitter:description" content="yum源配置
+[AppStream]name=CentOS-$releasever - AppStreambaseurl=https://mirrors.aliyun.com/centos/8/AppStream/x86_64/os/gpgcheck=0enabled=1gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-centosofficial[BaseOS">
     
         <link rel="alternate" type="application/atom+xml" title="Cucy的博客" href="/atom.xml">
     
@@ -106,7 +106,7 @@ git 拉取所有远程分支git branch -r | grep -v &amp;apos;\-&amp;gt;&amp;apo
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">常用命令和工具</div>
+        <div class="flex-col header-title ellipsis">centos8通用配置</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -128,11 +128,11 @@ git 拉取所有远程分支git branch -r | grep -v &amp;apos;\-&amp;gt;&amp;apo
 <header class="content-header post-header">
 
     <div class="container fade-scale">
-        <h1 class="title">常用命令和工具</h1>
+        <h1 class="title">centos8通用配置</h1>
         <h5 class="subtitle">
             
-                <time datetime="2018-09-06T10:52:21.000Z" itemprop="datePublished" class="page-time">
-  2018-09-06
+                <time datetime="2019-11-02T07:16:14.000Z" itemprop="datePublished" class="page-time">
+  2019-11-02
 </time>
 
 
@@ -148,20 +148,13 @@ git 拉取所有远程分支git branch -r | grep -v &amp;apos;\-&amp;gt;&amp;apo
 
 <div class="container body-wrap">
     
-    <aside class="post-widget">
-        <nav class="post-toc-wrap" id="post-toc">
-            <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#网站"><span class="post-toc-number">1.</span> <span class="post-toc-text">网站</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#git-拉取所有远程分支"><span class="post-toc-number">2.</span> <span class="post-toc-text">git 拉取所有远程分支</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#谷歌浏览历史记录查看-导出"><span class="post-toc-number">3.</span> <span class="post-toc-text">谷歌浏览历史记录查看 导出</span></a></li></ol>
-        </nav>
-    </aside>
-    
-<article id="post-67-常用命令和工具"
+<article id="post-77-centos8通用配置"
   class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
-        <h1 class="post-card-title">常用命令和工具</h1>
+        <h1 class="post-card-title">centos8通用配置</h1>
         <div class="post-meta">
-            <time class="post-time" title="2018-09-06 18:52:21" datetime="2018-09-06T10:52:21.000Z"  itemprop="datePublished">2018-09-06</time>
+            <time class="post-time" title="2019-11-02 15:16:14" datetime="2019-11-02T07:16:14.000Z"  itemprop="datePublished">2019-11-02</time>
 
             
 
@@ -174,9 +167,8 @@ git 拉取所有远程分支git branch -r | grep -v &amp;apos;\-&amp;gt;&amp;apo
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h1 id="网站"><a href="#网站" class="headerlink" title="网站"></a>网站</h1><p>iptraf-ng</p>
-<h1 id="git-拉取所有远程分支"><a href="#git-拉取所有远程分支" class="headerlink" title="git 拉取所有远程分支"></a>git 拉取所有远程分支</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git branch -r | grep -v &apos;\-&gt;&apos; | while read remote; do git branch --track &quot;$&#123;remote#origin/&#125;&quot; &quot;$remote&quot;; done</span><br><span class="line">git fetch --all</span><br><span class="line">git pull --all</span><br></pre></td></tr></table></figure>
-<h1 id="谷歌浏览历史记录查看-导出"><a href="#谷歌浏览历史记录查看-导出" class="headerlink" title="谷歌浏览历史记录查看 导出"></a>谷歌浏览历史记录查看 导出</h1><p>History Trends Unlimited</p>
+            <p>yum源配置</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[AppStream]</span><br><span class="line">name=CentOS-$releasever - AppStream</span><br><span class="line">baseurl=https://mirrors.aliyun.com/centos/8/AppStream/x86_64/os/</span><br><span class="line">gpgcheck=0</span><br><span class="line">enabled=1</span><br><span class="line">gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-centosofficial</span><br><span class="line">[BaseOS]</span><br><span class="line">name=CentOS-$releasever - Base</span><br><span class="line">baseurl=https://mirrors.aliyun.com/centos/8/BaseOS/x86_64/os/</span><br><span class="line">gpgcheck=0</span><br><span class="line">enabled=1</span><br><span class="line">[extras]</span><br><span class="line">name=CentOS-$releasever - Extras</span><br><span class="line">baseurl=https://mirrors.aliyun.com/centos/8/extras/x86_64/os/</span><br><span class="line">gpgcheck=0</span><br><span class="line">enabled=1</span><br><span class="line">[epel]</span><br><span class="line">name=Extra Packages for Enterprise Linux $releasever - $basearch</span><br><span class="line">baseurl=https://mirrors.aliyun.com/epel/8/Everything/x86_64/</span><br><span class="line">enabled=1</span><br><span class="line">gpgcheck=0</span><br></pre></td></tr></table></figure>
 
         </div>
 
@@ -184,12 +176,12 @@ git 拉取所有远程分支git branch -r | grep -v &amp;apos;\-&amp;gt;&amp;apo
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-07-12T06:40:34.054Z" itemprop="dateUpdated">2019-07-12 14:40:34</time>
+    最后更新时间：<time datetime="2019-11-02T07:17:24.449Z" itemprop="dateUpdated">2019-11-02 15:17:24</time>
 </span><br>
 
 
         
-        <a href="/2018/09/06/67-常用命令和工具/" target="_blank" rel="external">http://zhourudong.cn/2018/09/06/67-常用命令和工具/</a>
+        <a href="/2019/11/02/77-centos8通用配置/" target="_blank" rel="external">http://zhourudong.cn/2019/11/02/77-centos8通用配置/</a>
         
     </div>
     <footer>
@@ -209,7 +201,7 @@ git 拉取所有远程分支git branch -r | grep -v &amp;apos;\-&amp;gt;&amp;apo
 
         <div class="post-footer">
             
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/命令工具/">命令工具</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/centos8/">centos8</a></li></ul>
 
 
             
@@ -219,7 +211,7 @@ git 拉取所有远程分支git branch -r | grep -v &amp;apos;\-&amp;gt;&amp;apo
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://zhourudong.cn/2018/09/06/67-常用命令和工具/&title=《常用命令和工具》 — Cucy的博客&pic=http://zhourudong.cn/img/avatar.png" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://zhourudong.cn/2019/11/02/77-centos8通用配置/&title=《centos8通用配置》 — Cucy的博客&pic=http://zhourudong.cn/img/avatar.png" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -229,22 +221,22 @@ git 拉取所有远程分支git branch -r | grep -v &amp;apos;\-&amp;gt;&amp;apo
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://zhourudong.cn/2018/09/06/67-常用命令和工具/&title=《常用命令和工具》 — Cucy的博客&source=" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://zhourudong.cn/2019/11/02/77-centos8通用配置/&title=《centos8通用配置》 — Cucy的博客&source=" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://zhourudong.cn/2018/09/06/67-常用命令和工具/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://zhourudong.cn/2019/11/02/77-centos8通用配置/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《常用命令和工具》 — Cucy的博客&url=http://zhourudong.cn/2018/09/06/67-常用命令和工具/&via=http://zhourudong.cn" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《centos8通用配置》 — Cucy的博客&url=http://zhourudong.cn/2019/11/02/77-centos8通用配置/&via=http://zhourudong.cn" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://zhourudong.cn/2018/09/06/67-常用命令和工具/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://zhourudong.cn/2019/11/02/77-centos8通用配置/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -264,21 +256,14 @@ git 拉取所有远程分支git branch -r | grep -v &amp;apos;\-&amp;gt;&amp;apo
     </div>
 
     
-<nav class="post-nav flex-row flex-justify-between">
-  
-    <div class="waves-block waves-effect prev">
-      <a href="/2018/09/06/66-微服务/" id="post-prev" class="post-nav-link">
-        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">微服务</h4>
-      </a>
-    </div>
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
   
 
   
     <div class="waves-block waves-effect next">
-      <a href="/2018/09/05/65-GraphQL学习/" id="post-next" class="post-nav-link">
+      <a href="/2019/06/12/76-Jenkins资源/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">GraphQL学习</h4>
+        <h4 class="title">Jenkins资源</h4>
       </a>
     </div>
   
@@ -372,7 +357,7 @@ git 拉取所有远程分支git branch -r | grep -v &amp;apos;\-&amp;gt;&amp;apo
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://zhourudong.cn/2018/09/06/67-常用命令和工具/&title=《常用命令和工具》 — Cucy的博客&pic=http://zhourudong.cn/img/avatar.png" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://zhourudong.cn/2019/11/02/77-centos8通用配置/&title=《centos8通用配置》 — Cucy的博客&pic=http://zhourudong.cn/img/avatar.png" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -382,22 +367,22 @@ git 拉取所有远程分支git branch -r | grep -v &amp;apos;\-&amp;gt;&amp;apo
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://zhourudong.cn/2018/09/06/67-常用命令和工具/&title=《常用命令和工具》 — Cucy的博客&source=" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://zhourudong.cn/2019/11/02/77-centos8通用配置/&title=《centos8通用配置》 — Cucy的博客&source=" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://zhourudong.cn/2018/09/06/67-常用命令和工具/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://zhourudong.cn/2019/11/02/77-centos8通用配置/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《常用命令和工具》 — Cucy的博客&url=http://zhourudong.cn/2018/09/06/67-常用命令和工具/&via=http://zhourudong.cn" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《centos8通用配置》 — Cucy的博客&url=http://zhourudong.cn/2019/11/02/77-centos8通用配置/&via=http://zhourudong.cn" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://zhourudong.cn/2018/09/06/67-常用命令和工具/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://zhourudong.cn/2019/11/02/77-centos8通用配置/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -408,7 +393,7 @@ git 拉取所有远程分支git branch -r | grep -v &amp;apos;\-&amp;gt;&amp;apo
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://zhourudong.cn/2018/09/06/67-常用命令和工具/" alt="微信分享二维码">
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://zhourudong.cn/2019/11/02/77-centos8通用配置/" alt="微信分享二维码">
 </div>
 
 

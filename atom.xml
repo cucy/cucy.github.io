@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://zhourudong.cn/"/>
-  <updated>2019-06-12T02:26:19.526Z</updated>
+  <updated>2019-11-02T07:17:24.449Z</updated>
   <id>http://zhourudong.cn/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>centos8通用配置</title>
+    <link href="http://zhourudong.cn/2019/11/02/77-centos8%E9%80%9A%E7%94%A8%E9%85%8D%E7%BD%AE/"/>
+    <id>http://zhourudong.cn/2019/11/02/77-centos8通用配置/</id>
+    <published>2019-11-02T07:16:14.000Z</published>
+    <updated>2019-11-02T07:17:24.449Z</updated>
+    
+    <content type="html"><![CDATA[<p>yum源配置</p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[AppStream]</span><br><span class="line">name=CentOS-$releasever - AppStream</span><br><span class="line">baseurl=https://mirrors.aliyun.com/centos/8/AppStream/x86_64/os/</span><br><span class="line">gpgcheck=0</span><br><span class="line">enabled=1</span><br><span class="line">gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-centosofficial</span><br><span class="line">[BaseOS]</span><br><span class="line">name=CentOS-$releasever - Base</span><br><span class="line">baseurl=https://mirrors.aliyun.com/centos/8/BaseOS/x86_64/os/</span><br><span class="line">gpgcheck=0</span><br><span class="line">enabled=1</span><br><span class="line">[extras]</span><br><span class="line">name=CentOS-$releasever - Extras</span><br><span class="line">baseurl=https://mirrors.aliyun.com/centos/8/extras/x86_64/os/</span><br><span class="line">gpgcheck=0</span><br><span class="line">enabled=1</span><br><span class="line">[epel]</span><br><span class="line">name=Extra Packages for Enterprise Linux $releasever - $basearch</span><br><span class="line">baseurl=https://mirrors.aliyun.com/epel/8/Everything/x86_64/</span><br><span class="line">enabled=1</span><br><span class="line">gpgcheck=0</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;yum源配置&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;[AppStream]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;n
+      
+    
+    </summary>
+    
+    
+      <category term="centos8" scheme="http://zhourudong.cn/tags/centos8/"/>
+    
+  </entry>
   
   <entry>
     <title>Jenkins资源</title>
@@ -238,6 +262,29 @@
   </entry>
   
   <entry>
+    <title>微服务</title>
+    <link href="http://zhourudong.cn/2018/09/06/66-%E5%BE%AE%E6%9C%8D%E5%8A%A1/"/>
+    <id>http://zhourudong.cn/2018/09/06/66-微服务/</id>
+    <published>2018-09-06T10:52:21.000Z</published>
+    <updated>2019-02-22T05:28:07.847Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="网站"><a href="#网站" class="headerlink" title="网站"></a>网站</h1><p><a href="https://micro.mu/blog/" target="_blank" rel="external">https://micro.mu/blog/</a><br><a href="https://wuyin.io/2018/05/10/microservices-part-1-introduction-and-consignment-service/" target="_blank" rel="external">https://wuyin.io/2018/05/10/microservices-part-1-introduction-and-consignment-service/</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;网站&quot;&gt;&lt;a href=&quot;#网站&quot; class=&quot;headerlink&quot; title=&quot;网站&quot;&gt;&lt;/a&gt;网站&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;https://micro.mu/blog/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https:
+      
+    
+    </summary>
+    
+    
+      <category term="微服务" scheme="http://zhourudong.cn/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/"/>
+    
+  </entry>
+  
+  <entry>
     <title>常用命令和工具</title>
     <link href="http://zhourudong.cn/2018/09/06/67-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E5%92%8C%E5%B7%A5%E5%85%B7/"/>
     <id>http://zhourudong.cn/2018/09/06/67-常用命令和工具/</id>
@@ -258,29 +305,6 @@
     
     
       <category term="命令工具" scheme="http://zhourudong.cn/tags/%E5%91%BD%E4%BB%A4%E5%B7%A5%E5%85%B7/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>微服务</title>
-    <link href="http://zhourudong.cn/2018/09/06/66-%E5%BE%AE%E6%9C%8D%E5%8A%A1/"/>
-    <id>http://zhourudong.cn/2018/09/06/66-微服务/</id>
-    <published>2018-09-06T10:52:21.000Z</published>
-    <updated>2019-02-22T05:28:07.847Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="网站"><a href="#网站" class="headerlink" title="网站"></a>网站</h1><p><a href="https://micro.mu/blog/" target="_blank" rel="external">https://micro.mu/blog/</a><br><a href="https://wuyin.io/2018/05/10/microservices-part-1-introduction-and-consignment-service/" target="_blank" rel="external">https://wuyin.io/2018/05/10/microservices-part-1-introduction-and-consignment-service/</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;网站&quot;&gt;&lt;a href=&quot;#网站&quot; class=&quot;headerlink&quot; title=&quot;网站&quot;&gt;&lt;/a&gt;网站&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;https://micro.mu/blog/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https:
-      
-    
-    </summary>
-    
-    
-      <category term="微服务" scheme="http://zhourudong.cn/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/"/>
     
   </entry>
   
@@ -447,36 +471,6 @@
     
     
       <category term="npm" scheme="http://zhourudong.cn/tags/npm/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>css_tips</title>
-    <link href="http://zhourudong.cn/2018/04/23/57-css-tips/"/>
-    <id>http://zhourudong.cn/2018/04/23/57-css-tips/</id>
-    <published>2018-04-23T06:35:27.000Z</published>
-    <updated>2019-02-22T05:28:07.840Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="样式"><a href="#样式" class="headerlink" title="样式"></a>样式</h1><ul><li><p>行内</p></li><li><p>嵌入式</p></li><li><p>外部样式表</p></li></ul><figure class="highlight"><table><tr><td class="code"><pre><span class="line">&lt;style type="text/css"&gt;</span><br><span class="line">    @import url(site.css);</span><br><span class="line">    @import url(navbar.css);</span><br><span class="line">    @import url(footer.css) screen and (min-width: 960px);</span><br><span class="line">    body &#123;</span><br><span class="line">        background: yellow;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;basic.css&quot;  media=&quot;all&quot;&gt;</span><br><span class="line">&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;web.css&quot; media=&quot;screen and (max-width: 960px)&quot;&gt;</span><br><span class="line">&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;paper.css&quot; media=&quot;print and (color-depth: 2)&quot;&gt;</span><br></pre></td></tr></table></figure><h1 id="at-rules"><a href="#at-rules" class="headerlink" title="at-rules"></a>at-rules</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">@charset</span><br><span class="line">@charset &quot;utf-8&quot;;</span><br><span class="line"></span><br><span class="line">@import</span><br><span class="line">@namespace</span><br><span class="line">@counter-style</span><br><span class="line">@font-face</span><br><span class="line">@keyframes</span><br><span class="line">@media</span><br><span class="line">@supports</span><br></pre></td></tr></table></figure><h1 id="Position"><a href="#Position" class="headerlink" title="Position"></a>Position</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[</span><br><span class="line">[ left | center | right | top | bottom | &lt;percentage&gt; | &lt;length&gt; ] |</span><br><span class="line">[ left | center | right | &lt;percentage&gt; | &lt;length&gt; ]</span><br><span class="line">[ top | center | bottom | &lt;percentage&gt; | &lt;length&gt; ] |</span><br><span class="line">[ center | [ left | right ] [ &lt;percentage&gt; | &lt;length&gt; ]? ] &amp;&amp;</span><br><span class="line">[ center | [ top | bottom ] [ &lt;percentage&gt; | &lt;length&gt; ]? ]</span><br><span class="line">]</span><br></pre></td></tr></table></figure><h1 id="响应式设计"><a href="#响应式设计" class="headerlink" title="响应式设计"></a>响应式设计</h1><h2 id="媒体查询"><a href="#媒体查询" class="headerlink" title="媒体查询"></a>媒体查询</h2><ul><li><p>screen: 用于电脑屏幕、平板电脑、智能手机、电视监视器等</p></li><li><p>print: 打印机</p></li><li><p>speech: 阅读设备</p></li><li><p>all(default): screen, print, and speech.</p></li></ul><blockquote><p>min-width<br>max-width</p></blockquote><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><ul><li>基本语法</li></ul><p><a href="https://drafts.csswg.org/mediaqueries-4/#media-query" target="_blank" rel="external">https://drafts.csswg.org/mediaqueries-4/#media-query</a></p><figure class="highlight css"><table><tr><td class="code"><pre><span class="line">@<span class="keyword">media</span> media-type and (media-feature) &#123;</span><br><span class="line">    <span class="selector-tag">CSS-style</span> <span class="selector-tag">rules</span> …</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><figure class="highlight"><table><tr><td class="code"><pre><span class="line">body &#123;</span><br><span class="line">    @media screen and (max-width: 480px)&#123;</span><br><span class="line">        background-color:white;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    @media screen and (min-width: 480px)&#123;</span><br><span class="line">        background-color:black;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><ul><li>逻辑 and</li></ul><figure class="highlight"><table><tr><td class="code"><pre><span class="line">.midsize&#123;</span><br><span class="line">    @media (min-witdh:501px) and (max-width:800px)&#123;</span><br><span class="line">           css style rules.... </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&lt;!--  --&gt;</span><br><span class="line">@media not (width &lt;= -100px) &#123;</span><br><span class="line">  body &#123; background: green; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>小栗子</p><figure class="highlight"><table><tr><td class="code"><pre><span class="line">body &#123;</span><br><span class="line">@media screen and (max-width: 480px) &#123;</span><br><span class="line">    background-color: white; &#125; /* phone background */</span><br><span class="line">@media screen and (min-width: 481px) and (max-width: 780px) &#123;</span><br><span class="line">    background-color: yellow; &#125; /* tablet background */&#125;</span><br><span class="line">@media screen and (min-width: 781px) &#123;</span><br><span class="line">    background-color: red; &#125; /* computer background */</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="Text-响应式文本"><a href="#Text-响应式文本" class="headerlink" title="Text 响应式文本"></a>Text 响应式文本</h2><figure class="highlight"><table><tr><td class="code"><pre><span class="line">div &#123;</span><br><span class="line">    font-size: 16px; /* 1em = 16 px */</span><br><span class="line">    width: 2.5em; ; /* width = 40 px */</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">html</span> &#123; <span class="attribute">font-size</span>: <span class="number">20px</span>; &#125;</span><br><span class="line"><span class="selector-tag">div</span> &#123; <span class="attribute">font-size</span>: <span class="number">16px</span>;&#125;</span><br><span class="line"><span class="selector-tag">p</span> &#123; <span class="attribute">font-size</span>: <span class="number">0.5rem</span>;&#125; <span class="comment">/* font size is 10px */</span></span><br></pre></td></tr></table></figure><h1 id="内容垂直居中"><a href="#内容垂直居中" class="headerlink" title="内容垂直居中"></a>内容垂直居中</h1><p><a href="http://www.zhangxinxu.com/wordpress/2009/11/css%E8%A1%8C%E9%AB%98line-height%E7%9A%84%E4%B8%80%E4%BA%9B%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E5%8F%8A%E5%BA%94%E7%94%A8/" target="_blank" rel="external">http://www.zhangxinxu.com/wordpress/2009/11/css%E8%A1%8C%E9%AB%98line-height%E7%9A%84%E4%B8%80%E4%BA%9B%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E5%8F%8A%E5%BA%94%E7%94%A8/</a></p><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">section</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span><span class="css"></span><br><span class="line"> <span class="selector-class">.single_line</span>&#123;<span class="attribute">line-height</span>:<span class="number">30px</span>; <span class="attribute">border</span>:<span class="number">1px</span> dashed <span class="number">#cccccc</span>; <span class="attribute">padding-left</span>:<span class="number">5px</span>;&#125;</span><br><span class="line"> <span class="selector-class">.mulit_line</span>&#123;<span class="attribute">line-height</span>:<span class="number">150px</span>; <span class="attribute">border</span>:<span class="number">1px</span> dashed <span class="number">#cccccc</span>; <span class="attribute">padding-left</span>:<span class="number">5px</span>; <span class="attribute">font-size</span>:<span class="number">0</span>;&#125;</span><br><span class="line"> <span class="selector-class">.mulit_line</span> <span class="selector-tag">span</span>&#123;<span class="attribute">display</span>:inline-block; <span class="attribute">line-height</span>:<span class="number">1.4em</span>; <span class="attribute">vertical-align</span>:middle;&#125;</span><br><span class="line"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"zxx_main_con"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">strong</span> <span class="attr">class</span>=<span class="string">"f11"</span>&gt;</span>单行文字<span class="tag">&lt;/<span class="name">strong</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"single_line mt10 mb20"</span>&gt;</span></span><br><span class="line">                这是高度为30像素的单行文字</span><br><span class="line">            <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">strong</span> <span class="attr">class</span>=<span class="string">"f11"</span>&gt;</span>多行文字<span class="tag">&lt;/<span class="name">strong</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"mulit_line mt10"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">span</span> <span class="attr">style</span>=<span class="string">"font-size:12px;"</span>&gt;</span>这里是高度为150像素的标签内的多行文字，文字大小为12像素。<span class="tag">&lt;<span class="name">br</span> /&gt;</span>这里是第二行，用来测试多行的显示效果。<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"vm dib"</span>&gt;</span>&amp;nbsp;<span class="tag">&lt;/<span class="name">i</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"mulit_line mt10"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">span</span> <span class="attr">style</span>=<span class="string">"font-size:20px;"</span>&gt;</span>这里是高度为150像素的标签内的多行文字，文字大小为20像素。<span class="tag">&lt;<span class="name">br</span> /&gt;</span>这里是第二行，用来测试多行的显示效果。<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"vm dib"</span>&gt;</span>&amp;nbsp;<span class="tag">&lt;/<span class="name">i</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;样式&quot;&gt;&lt;a href=&quot;#样式&quot; class=&quot;headerlink&quot; title=&quot;样式&quot;&gt;&lt;/a&gt;样式&lt;/h1&gt;&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;行内&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;嵌入式&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;外部样式表&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul
-      
-    
-    </summary>
-    
-    
-      <category term="css" scheme="http://zhourudong.cn/tags/css/"/>
     
   </entry>
   
