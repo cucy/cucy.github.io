@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://zhourudong.cn/"/>
-  <updated>2019-11-02T07:17:24.449Z</updated>
+  <updated>2020-08-04T02:30:19.328Z</updated>
   <id>http://zhourudong.cn/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>java一些网站地址收藏</title>
+    <link href="http://zhourudong.cn/2020/08/04/78-java/"/>
+    <id>http://zhourudong.cn/2020/08/04/78-java/</id>
+    <published>2020-08-04T02:28:10.000Z</published>
+    <updated>2020-08-04T02:30:19.328Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="API文档"><a href="#API文档" class="headerlink" title="API文档"></a>API文档</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">https://github.com/APIJSON/APIJSON</span><br><span class="line"></span><br><span class="line">https://cizixs.com/2016/12/12/restful-api-design-guide/</span><br><span class="line"></span><br><span class="line">https://github.com/dakuohao/java-api-doc</span><br><span class="line">https://github.com/dakuohao/api-doc</span><br><span class="line">https://github.com/dakuohao/api-doc-angular</span><br><span class="line"></span><br><span class="line">https://gitee.com/loolly/hutool</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;API文档&quot;&gt;&lt;a href=&quot;#API文档&quot; class=&quot;headerlink&quot; title=&quot;API文档&quot;&gt;&lt;/a&gt;API文档&lt;/h1&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;
+      
+    
+    </summary>
+    
+    
+      <category term="java网站收藏" scheme="http://zhourudong.cn/tags/java%E7%BD%91%E7%AB%99%E6%94%B6%E8%97%8F/"/>
+    
+  </entry>
   
   <entry>
     <title>centos8通用配置</title>
@@ -448,29 +471,6 @@
     
     
       <category term="salt-api" scheme="http://zhourudong.cn/tags/salt-api/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>npm常用命令</title>
-    <link href="http://zhourudong.cn/2018/05/05/58-npm%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
-    <id>http://zhourudong.cn/2018/05/05/58-npm常用命令/</id>
-    <published>2018-05-05T07:55:44.000Z</published>
-    <updated>2019-02-22T05:28:07.841Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="镜像源"><a href="#镜像源" class="headerlink" title="镜像源"></a>镜像源</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">export PHANTOMJS_CDNURL=http://npm.taobao.org/mirrors/phantomjs</span><br><span class="line">export CHROMEDRIVER_CDNURL=http://npm.taobao.org/mirrors/chromedriver</span><br><span class="line">export SELENIUM_CDNURL=http://npm.taobao.org/mirrorss/selenium</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;镜像源&quot;&gt;&lt;a href=&quot;#镜像源&quot; class=&quot;headerlink&quot; title=&quot;镜像源&quot;&gt;&lt;/a&gt;镜像源&lt;/h1&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;spa
-      
-    
-    </summary>
-    
-    
-      <category term="npm" scheme="http://zhourudong.cn/tags/npm/"/>
     
   </entry>
   
