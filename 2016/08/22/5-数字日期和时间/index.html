@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>5.数字日期和时间 | Cucy的博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="python">
+    <meta name="description" content="数字日期和时间标签： python
+
+5.12 基本的日期与时间转换5.12.1 问题">
+<meta property="og:type" content="article">
+<meta property="og:title" content="5.数字日期和时间">
+<meta property="og:url" content="http://zhourudong.cn/2016/08/22/5-数字日期和时间/index.html">
+<meta property="og:site_name" content="Cucy的博客">
+<meta property="og:description" content="数字日期和时间标签： python
+
+5.12 基本的日期与时间转换5.12.1 问题">
+<meta property="og:updated_time" content="2023-12-11T07:18:57.695Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="5.数字日期和时间">
+<meta name="twitter:description" content="数字日期和时间标签： python
+
+5.12 基本的日期与时间转换5.12.1 问题">
+    
+        <link rel="alternate" type="application/atom+xml" title="Cucy的博客" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.6.13">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">cucy</h5>
+          <a href="mailto:292016176@qq.com" title="292016176@qq.com" class="mail">292016176@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/cucy" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">5.数字日期和时间</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">5.数字日期和时间</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2016-08-22T08:15:34.000Z" itemprop="datePublished" class="page-time">
+  2016-08-22
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#数字日期和时间"><span class="post-toc-number">1.</span> <span class="post-toc-text">数字日期和时间</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5-12-基本的日期与时间转换"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">5.12 基本的日期与时间转换</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5-12-1-问题"><span class="post-toc-number">1.1.1.</span> <span class="post-toc-text">5.12.1 问题</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5-12-2-解决方案"><span class="post-toc-number">1.1.2.</span> <span class="post-toc-text">5.12.2 解决方案</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5-12-3-讨论"><span class="post-toc-number">1.1.3.</span> <span class="post-toc-text">5.12.3 讨论</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5-13-计算最后一个周五的日期"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">5.13 计算最后一个周五的日期</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5-13-1-问题"><span class="post-toc-number">1.2.1.</span> <span class="post-toc-text">5.13.1 问题</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5-13-2-解决方案"><span class="post-toc-number">1.2.2.</span> <span class="post-toc-text">5.13.2 解决方案</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5-13-3-讨论"><span class="post-toc-number">1.2.3.</span> <span class="post-toc-text">5.13.3 讨论</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5-14-计算当前月份的日期范围"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">5.14 计算当前月份的日期范围</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5-14-1-问题"><span class="post-toc-number">1.3.1.</span> <span class="post-toc-text">5.14.1 问题</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5-14-2-解决方案"><span class="post-toc-number">1.3.2.</span> <span class="post-toc-text">5.14.2 解决方案</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5-15-字符串转换为日期"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">5.15 字符串转换为日期</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5-15-1-问题"><span class="post-toc-number">1.4.1.</span> <span class="post-toc-text">5.15.1 问题</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5-15-2-解决方案"><span class="post-toc-number">1.4.2.</span> <span class="post-toc-text">5.15.2 解决方案</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#汇总"><span class="post-toc-number">2.</span> <span class="post-toc-text">汇总</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#时间格式-2016-08-9T10-01-54-123Z-20160809100154-123Z"><span class="post-toc-number">2.0.1.</span> <span class="post-toc-text">时间格式 2016-08-9T10:01:54.123Z 20160809100154.123Z</span></a></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-5-数字日期和时间"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">5.数字日期和时间</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2016-08-22 16:15:34" datetime="2016-08-22T08:15:34.000Z"  itemprop="datePublished">2016-08-22</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="数字日期和时间"><a href="#数字日期和时间" class="headerlink" title="数字日期和时间"></a>数字日期和时间</h1><p>标签： python</p>
+<hr>
+<h2 id="5-12-基本的日期与时间转换"><a href="#5-12-基本的日期与时间转换" class="headerlink" title="5.12 基本的日期与时间转换"></a>5.12 基本的日期与时间转换</h2><h3 id="5-12-1-问题"><a href="#5-12-1-问题" class="headerlink" title="5.12.1 问题"></a>5.12.1 问题</h3><a id="more"></a>
+<p>你需要执行简单的时间转换，比如天到秒，小时到分钟等的转换。</p>
+<h3 id="5-12-2-解决方案"><a href="#5-12-2-解决方案" class="headerlink" title="5.12.2 解决方案"></a>5.12.2 解决方案</h3><p>为了执行不同时间单位的转换和计算，请使用 datetime 模块。比如，为了表示一个时间段，可以创建一个 timedelta 实例，就像下面这样：<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">from</span> datetime <span class="keyword">import</span> timedelta</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = timedelta(days=<span class="number">2</span>, hours=<span class="number">6</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>b = timedelta(hours=<span class="number">4.5</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>c = a + b</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>c.days</span><br><span class="line"><span class="number">2</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>c.seconds</span><br><span class="line"><span class="number">37800</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>c.seconds / <span class="number">3600</span></span><br><span class="line"><span class="number">10.5</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>c.total_seconds() / <span class="number">3600</span></span><br><span class="line"><span class="number">58.5</span></span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure></p>
+<p>如果你想表示指定的日期和时间，先创建一个 datetime 实例然后使用标准的数学运算来操作它们。比如：<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">from</span> datetime <span class="keyword">import</span> datetime</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = datetime(<span class="number">2012</span>, <span class="number">9</span>, <span class="number">23</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(a + timedelta(days=<span class="number">10</span>))</span><br><span class="line"><span class="number">2012</span><span class="number">-10</span><span class="number">-03</span> <span class="number">00</span>:<span class="number">00</span>:<span class="number">00</span></span><br><span class="line">&gt;&gt;&gt;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>b = datetime(<span class="number">2012</span>, <span class="number">12</span>, <span class="number">21</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>d = b - a</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>d.days</span><br><span class="line"><span class="number">89</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>now = datetime.today()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(now)</span><br><span class="line"><span class="number">2012</span><span class="number">-12</span><span class="number">-21</span> <span class="number">14</span>:<span class="number">54</span>:<span class="number">43.094063</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(now + timedelta(minutes=<span class="number">10</span>))</span><br><span class="line"><span class="number">2012</span><span class="number">-12</span><span class="number">-21</span> <span class="number">15</span>:<span class="number">04</span>:<span class="number">43.094063</span></span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure></p>
+<p>在计算的时候，需要注意的是 datetime 会自动处理闰年。比如：<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = datetime(<span class="number">2012</span>, <span class="number">3</span>, <span class="number">1</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>b = datetime(<span class="number">2012</span>, <span class="number">2</span>, <span class="number">28</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a - b</span><br><span class="line">datetime.timedelta(<span class="number">2</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>(a - b).days</span><br><span class="line"><span class="number">2</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>c = datetime(<span class="number">2013</span>, <span class="number">3</span>, <span class="number">1</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>d = datetime(<span class="number">2013</span>, <span class="number">2</span>, <span class="number">28</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>(c - d).days</span><br><span class="line"><span class="number">1</span></span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure></p>
+<h3 id="5-12-3-讨论"><a href="#5-12-3-讨论" class="headerlink" title="5.12.3 讨论"></a>5.12.3 讨论</h3><p>对大多数基本的日期和时间处理问题， datetime 模块以及足够了。如果你需要执行更加复杂的日期操作，比如处理时区，模糊时间范围，节假日计算等等，可以考虑使用 <a href="https://pypi.python.org/pypi/python-dateutil" target="_blank" rel="external">dateutil 模块</a><br>许多类似的时间计算可以使用 dateutil.relativedelta() 函数代替。但是，有一点需要注意的就是，它会在处理月份 (还有它们的天数差距) 的时候填充间隙。看例子最清楚<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = datetime(<span class="number">2012</span>, <span class="number">9</span>, <span class="number">23</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a + timedelta(months=<span class="number">1</span>)</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">File <span class="string">"&lt;stdin&gt;"</span>, line <span class="number">1</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">TypeError: <span class="string">'months'</span> <span class="keyword">is</span> an invalid keyword argument <span class="keyword">for</span> this function</span><br><span class="line">&gt;&gt;&gt;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">from</span> dateutil.relativedelta <span class="keyword">import</span> relativedelta</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a + relativedelta(months=+<span class="number">1</span>)</span><br><span class="line">datetime.datetime(<span class="number">2012</span>, <span class="number">10</span>, <span class="number">23</span>, <span class="number">0</span>, <span class="number">0</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a + relativedelta(months=+<span class="number">4</span>)</span><br><span class="line">datetime.datetime(<span class="number">2013</span>, <span class="number">1</span>, <span class="number">23</span>, <span class="number">0</span>, <span class="number">0</span>)</span><br><span class="line">&gt;&gt;&gt;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="comment"># Time between two dates</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>b = datetime(<span class="number">2012</span>, <span class="number">12</span>, <span class="number">21</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>d = b - a</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>d</span><br><span class="line">datetime.timedelta(<span class="number">89</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>d = relativedelta(b, a)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>d</span><br><span class="line">relativedelta(months=+<span class="number">2</span>, days=+<span class="number">28</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>d.months</span><br><span class="line"><span class="number">2</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>d.days</span><br><span class="line"><span class="number">28</span></span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure></p>
+<h2 id="5-13-计算最后一个周五的日期"><a href="#5-13-计算最后一个周五的日期" class="headerlink" title="5.13 计算最后一个周五的日期"></a>5.13 计算最后一个周五的日期</h2><h3 id="5-13-1-问题"><a href="#5-13-1-问题" class="headerlink" title="5.13.1 问题"></a>5.13.1 问题</h3><p>你需要查找星期中某一天最后出现的日期，比如星期五。</p>
+<h3 id="5-13-2-解决方案"><a href="#5-13-2-解决方案" class="headerlink" title="5.13.2 解决方案"></a>5.13.2 解决方案</h3><p>Python 的 datetime 模块中有工具函数和类可以帮助你执行这样的计算。下面是对类似这样的问题的一个通用解决方案：<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python</span></span><br><span class="line"><span class="comment"># -*- encoding: utf-8 -*-</span></span><br><span class="line"><span class="string">"""</span><br><span class="line">Topic: 最后的周五</span><br><span class="line">Desc :</span><br><span class="line">"""</span></span><br><span class="line"><span class="keyword">from</span> datetime <span class="keyword">import</span> datetime, timedelta</span><br><span class="line">weekdays = [<span class="string">'Monday'</span>, <span class="string">'Tuesday'</span>, <span class="string">'Wednesday'</span>, <span class="string">'Thursday'</span>,</span><br><span class="line"><span class="string">'Friday'</span>, <span class="string">'Saturday'</span>, <span class="string">'Sunday'</span>]</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_previous_byday</span><span class="params">(dayname, start_date=None)</span>:</span></span><br><span class="line">	<span class="keyword">if</span> start_date <span class="keyword">is</span> <span class="keyword">None</span>:</span><br><span class="line">		start_date = datetime.today()</span><br><span class="line">	day_num = start_date.weekday()</span><br><span class="line">	day_num_target = weekdays.index(dayname)</span><br><span class="line">	days_ago = (<span class="number">7</span> + day_num - day_num_target) % <span class="number">7</span></span><br><span class="line">	<span class="keyword">if</span> days_ago == <span class="number">0</span>:</span><br><span class="line">		days_ago = <span class="number">7</span></span><br><span class="line">	target_date = start_date - timedelta(days=days_ago)</span><br><span class="line">	<span class="keyword">return</span> target_date</span><br></pre></td></tr></table></figure></p>
+<p>在交互式解释器中使用如下：<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>datetime.today() <span class="comment"># For reference</span></span><br><span class="line">datetime.datetime(<span class="number">2012</span>, <span class="number">8</span>, <span class="number">28</span>, <span class="number">22</span>, <span class="number">4</span>, <span class="number">30</span>, <span class="number">263076</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>get_previous_byday(<span class="string">'Monday'</span>)</span><br><span class="line">datetime.datetime(<span class="number">2012</span>, <span class="number">8</span>, <span class="number">27</span>, <span class="number">22</span>, <span class="number">3</span>, <span class="number">57</span>, <span class="number">29045</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>get_previous_byday(<span class="string">'Tuesday'</span>) <span class="comment"># Previous week, not today</span></span><br><span class="line">datetime.datetime(<span class="number">2012</span>, <span class="number">8</span>, <span class="number">21</span>, <span class="number">22</span>, <span class="number">4</span>, <span class="number">12</span>, <span class="number">629771</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>get_previous_byday(<span class="string">'Friday'</span>)</span><br><span class="line">datetime.datetime(<span class="number">2012</span>, <span class="number">8</span>, <span class="number">24</span>, <span class="number">22</span>, <span class="number">5</span>, <span class="number">9</span>, <span class="number">911393</span>)</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure></p>
+<p>可选的 start date 参数可以由另外一个 datetime 实例来提供。比如：<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>get_previous_byday(<span class="string">'Sunday'</span>, datetime(<span class="number">2012</span>, <span class="number">12</span>, <span class="number">21</span>))</span><br><span class="line">datetime.datetime(<span class="number">2012</span>, <span class="number">12</span>, <span class="number">16</span>, <span class="number">0</span>, <span class="number">0</span>)</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure></p>
+<h3 id="5-13-3-讨论"><a href="#5-13-3-讨论" class="headerlink" title="5.13.3 讨论"></a>5.13.3 讨论</h3><p>上面的算法原理是这样的：先将开始日期和目标日期映射到星期数组的位置上 (星期一索引为 0)，然后通过模运算计算出目标日期要经过多少天才能到达开始日期。然后用开始日期减去那个时间差即得到结果日期。</p>
+<p>如果你要像这样执行大量的日期计算的话，你最好安装第三方包 python-dateutil来代替。比如，下面是是使用 dateutil 模块中的 relativedelta() 函数执行同样的计算：<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">from</span> datetime <span class="keyword">import</span> datetime</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">from</span> dateutil.relativedelta <span class="keyword">import</span> relativedelta</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">from</span> dateutil.rrule <span class="keyword">import</span> *</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>d = datetime.now()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(d)</span><br><span class="line"><span class="number">2012</span><span class="number">-12</span><span class="number">-23</span> <span class="number">16</span>:<span class="number">31</span>:<span class="number">52.718111</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="comment"># Next Friday</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(d + relativedelta(weekday=FR))</span><br><span class="line"><span class="number">2012</span><span class="number">-12</span><span class="number">-28</span> <span class="number">16</span>:<span class="number">31</span>:<span class="number">52.718111</span></span><br><span class="line">&gt;&gt;&gt;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="comment"># Last Friday</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(d + relativedelta(weekday=FR(<span class="number">-1</span>)))</span><br><span class="line"><span class="number">2012</span><span class="number">-12</span><span class="number">-21</span> <span class="number">16</span>:<span class="number">31</span>:<span class="number">52.718111</span></span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure></p>
+<h2 id="5-14-计算当前月份的日期范围"><a href="#5-14-计算当前月份的日期范围" class="headerlink" title="5.14 计算当前月份的日期范围"></a>5.14 计算当前月份的日期范围</h2><h3 id="5-14-1-问题"><a href="#5-14-1-问题" class="headerlink" title="5.14.1 问题"></a>5.14.1 问题</h3><p>你的代码需要在当前月份中循环每一天，想找到一个计算这个日期范围的高效方法。</p>
+<h3 id="5-14-2-解决方案"><a href="#5-14-2-解决方案" class="headerlink" title="5.14.2 解决方案"></a>5.14.2 解决方案</h3><p>在这样的日期上循环并需要事先构造一个包含所有日期的列表。你可以先计算出开始日期和结束日期，然后在你步进的时候使用 datetime.timedelta 对象递增这个日期变量即可。</p>
+<p>下面是一个接受任意 datetime对象并返回一个由当前月份开始日和下个月开始日组成的元组对象。<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> datetime <span class="keyword">import</span> datetime, date, timedelta</span><br><span class="line"><span class="keyword">import</span> calendar</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_month_range</span><span class="params">(start_date=None)</span>:</span></span><br><span class="line">	<span class="keyword">if</span> start_date <span class="keyword">is</span> <span class="keyword">None</span>:</span><br><span class="line">		start_date = date.today().replace(day=<span class="number">1</span>)</span><br><span class="line">	_, days_in_month = calendar.monthrange(start_date.year, start_date.month)</span><br><span class="line">	end_date = start_date + timedelta(days=days_in_month)</span><br><span class="line">	<span class="keyword">return</span> (start_date, end_date)</span><br></pre></td></tr></table></figure></p>
+<p>有了这个就可以很容易的在返回的日期范围上面做循环操作了<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a_day = timedelta(days=<span class="number">1</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>first_day, last_day = get_month_range()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">while</span> first_day &lt; last_day:</span><br><span class="line"><span class="meta">... </span>	print(first_day)</span><br><span class="line"><span class="meta">... </span>	first_day += a_day</span><br><span class="line">...</span><br><span class="line"><span class="number">2012</span><span class="number">-08</span><span class="number">-01</span></span><br><span class="line"><span class="number">2012</span><span class="number">-08</span><span class="number">-02</span></span><br><span class="line"><span class="number">2012</span><span class="number">-08</span><span class="number">-03</span></span><br><span class="line"><span class="number">2012</span><span class="number">-08</span><span class="number">-04</span></span><br><span class="line"><span class="number">2012</span><span class="number">-08</span><span class="number">-05</span></span><br><span class="line"><span class="number">2012</span><span class="number">-08</span><span class="number">-06</span></span><br><span class="line"><span class="number">2012</span><span class="number">-08</span><span class="number">-07</span></span><br><span class="line"><span class="number">2012</span><span class="number">-08</span><span class="number">-08</span></span><br><span class="line"><span class="number">2012</span><span class="number">-08</span><span class="number">-09</span></span><br><span class="line"><span class="comment">#... and so on...</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="5-15-字符串转换为日期"><a href="#5-15-字符串转换为日期" class="headerlink" title="5.15 字符串转换为日期"></a>5.15 字符串转换为日期</h2><h3 id="5-15-1-问题"><a href="#5-15-1-问题" class="headerlink" title="5.15.1 问题"></a>5.15.1 问题</h3><p>你的应用程序接受字符串格式的输入，但是你想将它们转换为 datetime 对象以便在上面执行非字符串操作。</p>
+<h3 id="5-15-2-解决方案"><a href="#5-15-2-解决方案" class="headerlink" title="5.15.2 解决方案"></a>5.15.2 解决方案</h3><p>使用 Python 的标准模块 datetime 可以很容易的解决这个问题。比如：<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">from</span> datetime <span class="keyword">import</span> datetime</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>text = <span class="string">'2012-09-20'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>y = datetime.strptime(text, <span class="string">'%Y-%m-%d'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>z = datetime.now()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>diff = z - y</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>diff</span><br><span class="line">datetime.timedelta(<span class="number">3</span>, <span class="number">77824</span>, <span class="number">177393</span>)</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure></p>
+<h1 id="汇总"><a href="#汇总" class="headerlink" title="汇总"></a>汇总</h1><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>t1=[<span class="number">2010</span>,<span class="number">11</span>,<span class="number">9</span>,<span class="number">19</span>,<span class="number">20</span>,<span class="number">30</span>] <span class="comment">#2010年11月9日 19:30:30</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>last_time=datetime.datetime(t1[<span class="number">0</span>],t1[<span class="number">1</span>],t1[<span class="number">2</span>].t1[<span class="number">3</span>],t1[<span class="number">4</span>],t1[<span class="number">5</span>]) <span class="comment">#上次更新时间</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>now_time = datetime.datetime.now() <span class="comment">#当前时间</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="comment">#以下是亮点</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>mkt_last = time.mktime(last_time.timetuple()) </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>mkt_now = time.mktime(now_time.timetuple())</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>delt_time = (mkt_now-mkt_last)/<span class="number">60</span>   <span class="comment">#转成分钟</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">if</span> (delt_time <span class="number">-30</span>) &gt; <span class="number">0</span> :</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>    <span class="keyword">print</span> <span class="string">"超过30分钟没有更新啦!"</span></span><br><span class="line">这是我在解决问题时,发现的其他一些有用的函数</span><br></pre></td></tr></table></figure>
+<p>计算两个时间的差，如两个时间相差几天，几小时等</p>
+<ul>
+<li><p>1.计算两个日期相差天数的计算 </p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> datetime</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>d1 = datetime.datetime(<span class="number">2005</span>, <span class="number">2</span>, <span class="number">16</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>d2 = datetime.datetime(<span class="number">2004</span>, <span class="number">12</span>, <span class="number">31</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>(d1 - d2).days</span><br><span class="line">输出结果:<span class="number">47</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>2.计算两个时间相差的秒数</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> datetime</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>starttime = datetime.datetime.now()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="comment">#long running</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>endtime = datetime.datetime.now()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">print</span> (endtime - starttime).seconds</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>3.计算当前时间向后10小时的时间</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>d1 = datetime.datetime.now()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>d3 = d1 + datetime.timedelta(hours=<span class="number">10</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>d3.ctime()</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>对时间的操作,其本上常用的类有：datetime和timedelta两个。它们之间可以相互加减。每个类都有一些方法和属性可以查看具体的值，如datetime可以查看：天数(day)，小时数(hour)，星期几(weekday())等;timedelta可以查看：天数(days)，秒数(seconds)等。</p>
+<ul>
+<li><p>4.日期的操作必须使用time或datetime库</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">import time </span><br><span class="line">&gt;&gt;&gt; s="2006-1-2" </span><br><span class="line">&gt;&gt;&gt; time.strptime(s,"%Y-%m-%d) </span><br><span class="line">这是将字符串格式的日期及时间转成日期对象 </span><br><span class="line">转义符对应意义如下 </span><br><span class="line">%a 本地简化星期名称 </span><br><span class="line">%A 本地完整星期名称 </span><br><span class="line">%b 本地简化的月份名称 </span><br><span class="line">%B 本地完整的月份名称 </span><br><span class="line">%c 本地相应的日期表示和时间表示 </span><br><span class="line">%d 月内中的一天（0-31） </span><br><span class="line">%H 24小时制小时数（0-23） </span><br><span class="line">%I 12小时制小时数（01-12） </span><br><span class="line">%j 年内的一天（001-366） </span><br><span class="line">%m 月份（01-12） </span><br><span class="line">%M 分钟数（00=59） </span><br><span class="line">%p 本地A.M.或P.M.的等价符 </span><br><span class="line">%S 秒（00-59） </span><br><span class="line">%U 一年中的星期数（00-53）星期天为星期的开始 </span><br><span class="line">%w 星期（0-6），星期天为星期的开始 </span><br><span class="line">%W 一年中的星期数（00-53）星期一为星期的开始 </span><br><span class="line">%x 本地相应的日期表示 </span><br><span class="line">%X 本地相应的时间表示 </span><br><span class="line">%y 两位数的年份表示（00-99） </span><br><span class="line">%Y 四位数的年份表示（000-9999） </span><br><span class="line">%Z 当前时区的名称 </span><br><span class="line">%% %号本身</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>5</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 当前时间 加一天后</span></span><br><span class="line">a = datetime.datetime.now() + datetime.timedelta(days=<span class="number">1</span>)</span><br><span class="line"><span class="comment"># 将一天后的时间跳到某个时间点</span></span><br><span class="line">a.replace(hour=<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="时间格式-2016-08-9T10-01-54-123Z-20160809100154-123Z"><a href="#时间格式-2016-08-9T10-01-54-123Z-20160809100154-123Z" class="headerlink" title="时间格式 2016-08-9T10:01:54.123Z 20160809100154.123Z"></a>时间格式 <code>2016-08-9T10:01:54.123Z 20160809100154.123Z</code></h3><p>关于时间格式 2016-08-9T10:01:54.123Z   20160809100154.123Z  处理方法</p>
+<p>今天遇到了一个奇怪的时间格式</p>
+<p>如以下格式，下面两种时间格式所表示的时间是同一个时间，这个不难理解</p>
+<p>2016-08-9T10:01:54.123Z </p>
+<p>20160809100154.123Z</p>
+<p>如图所示，这是一张由网友提供的图片，里面显示的是时间</p>
+<p>然后无论如何，这个奇怪的时间我们可能看不懂，但是我们最终要显示的时间是北京时间（如果你是其他国家的人就另当别论了哦）</p>
+<p>那么下面我们就来简单介绍一下关于时间的一些基本知识：</p>
+<p>首先是UTC：时间标准时间</p>
+<p>协调世界时（英：Coordinated Universal Time ，法：Temps Universel Coordonné），又称世界统一时间，世界标准时间，国际协调时间。英文（CUT）和法文（TUC）的缩写不同，作为妥协，简称UTC。</p>
+<p>然后是GMT：格林尼治时间</p>
+<p>世界时UT  即格林尼治时间，格林尼治所在地的标准时间。以地球自转为基础的时间计量系统。地球自转的角度可用地方子午线相对于地球上的基本参考点的运动来度量。为了测量地球自转，人们在地球上选取了两个基本参考点：春分点（见分至点）和平太阳，由此确定的时间分别称为恒星时和平太阳时。</p>
+<p>然后下面是GST时间：也就是北京时间</p>
+<p>通常我们在数据库中存放，或者给用户看的时间都是GST时间</p>
+<p>现在我们说说上面的时间</p>
+<p>2016-08-9T10:01:54.123Z </p>
+<p>20160809100154.123Z</p>
+<p>首先字母T：他表示后面跟的时间</p>
+<p>而最末尾的Z表示UTC统一时间</p>
+<p>而123表示的毫秒，大家可以测试将123改为1230，最后得到的时间，秒会增加1秒</p>
+<p>网上很多人在搜索000Z是什么意思，其实他的意思就是 0毫秒  utc统一时间</p>
+<p>既然我们知道了Z表示UTC统一时间，那么接下来就好办了</p>
+<p>如上面第一个 表达式 2016-08-9T10:01:54.123Z </p>
+<p>我们可以这样来获得一个GST（北京时间）时间，看如下代码：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">String str =&quot;2016-08-9T10:01:54.123Z&quot;;</span><br><span class="line">SimpleDateFormat format = new SimpleDateFormat(&quot;yyyy-MM-dd&apos;T&apos;HH:mm:ss.SSS Z&quot;);</span><br><span class="line">Date d = format.parse(str.replace(&quot;Z&quot;, &quot; UTC&quot;));//注意是空格+UTC</span><br><span class="line">System.out.println(d);</span><br></pre></td></tr></table></figure></p>
+<p>这样我们就获得了一个本地的时间</p>
+<p>最后我们得到的时间是：Tue Aug 09 18:01:54 CST 2016</p>
+<p>而表达式 20160809100154.123Z</p>
+<p>他的转换方式也是一样的，知识格式化时，将格式化字符串修改以下即可：yyyyMMddHHmmss.SSS Z</p>
+<p>之前我也遇到过一个类似的问题，大家也可以参考下</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2023-12-11T07:18:57.695Z" itemprop="dateUpdated">2023-12-11 15:18:57</time>
+</span><br>
+
+
+        
+        <a href="/2016/08/22/5-数字日期和时间/" target="_blank" rel="external">http://zhourudong.cn/2016/08/22/5-数字日期和时间/</a>
+        
+    </div>
+    <footer>
+        <a href="http://zhourudong.cn">
+            <img src="/img/avatar.png" alt="cucy">
+            cucy
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://zhourudong.cn/2016/08/22/5-数字日期和时间/&title=《5.数字日期和时间》 — Cucy的博客&pic=http://zhourudong.cn/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://zhourudong.cn/2016/08/22/5-数字日期和时间/&title=《5.数字日期和时间》 — Cucy的博客&source=数字日期和时间标签： python
+
+5.12 基本的日期与时间转换5.12.1 问题" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://zhourudong.cn/2016/08/22/5-数字日期和时间/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《5.数字日期和时间》 — Cucy的博客&url=http://zhourudong.cn/2016/08/22/5-数字日期和时间/&via=http://zhourudong.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://zhourudong.cn/2016/08/22/5-数字日期和时间/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2016/08/22/6-迭代器与生成器/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">6.迭代器与生成器</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2016/08/22/4-字符串和文本/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">4.字符串和文本</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>cucy &copy; 2016 - 2023</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://zhourudong.cn/2016/08/22/5-数字日期和时间/&title=《5.数字日期和时间》 — Cucy的博客&pic=http://zhourudong.cn/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://zhourudong.cn/2016/08/22/5-数字日期和时间/&title=《5.数字日期和时间》 — Cucy的博客&source=数字日期和时间标签： python
+
+5.12 基本的日期与时间转换5.12.1 问题" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://zhourudong.cn/2016/08/22/5-数字日期和时间/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《5.数字日期和时间》 — Cucy的博客&url=http://zhourudong.cn/2016/08/22/5-数字日期和时间/&via=http://zhourudong.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://zhourudong.cn/2016/08/22/5-数字日期和时间/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://zhourudong.cn/2016/08/22/5-数字日期和时间/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.6.13"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.6.13" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>mysql之安装升级篇 | Cucy的博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="mysql">
+    <meta name="description" content="[TOC]
+mysql 国内镜像http://mirrors.ustc.edu.cn/mysql-ftp/Downloads/https://dev.mysql.com/downloads/mysql/5.6.html#downloads# 下载完成后进行MD5校验和mysql官网进行对比,检查软件包是否被修改$ md5sum mysql-5.6.37-linux-glibc2.12-x86_64">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mysql之安装升级篇">
+<meta property="og:url" content="http://zhourudong.cn/2017/09/16/49-mysql之安装升级篇/index.html">
+<meta property="og:site_name" content="Cucy的博客">
+<meta property="og:description" content="[TOC]
+mysql 国内镜像http://mirrors.ustc.edu.cn/mysql-ftp/Downloads/https://dev.mysql.com/downloads/mysql/5.6.html#downloads# 下载完成后进行MD5校验和mysql官网进行对比,检查软件包是否被修改$ md5sum mysql-5.6.37-linux-glibc2.12-x86_64">
+<meta property="og:updated_time" content="2023-12-11T07:18:57.695Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="mysql之安装升级篇">
+<meta name="twitter:description" content="[TOC]
+mysql 国内镜像http://mirrors.ustc.edu.cn/mysql-ftp/Downloads/https://dev.mysql.com/downloads/mysql/5.6.html#downloads# 下载完成后进行MD5校验和mysql官网进行对比,检查软件包是否被修改$ md5sum mysql-5.6.37-linux-glibc2.12-x86_64">
+    
+        <link rel="alternate" type="application/atom+xml" title="Cucy的博客" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.6.13">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">cucy</h5>
+          <a href="mailto:292016176@qq.com" title="292016176@qq.com" class="mail">292016176@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/cucy" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">mysql之安装升级篇</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">mysql之安装升级篇</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-09-16T06:59:21.000Z" itemprop="datePublished" class="page-time">
+  2017-09-16
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#mysql-国内镜像"><span class="post-toc-number">1.</span> <span class="post-toc-text">mysql 国内镜像</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#版本选择"><span class="post-toc-number">2.</span> <span class="post-toc-text">版本选择</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#MySQL官方页面"><span class="post-toc-number">3.</span> <span class="post-toc-text">MySQL官方页面</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#安装"><span class="post-toc-number">4.</span> <span class="post-toc-text">安装</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#安装前"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">安装前</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5-6-x安装"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">5.6.x安装</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5-7-x安装"><span class="post-toc-number">4.3.</span> <span class="post-toc-text">5.7.x安装</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#验证是否安装成功"><span class="post-toc-number">4.4.</span> <span class="post-toc-text">验证是否安装成功</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#启动"><span class="post-toc-number">4.5.</span> <span class="post-toc-text">启动</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#配置文件"><span class="post-toc-number">4.6.</span> <span class="post-toc-text">配置文件</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#升级"><span class="post-toc-number">5.</span> <span class="post-toc-text">升级</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-49-mysql之安装升级篇"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">mysql之安装升级篇</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-09-16 14:59:21" datetime="2017-09-16T06:59:21.000Z"  itemprop="datePublished">2017-09-16</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>[TOC]</p>
+<h1 id="mysql-国内镜像"><a href="#mysql-国内镜像" class="headerlink" title="mysql 国内镜像"></a>mysql 国内镜像</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">http://mirrors.ustc.edu.cn/mysql-ftp/Downloads/</span><br><span class="line">https://dev.mysql.com/downloads/mysql/5.6.html#downloads</span><br><span class="line"></span><br><span class="line"># 下载完成后进行MD5校验和mysql官网进行对比,检查软件包是否被修改</span><br><span class="line"></span><br><span class="line">$ md5sum mysql-5.6.37-linux-glibc2.12-x86_64.tar.gz </span><br><span class="line">16be12598f7e4dcedb91b79b133fdbfc  mysql-5.6.37-linux-glibc2.12-x86_64.tar.gz</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">http://mirrors.ustc.edu.cn/mysql-ftp/Downloads/MySQL-5.7/mysql-5.7.19-linux-glibc2.12-x86_64.tar.gz</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">$md5sum mysql-5.7.19-linux-glibc2.12-x86_64.tar.gz</span><br><span class="line">dbe7e5e820377c29d8681005065e5728  mysql-5.7.19-linux-glibc2.12-x86_64.tar.gz</span><br></pre></td></tr></table></figure>
+<h1 id="版本选择"><a href="#版本选择" class="headerlink" title="版本选择"></a>版本选择</h1><ul>
+<li>略</li>
+</ul>
+<h1 id="MySQL官方页面"><a href="#MySQL官方页面" class="headerlink" title="MySQL官方页面"></a>MySQL官方页面</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">https://dev.mysql.com</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p><a href="https://dev.mysql.com/" target="_blank" rel="external">DEVELOPER ZONE</a>: 开发者模块</p>
+<ul>
+<li><a href="https://forums.mysql.com/" target="_blank" rel="external">Forums</a></li>
+<li><a href="https://bugs.mysql.com/" target="_blank" rel="external">Bugs</a></li>
+<li><a href="https://dev.mysql.com/worklog/" target="_blank" rel="external">Worklog</a>:开发记录</li>
+<li><a href="https://labs.mysql.com/" target="_blank" rel="external">Labs</a>：实验性项目</li>
+<li><a href="https://planet.mysql.com/" target="_blank" rel="external">Planet MySQL</a></li>
+<li><a href="https://www.mysql.com/news-and-events/web-seminars/" target="_blank" rel="external">News and Events</a></li>
+<li><a href="https://dev.mysql.com/community/" target="_blank" rel="external">Community</a></li>
+</ul>
+</li>
+<li><p><a href="https://www.mysql.com/downloads/" target="_blank" rel="external">DOWNLOADS</a>:下载</p>
+<ul>
+<li><p><a href="https://dev.mysql.com/downloads/mysql/" target="_blank" rel="external">MySQL Community Server</a> (GPL): MySQL server 下载</p>
+</li>
+<li><p><a href="https://dev.mysql.com/downloads/cluster/" target="_blank" rel="external">MySQL Cluster</a> (GPL)</p>
+</li>
+<li><p><a href="https://dev.mysql.com/downloads/utilities/" target="_blank" rel="external">MySQL Utilities</a> (GPL)：有用的工具包集合</p>
+</li>
+<li><p><a href="https://dev.mysql.com/downloads/workbench/" target="_blank" rel="external">MySQL Workbench</a> (GPL)：图形管理界面</p>
+</li>
+</ul>
+</li>
+<li><a href="https://dev.mysql.com/doc/" target="_blank" rel="external">DOCUMENTATION</a>：官方文档<ul>
+<li><a href="https://downloads.mysql.com/docs/refman-5.7-en.pdf" target="_blank" rel="external">PDF (US Ltr)</a> - 38.0Mb</li>
+<li><a href="https://downloads.mysql.com/docs/refman-5.7-en.a4.pdf" target="_blank" rel="external">PDF (A4)</a> - 38.0Mb</li>
+<li><a href="https://downloads.mysql.com/docs/mysql-ref-manual-5.7-en-pdf-1-20170916.noarch.rpm" target="_blank" rel="external">PDF (RPM)</a> - 37.3Mb</li>
+<li><a href="https://downloads.mysql.com/docs/refman-5.7-en.html-chapter.tar.gz" target="_blank" rel="external">HTML Download (TGZ)</a> - 10.3Mb</li>
+<li><a href="https://downloads.mysql.com/docs/refman-5.7-en.html-chapter.zip" target="_blank" rel="external">HTML Download (Zip)</a> - 10.3Mb</li>
+<li><a href="https://downloads.mysql.com/docs/refman-5.7-en.man-gpl.tar.gz" target="_blank" rel="external">Man Pages (TGZ)</a> - 216.7Kb</li>
+<li><a href="https://downloads.mysql.com/docs/refman-5.7-en.man-gpl.zip" target="_blank" rel="external">Man Pages (Zip)</a> - 329.5Kb</li>
+<li><a href="https://downloads.mysql.com/docs/mysql-5.7.info.gz" target="_blank" rel="external">Info (Gzip)</a> - 3.4Mb</li>
+<li><a href="https://downloads.mysql.com/docs/mysql-5.7.info.zip" target="_blank" rel="external">Info (Zip)</a> - 3.4Mb</li>
+</ul>
+</li>
+</ul>
+<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><h2 id="安装前"><a href="#安装前" class="headerlink" title="安装前"></a>安装前</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">CentOs 删除默认安装的mariadbcentos7</span><br><span class="line"><span class="meta">$</span><span class="bash"> rpm -qa | grep mariadb</span></span><br><span class="line">mariadb-libs-5.5.52-1.el7.x86_64</span><br><span class="line"><span class="meta">$</span><span class="bash"> sudo yum  remove mariadb-libs</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 安装依赖软件</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> yum install libaio perl autoconf</span></span><br></pre></td></tr></table></figure>
+<h2 id="5-6-x安装"><a href="#5-6-x安装" class="headerlink" title="5.6.x安装"></a>5.6.x安装</h2><p><code>https://dev.mysql.com/doc/refman/5.6/en/binary-installation.html</code><br><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@mysqlenv_test ~]# mv mysql-5.6.37-linux-glibc2.12-x86_64.tar.gz /usr/local/</span><br><span class="line"><span class="meta">shell&gt;</span><span class="bash"> groupadd mysql</span></span><br><span class="line"><span class="meta">shell&gt;</span><span class="bash"> useradd -r -g mysql -s /bin/<span class="literal">false</span> mysql</span></span><br><span class="line"><span class="meta">shell&gt;</span><span class="bash"> <span class="built_in">cd</span> /usr/<span class="built_in">local</span></span></span><br><span class="line"><span class="meta">shell&gt;</span><span class="bash"> tar zxvf /path/to/mysql-VERSION-OS.tar.gz</span></span><br><span class="line"><span class="meta">shell&gt;</span><span class="bash"> ln -s full-path-to-mysql-VERSION-OS mysql</span></span><br><span class="line"><span class="meta">shell&gt;</span><span class="bash"> <span class="built_in">cd</span> mysql</span></span><br><span class="line"><span class="meta">shell&gt;</span><span class="bash"> chown -R mysql .</span></span><br><span class="line"><span class="meta">shell&gt;</span><span class="bash"> chgrp -R mysql .</span></span><br><span class="line"><span class="meta">shell&gt;</span><span class="bash"> scripts/mysql_install_db --user=mysql</span></span><br><span class="line"><span class="meta">shell&gt;</span><span class="bash"> chown -R root .</span></span><br><span class="line"><span class="meta">shell&gt;</span><span class="bash"> chown -R mysql data</span></span><br><span class="line"><span class="meta">shell&gt;</span><span class="bash"> bin/mysqld_safe --user=mysql &amp;</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Next <span class="built_in">command</span> is optional</span></span><br><span class="line"><span class="meta">shell&gt;</span><span class="bash"> cp support-files/mysql.server /etc/init.d/mysql.server</span></span><br><span class="line"><span class="meta">shell&gt;</span><span class="bash"> <span class="built_in">echo</span> <span class="string">'export PATH=/usr/local/mysql/bin:$PATH'</span> &gt; /etc/profile.d/mysql.sh   &amp;&amp; cat /etc/profile.d/mysql.sh</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="5-7-x安装"><a href="#5-7-x安装" class="headerlink" title="5.7.x安装"></a>5.7.x安装</h2><p>官方安装文档<br><code>https://dev.mysql.com/doc/refman/5.7/en/binary-installation.html</code><br><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@mysqlenv_test ~]# mv mysql-5.7.19-linux-glibc2.12-x86_64.tar.gz /usr/local/</span><br><span class="line"><span class="meta">shell&gt;</span><span class="bash"> groupadd mysql</span></span><br><span class="line"><span class="meta">shell&gt;</span><span class="bash"> useradd -r -g mysql -s /bin/<span class="literal">false</span> mysql</span></span><br><span class="line"><span class="meta">shell&gt;</span><span class="bash"> <span class="built_in">cd</span> /usr/<span class="built_in">local</span></span></span><br><span class="line"><span class="meta">shell&gt;</span><span class="bash"> tar zxvf /path/to/mysql-VERSION-OS.tar.gz</span></span><br><span class="line"><span class="meta">shell&gt;</span><span class="bash"> ln -s full-path-to-mysql-VERSION-OS mysql</span></span><br><span class="line"><span class="meta">shell&gt;</span><span class="bash"> <span class="built_in">cd</span> mysql</span></span><br><span class="line"><span class="meta">shell&gt;</span><span class="bash"> mkdir mysql-files</span></span><br><span class="line"><span class="meta">shell&gt;</span><span class="bash"> chmod 750 mysql-files</span></span><br><span class="line"><span class="meta">shell&gt;</span><span class="bash"> chown -R mysql .</span></span><br><span class="line"><span class="meta">shell&gt;</span><span class="bash"> chgrp -R mysql .</span></span><br><span class="line"><span class="meta">shell&gt;</span><span class="bash"> bin/mysql_install_db --user=mysql    <span class="comment"># MySQL 5.7.5</span></span></span><br><span class="line"><span class="meta">shell&gt;</span><span class="bash"> bin/mysqld --initialize --user=mysql <span class="comment"># MySQL 5.7.6 and up</span></span></span><br><span class="line"><span class="meta">shell&gt;</span><span class="bash"> bin/mysql_ssl_rsa_setup              <span class="comment"># MySQL 5.7.6 and up</span></span></span><br><span class="line"><span class="meta">shell&gt;</span><span class="bash"> chown -R root .</span></span><br><span class="line"><span class="meta">shell&gt;</span><span class="bash"> chown -R mysql data mysql-files</span></span><br><span class="line"><span class="meta">shell&gt;</span><span class="bash"> bin/mysqld_safe --user=mysql &amp;</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Next <span class="built_in">command</span> is optional</span></span><br><span class="line"><span class="meta">shell&gt;</span><span class="bash"> cp support-files/mysql.server /etc/init.d/mysql.server </span></span><br><span class="line"><span class="meta">shell&gt;</span><span class="bash"> <span class="built_in">echo</span> <span class="string">'export PATH=/usr/local/mysql/bin:$PATH'</span> &gt; /etc/profile.d/mysql.sh   &amp;&amp; cat /etc/profile.d/mysql.sh</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="验证是否安装成功"><a href="#验证是否安装成功" class="headerlink" title="验证是否安装成功"></a>验证是否安装成功</h2><ul>
+<li>指定的datadir是否为空</li>
+<li>查看datadir中的$HOSTNAME.err内容，</li>
+<li>5.7会生成临时的密码到error日志中，登录MySQL后及时修改密码<code>set password = (&quot;new_password&quot;);</code></li>
+</ul>
+<h2 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h2><ul>
+<li><code>bin/mysqld_safe --user=mysql</code>直接启动， <code>mysqld_safe</code>守护进程防止<code>mysqld</code>意外停止，当<code>mysqld</code>意外停止时<code>mysqld_safe</code>会重启<code>mysqld</code>进程</li>
+<li>使用<code>/etc/init.d/mysql.server start</code>进行启动（注意脚本的名字）</li>
+</ul>
+<h2 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># cat /etc/my.cnf </span></span><br><span class="line">[client]</span><br><span class="line"></span><br><span class="line">[mysqld]</span><br><span class="line"></span><br><span class="line"><span class="comment">########basic settings########</span></span><br><span class="line"></span><br><span class="line">server-id = 1 </span><br><span class="line">port = 3306</span><br><span class="line">user = mysql</span><br><span class="line"><span class="comment"># bind_address = 127.0.0.1   #根据实际情况修改</span></span><br><span class="line"><span class="comment"># autocommit = 0   #5.6.X安装时，需要注释掉，安装完成后再打开</span></span><br><span class="line">character_set_server=utf8 <span class="comment"># 或者 utf8mb4</span></span><br><span class="line"><span class="comment"># skip_name_resolve = 1</span></span><br><span class="line">max_connections = 800</span><br><span class="line">max_connect_errors = 1000</span><br><span class="line">datadir = /data/mysql_data      <span class="comment">#根据实际情况修改,建议和程序分离存放</span></span><br><span class="line">transaction_isolation = READ-COMMITTED</span><br><span class="line">explicit_defaults_for_timestamp = 1</span><br><span class="line">join_buffer_size = 134217728</span><br><span class="line">tmp_table_size = 67108864</span><br><span class="line">tmpdir = /tmp</span><br><span class="line">max_allowed_packet = 16777216</span><br><span class="line">sql_mode = <span class="string">"STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION,NO_ZERO_DATE,NO_ZERO_IN_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER"</span></span><br><span class="line">interactive_timeout = 1800</span><br><span class="line">wait_timeout = 1800</span><br><span class="line">read_buffer_size = 16777216</span><br><span class="line">read_rnd_buffer_size = 33554432</span><br><span class="line">sort_buffer_size = 33554432</span><br><span class="line"></span><br><span class="line"><span class="comment">########log settings########</span></span><br><span class="line"></span><br><span class="line">log_error = error.log</span><br><span class="line">slow_query_log = 1</span><br><span class="line">slow_query_log_file = slow.log</span><br><span class="line">log_queries_not_using_indexes = 1</span><br><span class="line">log_slow_admin_statements = 1</span><br><span class="line">log_slow_slave_statements = 1</span><br><span class="line">log_throttle_queries_not_using_indexes = 10</span><br><span class="line">expire_logs_days = 90</span><br><span class="line">long_query_time = 2</span><br><span class="line">min_examined_row_limit = 100</span><br><span class="line"></span><br><span class="line"><span class="comment">########replication settings########</span></span><br><span class="line"></span><br><span class="line">master_info_repository = TABLE</span><br><span class="line">relay_log_info_repository = TABLE</span><br><span class="line">log_bin = bin.log</span><br><span class="line">sync_binlog = 1</span><br><span class="line">gtid_mode = on</span><br><span class="line">enforce_gtid_consistency = 1</span><br><span class="line">log_slave_updates</span><br><span class="line">binlog_format = row </span><br><span class="line">relay_log = relay.log</span><br><span class="line">relay_log_recovery = 1</span><br><span class="line">binlog_gtid_simple_recovery = 1</span><br><span class="line">slave_skip_errors = ddl_exist_errors</span><br><span class="line"></span><br><span class="line"><span class="comment">########innodb settings########</span></span><br><span class="line"></span><br><span class="line">innodb_page_size = 8192</span><br><span class="line">innodb_buffer_pool_size = 1G    <span class="comment">#根据实际情况修改</span></span><br><span class="line">innodb_buffer_pool_instances = 8</span><br><span class="line">innodb_buffer_pool_load_at_startup = 1</span><br><span class="line">innodb_buffer_pool_dump_at_shutdown = 1</span><br><span class="line">innodb_lru_scan_depth = 2000</span><br><span class="line">innodb_lock_wait_timeout = 5</span><br><span class="line">innodb_io_capacity = 4000</span><br><span class="line">innodb_io_capacity_max = 8000</span><br><span class="line">innodb_flush_method = O_DIRECT</span><br><span class="line">innodb_file_format = Barracuda</span><br><span class="line">innodb_file_format_max = Barracuda</span><br><span class="line">innodb_log_group_home_dir = /redolog/  <span class="comment">#根据实际情况修改</span></span><br><span class="line">innodb_undo_directory = /undolog/      <span class="comment">#根据实际情况修改</span></span><br><span class="line">innodb_undo_logs = 128</span><br><span class="line">innodb_undo_tablespaces = 3</span><br><span class="line">innodb_flush_neighbors = 1</span><br><span class="line">innodb_log_file_size = 1G               <span class="comment">#根据实际情况修改</span></span><br><span class="line">innodb_log_buffer_size = 16777216</span><br><span class="line">innodb_purge_threads = 4                <span class="comment">#根据实际情况修改</span></span><br><span class="line">innodb_large_prefix = 1</span><br><span class="line">innodb_thread_concurrency = 64</span><br><span class="line">innodb_print_all_deadlocks = 1</span><br><span class="line">innodb_strict_mode = 1</span><br><span class="line">innodb_sort_buffer_size = 67108864 </span><br><span class="line"></span><br><span class="line"><span class="comment">########semi sync replication settings########</span></span><br><span class="line"></span><br><span class="line">plugin_dir=/usr/<span class="built_in">local</span>/mysql/lib/plugin      <span class="comment">#根据实际情况修改</span></span><br><span class="line">plugin_load = <span class="string">"rpl_semi_sync_master=semisync_master.so;rpl_semi_sync_slave=semisync_slave.so"</span></span><br><span class="line">loose_rpl_semi_sync_master_enabled = 1</span><br><span class="line">loose_rpl_semi_sync_slave_enabled = 1</span><br><span class="line">loose_rpl_semi_sync_master_timeout = 5000</span><br><span class="line"></span><br><span class="line">[mysqld-5.7]</span><br><span class="line">innodb_buffer_pool_dump_pct = 40</span><br><span class="line">innodb_page_cleaners = 4</span><br><span class="line">innodb_undo_log_truncate = 1</span><br><span class="line">innodb_max_undo_log_size = 2G</span><br><span class="line">innodb_purge_rseg_truncate_frequency = 128</span><br><span class="line">binlog_gtid_simple_recovery=1</span><br><span class="line">log_timestamps=system</span><br><span class="line">transaction_write_set_extraction=MURMUR32</span><br><span class="line">show_compatibility_56=on</span><br></pre></td></tr></table></figure>
+<ul>
+<li>关注重要的参数<ul>
+<li><code>innodb_log_file_size = 2G</code> 生产环境按实际情况修改</li>
+<li><code>innodb_undo_logs = 128</code> 和 <code>innodb_undo_tablespaces = 3</code> 安装之前先确定好，安装后不好修改</li>
+<li><code>[mysqld]</code>，<code>[mysqld-5.7]</code>:<code>[mysqld]</code>配置在所有MySQL版本全部生效，<code>[mysqld-5.7]</code>只在MySQL5.7.X版本下才生效</li>
+<li><code>autocommit</code>,这个参数在5.5.X以后才有，安装<code>5.6.X</code>前先把该参数注释掉，等安装完成后，再行打开, 5.7.X无需预先注释</li>
+<li><code>datadir</code>, <code>innodb_log_group_home_dir</code>, <code>innodb_undo_directory</code>一定要注意目录权限是 <code>mysql:mysql</code></li>
+</ul>
+</li>
+<li>my.cnf关注点<ul>
+<li><code>mysqld --help -vv | grep my.cnf</code>查看配置文件的读取顺序，如果有相同的配置，最后读取的文件配置项生效</li>
+<li>使用<code>--defaults-files</code>可指定配置文件</li>
+</ul>
+</li>
+</ul>
+<h1 id="升级"><a href="#升级" class="headerlink" title="升级"></a>升级</h1><ul>
+<li>说明<br>通常情况下使用MySQL<code>Linux - Generic</code>通用的二进制包进行安装，<code>my.cnf</code>中<code>datadir</code>指定数据目录;数据目录和程序目录分开后，对后续升级操作很方便</li>
+<li>例子</li>
+</ul>
+<p><strong>应用程序目录</strong><br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">5.6应用程序所在目录: /usr/local/mysql-5.6.37-linux-glibc2.12-x86_64</span><br><span class="line">5.7应用撤销所在目录: /usr/local/mysql-5.7.19-linux-glibc2.12-x86_64</span><br></pre></td></tr></table></figure></p>
+<p><strong>数据目录</strong><br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">/data/mysql_data/</span><br></pre></td></tr></table></figure></p>
+<p><strong>环境</strong><br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">[root@mysqlenv_test /usr/<span class="built_in">local</span>]<span class="comment">#ls -l | grep mysql</span></span><br><span class="line">lrwxrwxrwx   1 root  root   35 Sep 16 15:20 mysql -&gt; mysql-5.6.37-linux-glibc2.12-x86_64 <span class="comment"># 当前软链接指向为5.6的版本</span></span><br><span class="line">drwxr-xr-x  13 mysql mysql 223 Sep 16 14:06 mysql-5.6.37-linux-glibc2.12-x86_64</span><br><span class="line">drwxr-xr-x  10 root  mysql 148 Sep 16 13:25 mysql-5.7.19-linux-glibc2.12-x86_64</span><br><span class="line"></span><br><span class="line">[root@mysqlenv_test ~]<span class="comment">#ls -l  /data/mysql_data/</span></span><br><span class="line">total 13576</span><br><span class="line">-rw-rw---- 1 mysql mysql       56 Sep 16 15:22 auto.cnf</span><br><span class="line">-rw-rw---- 1 mysql mysql    65423 Sep 16 15:21 bin.000001</span><br><span class="line">-rw-rw---- 1 mysql mysql  1199276 Sep 16 15:21 bin.000002</span><br><span class="line">-rw-rw---- 1 mysql mysql      369 Sep 16 15:29 bin.000003</span><br><span class="line">-rw-rw---- 1 mysql mysql      356 Sep 16 15:35 bin.000004</span><br><span class="line">-rw-rw---- 1 mysql mysql       52 Sep 16 15:30 bin.index</span><br><span class="line">drwx------ 2 mysql mysql       20 Sep 16 15:31 db56</span><br><span class="line">-rw-rw---- 1 mysql mysql    19134 Sep 16 15:35 error.log</span><br><span class="line">-rw-rw---- 1 mysql mysql      865 Sep 16 15:35 ib_buffer_pool</span><br><span class="line">-rw-rw---- 1 mysql mysql 12582912 Sep 16 15:35 ibdata1</span><br><span class="line">drwx------ 2 mysql mysql     4096 Sep 16 15:21 mysql</span><br><span class="line">drwx------ 2 mysql mysql     4096 Sep 16 15:21 performance_schema</span><br><span class="line">-rw-rw---- 1 mysql mysql      350 Sep 16 15:30 slow.log</span><br><span class="line">drwx------ 2 mysql mysql        6 Sep 16 15:21 <span class="built_in">test</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Database changed</span><br><span class="line">mysql&gt; SELECT VERSION ();</span><br><span class="line">+------------+</span><br><span class="line">| VERSION () |</span><br><span class="line">+------------+</span><br><span class="line">| 5.6.37-log |</span><br><span class="line">+------------+</span><br><span class="line">1 row <span class="keyword">in</span> <span class="built_in">set</span> (0.00 sec)</span><br><span class="line"></span><br><span class="line">mysql&gt; CREATE DATABASE db56;</span><br><span class="line">Query OK, 1 row affected (0.02 sec)</span><br><span class="line"></span><br><span class="line">mysql&gt; SHOW DATABASES;</span><br><span class="line">+--------------------+</span><br><span class="line">| Database           |</span><br><span class="line">+--------------------+</span><br><span class="line">| information_schema |</span><br><span class="line">| db56               |</span><br><span class="line">| mysql              |</span><br><span class="line">| performance_schema |</span><br><span class="line">| <span class="built_in">test</span>               |</span><br><span class="line">+--------------------+</span><br><span class="line">5 rows <span class="keyword">in</span> <span class="built_in">set</span> (0.00 sec)</span><br></pre></td></tr></table></figure></p>
+<p><strong>升级操作</strong><br><code>应该在slave先进行测试</code><br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 1. 必须安全停止数据库</span></span><br><span class="line">[root@mysqlenv_test ~]<span class="comment">#/etc/init.d/56mysql.server stop</span></span><br><span class="line">Shutting down MySQL.. SUCCESS! </span><br><span class="line"></span><br><span class="line"><span class="comment"># 2. 使用新的版本</span></span><br><span class="line">[root@mysqlenv_test ~]<span class="comment">#cd /usr/local/</span></span><br><span class="line">[root@mysqlenv_test /usr/<span class="built_in">local</span>]<span class="comment">#unlink mysql</span></span><br><span class="line">[root@mysqlenv_test /usr/<span class="built_in">local</span>]<span class="comment">#ln -sv mysql-5.7.19-linux-glibc2.12-x86_64 mysql</span></span><br><span class="line">‘mysql’ -&gt; ‘mysql-5.7.19-linux-glibc2.12-x86_64’</span><br><span class="line">        <span class="comment"># MySQL的应用程序版本已经升级完成</span></span><br><span class="line">        <span class="comment">#都不需要做任何的改变，即可将当前系统的mysql版本升级完成</span></span><br><span class="line">        <span class="comment">#注意：此时只是应用程序升级完成，系统表仍然还是5.6的版本</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 3.修改目录权限</span></span><br><span class="line">[root@mysqlenv_test /usr/<span class="built_in">local</span>]<span class="comment">#cd /usr/local/mysql</span></span><br><span class="line">[root@mysqlenv_test /usr/<span class="built_in">local</span>/mysql]<span class="comment"># chown root:mysql -R  . </span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 4.启动</span></span><br><span class="line">[root@mysqlenv_test /usr/<span class="built_in">local</span>]<span class="comment">#/etc/init.d/mysql.server start</span></span><br><span class="line">Starting MySQL....... SUCCESS! </span><br><span class="line">	<span class="comment"># 此时error.log中有很多[ERROR] 日志或者警告日志</span></span><br><span class="line">	<span class="comment"># 需要进行upgrade更新系统表元数据才不会产生警告</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 5.升级元数据</span></span><br><span class="line">[root@mysqlenv_test /usr/<span class="built_in">local</span>]<span class="comment">#mysql_upgrade -p -s  </span></span><br><span class="line">Enter password: </span><br><span class="line">The --upgrade-system-tables option was used, databases won<span class="string">'t be touched.</span><br><span class="line">Checking if update is needed.</span><br><span class="line">Checking server version.</span><br><span class="line">Running queries to upgrade MySQL server.</span><br><span class="line">Upgrading the sys schema.</span><br><span class="line">Upgrade process completed successfully.</span><br><span class="line">Checking if update is needed.</span><br><span class="line">        # 参数 -s 一定要加,表示只更新系统表，-s: upgrade-system-tables</span><br><span class="line">        # 如果不加-s,则会把所有库的表以5.7.x的方式重建，会非常的耗时</span><br><span class="line">        # 因为数据库二进制文件是兼容的，无需升级</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 6. 验证</span><br><span class="line">mysql&gt; SELECT VERSION();</span><br><span class="line">+------------+</span><br><span class="line">| VERSION()  |</span><br><span class="line">+------------+</span><br><span class="line">| 5.7.19-log |</span><br><span class="line">+------------+</span><br><span class="line">1 row in set (0.00 sec)</span><br><span class="line">mysql&gt; SHOW DATABASES;</span><br><span class="line">+--------------------+</span><br><span class="line">| Database           |</span><br><span class="line">+--------------------+</span><br><span class="line">| information_schema |</span><br><span class="line">| db56               |</span><br><span class="line">| mysql              |</span><br><span class="line">| performance_schema |</span><br><span class="line">| sys                | # sys是5.7新加的库</span><br><span class="line">| test               | # test在5.7以后已弃用，从5.6升级所以保留</span><br><span class="line">+--------------------+</span><br><span class="line">6 rows in set (0.00 sec)</span></span><br></pre></td></tr></table></figure></p>
+<p><strong>注意</strong><br><code>能否顺利升级datadir是关键，datadir最好是和程序目录进行分离</code></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2023-12-11T07:18:57.695Z" itemprop="dateUpdated">2023-12-11 15:18:57</time>
+</span><br>
+
+
+        
+        <a href="/2017/09/16/49-mysql之安装升级篇/" target="_blank" rel="external">http://zhourudong.cn/2017/09/16/49-mysql之安装升级篇/</a>
+        
+    </div>
+    <footer>
+        <a href="http://zhourudong.cn">
+            <img src="/img/avatar.png" alt="cucy">
+            cucy
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql/">mysql</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://zhourudong.cn/2017/09/16/49-mysql之安装升级篇/&title=《mysql之安装升级篇》 — Cucy的博客&pic=http://zhourudong.cn/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://zhourudong.cn/2017/09/16/49-mysql之安装升级篇/&title=《mysql之安装升级篇》 — Cucy的博客&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://zhourudong.cn/2017/09/16/49-mysql之安装升级篇/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《mysql之安装升级篇》 — Cucy的博客&url=http://zhourudong.cn/2017/09/16/49-mysql之安装升级篇/&via=http://zhourudong.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://zhourudong.cn/2017/09/16/49-mysql之安装升级篇/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/09/16/50-mysql之连接and参数and用户权限篇/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">mysql之连接and参数and用户角色权限篇</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/09/13/48-django架构/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">django架构</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>cucy &copy; 2016 - 2023</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://zhourudong.cn/2017/09/16/49-mysql之安装升级篇/&title=《mysql之安装升级篇》 — Cucy的博客&pic=http://zhourudong.cn/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://zhourudong.cn/2017/09/16/49-mysql之安装升级篇/&title=《mysql之安装升级篇》 — Cucy的博客&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://zhourudong.cn/2017/09/16/49-mysql之安装升级篇/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《mysql之安装升级篇》 — Cucy的博客&url=http://zhourudong.cn/2017/09/16/49-mysql之安装升级篇/&via=http://zhourudong.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://zhourudong.cn/2017/09/16/49-mysql之安装升级篇/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://zhourudong.cn/2017/09/16/49-mysql之安装升级篇/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.6.13"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.6.13" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>python面向对象 | Cucy的博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="python">
+    <meta name="description" content="类创建
+class D:    def __init__(self):        print(slef)
+实例化(创建对象)
+class B:    def __init__(self, a, b, c, d):        print(a)        print(b)        print(c)        print(d)        b = B(1,2,3,4)
+
+创建对象">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python面向对象">
+<meta property="og:url" content="http://zhourudong.cn/2017/02/20/27-python面向对象/index.html">
+<meta property="og:site_name" content="Cucy的博客">
+<meta property="og:description" content="类创建
+class D:    def __init__(self):        print(slef)
+实例化(创建对象)
+class B:    def __init__(self, a, b, c, d):        print(a)        print(b)        print(c)        print(d)        b = B(1,2,3,4)
+
+创建对象">
+<meta property="og:updated_time" content="2023-12-11T07:18:57.689Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="python面向对象">
+<meta name="twitter:description" content="类创建
+class D:    def __init__(self):        print(slef)
+实例化(创建对象)
+class B:    def __init__(self, a, b, c, d):        print(a)        print(b)        print(c)        print(d)        b = B(1,2,3,4)
+
+创建对象">
+    
+        <link rel="alternate" type="application/atom+xml" title="Cucy的博客" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.6.13">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">cucy</h5>
+          <a href="mailto:292016176@qq.com" title="292016176@qq.com" class="mail">292016176@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/cucy" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">python面向对象</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">python面向对象</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-02-20T02:48:22.000Z" itemprop="datePublished" class="page-time">
+  2017-02-20
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#类"><span class="post-toc-number">1.</span> <span class="post-toc-text">类</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#类装饰器"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">类装饰器</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#类方法、静态方法"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">类方法、静态方法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#类方法"><span class="post-toc-number">1.2.1.</span> <span class="post-toc-text">类方法</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#访问控制-私有属性-方法"><span class="post-toc-number">1.2.2.</span> <span class="post-toc-text">访问控制(私有属性 方法)</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#私有方法定义"><span class="post-toc-number">1.2.3.</span> <span class="post-toc-text">私有方法定义</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#类的继承"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">类的继承</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#方法重写"><span class="post-toc-number">1.3.1.</span> <span class="post-toc-text">方法重写</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#多继承"><span class="post-toc-number">1.3.2.</span> <span class="post-toc-text">多继承</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#Mixin"><span class="post-toc-number">1.3.3.</span> <span class="post-toc-text">Mixin</span></a></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-27-python面向对象"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">python面向对象</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-02-20 10:48:22" datetime="2017-02-20T02:48:22.000Z"  itemprop="datePublished">2017-02-20</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h3 id="类"><a href="#类" class="headerlink" title="类"></a>类</h3><p><strong>创建</strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">D</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(slef)</span><br></pre></td></tr></table></figure>
+<p><strong>实例化(创建对象)</strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, a, b, c, d)</span>:</span></span><br><span class="line">        print(a)</span><br><span class="line">        print(b)</span><br><span class="line">        print(c)</span><br><span class="line">        print(d)</span><br><span class="line">        </span><br><span class="line">b = B(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>创建对象使用 类名(<strong>init</strong> 函数除第一个参数外的参数列表)</li>
+<li>创建对象的时候 实际执行了 <strong>init</strong>函数</li>
+<li>首先创建对象</li>
+<li>对象作为self参数传递给<code>__init__</code>函数</li>
+<li>返回self<a id="more"></a>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Door</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, number, status)</span>:</span></span><br><span class="line">        self.number = number</span><br><span class="line">        self.status = status</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">open</span><span class="params">(self)</span>:</span> <span class="comment"># 方法</span></span><br><span class="line">        self.status = <span class="string">'openning'</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">close</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.status = <span class="string">'closed'</span></span><br><span class="line"></span><br><span class="line">door = Door(<span class="number">8</span>, <span class="string">'closed'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 当使用对象来调用的时候, 第一个参数会自动传入</span></span><br><span class="line">door.open()  </span><br><span class="line">print(door.status)</span><br></pre></td></tr></table></figure>
+<p><strong>作用域</strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">E</span>:</span></span><br><span class="line">    NAME = <span class="string">'E'</span> <span class="comment"># 类的直接下级作用域,(类变量)</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,name)</span>:</span></span><br><span class="line">        self.name = name <span class="comment"># 关联到实例的变量(实例变量)</span></span><br><span class="line"></span><br><span class="line">e = E(<span class="string">'e'</span>)</span><br><span class="line">print(e.NAME) <span class="comment"># 返回 --&gt; E</span></span><br><span class="line"></span><br><span class="line">print(E.NAME) <span class="comment"># 返回 --&gt; E</span></span><br><span class="line"></span><br><span class="line">e2 = E(<span class="string">'e2'</span>)</span><br><span class="line">print(e2.NAME)<span class="comment"># 返回 --&gt; E</span></span><br><span class="line"></span><br><span class="line">E.NAME = <span class="string">'new NAME'</span></span><br><span class="line">print(e.NAME)</span><br><span class="line"></span><br><span class="line">e.status = <span class="number">0</span></span><br><span class="line">print(e.status)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>类变量对<strong>类和实例都可见</strong></li>
+<li>所有<strong>实例共享类变量</strong></li>
+<li><strong>Python 可动态的给对象增减属性</strong></li>
+<li>当给实例的类变量赋值时，相当于动态的给这个实例<strong>增加</strong>了一个属性，<strong>覆盖</strong>了类变量</li>
+</ul>
+<h4 id="类装饰器"><a href="#类装饰器" class="headerlink" title="类装饰器"></a>类装饰器</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">set_name</span><span class="params">(cls, name)</span>:</span></span><br><span class="line">    cls.NAME = name</span><br><span class="line">    <span class="keyword">return</span> cls</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">F</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line">F1 = set_name(F, <span class="string">'F'</span>)</span><br><span class="line">f1 = F1()</span><br><span class="line"></span><br><span class="line">print(F1.NAME) <span class="comment"># 返回'F'</span></span><br><span class="line">print(f1.NAME) <span class="comment"># 返回'F'</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">set_name</span><span class="params">(name)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">warp</span><span class="params">(cls)</span>:</span></span><br><span class="line">        cls.NAME = name</span><br><span class="line">        <span class="keyword">return</span> cls</span><br><span class="line">    <span class="keyword">return</span> warp</span><br><span class="line"></span><br><span class="line"><span class="meta">@set_name('G')</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">G</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line">print(G.NAME)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">print_name</span><span class="params">(cls)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get_name</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> cls.__name__</span><br><span class="line">    cls.__get_name__ = get_name</span><br><span class="line">    <span class="keyword">return</span> cls</span><br><span class="line"></span><br><span class="line"><span class="meta">@print_name</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">H</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line">h = H()</span><br><span class="line">print(h.__get_name__())</span><br></pre></td></tr></table></figure>
+<ul>
+<li>类装饰器通常用于给类增加属性</li>
+<li>方法都是类级<h4 id="类方法、静态方法"><a href="#类方法、静态方法" class="headerlink" title="类方法、静态方法"></a>类方法、静态方法</h4>方法的定义都是类级的，但是<strong>有的方法使用实例调用，有的方法使用类来调用</strong></li>
+</ul>
+<p>#####　self<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">I</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">print</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">'instance method'</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">    @classmethod # 当一个方法,被classmethod装饰的时候,第一个参数变成类本身，这样的方法叫类方法</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">class_print</span><span class="params">(cls)</span>:</span></span><br><span class="line">        print(id(cls))</span><br><span class="line">        print(<span class="string">'class method'</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">    @staticmethod # 当一个方法被stasticmethod装饰的时候,不会自动传递第一个参数,这样的方法叫做静态方法</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">static_method</span><span class="params">()</span>:</span></span><br><span class="line">        print(<span class="string">'static method'</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">xxx_print</span><span class="params">()</span>:</span></span><br><span class="line">        print(<span class="string">'this is a function'</span>)</span><br><span class="line">i =I()</span><br><span class="line">print(i.print()) <span class="comment"># 实例调用实例方法时会自动传入self参数, self为实例本身 I.print(i)</span></span><br><span class="line"></span><br><span class="line">print(I.print())  <span class="comment"># TypeError 实例方法只能由实例调用</span></span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>当一个方法,被classmethod装饰的时候,第一个参数变成类本身，这样的方法叫类方法</li>
+<li>当一个方法被stasticmethod装饰的时候,不会自动传递第一个参数,这样的方法叫做静态方法</li>
+<li>实例调用实例方法时会自动传入self参数, self为实例本身 I.print(i)</li>
+<li>实例方法只能由实例调用<h5 id="类方法"><a href="#类方法" class="headerlink" title="类方法"></a>类方法</h5></li>
+</ul>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">class I:</span><br><span class="line">    def print(self):</span><br><span class="line">        print('instance method')</span><br><span class="line"></span><br><span class="line">    @classmethod # 当一个方法,被classmethod装饰的时候,第一个参数变成类本身，这样的方法叫类方法</span><br><span class="line">    def class_print(cls):</span><br><span class="line">        print(id(cls))</span><br><span class="line">        print('class method')</span><br><span class="line"></span><br><span class="line">    @staticmethod # 当一个方法被stasticmethod装饰的时候,不会自动传递第一个参数,这样的方法叫做静态方法</span><br><span class="line">    def static_method():</span><br><span class="line">        print('static method')</span><br><span class="line"></span><br><span class="line">    def xxx_print():</span><br><span class="line">        print('this is a function')</span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">I.class_print()</span><br><span class="line"># 返回</span><br><span class="line">6010184</span><br><span class="line">class method</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">print(id(I))</span><br><span class="line"># 返回</span><br><span class="line">6993224</span><br><span class="line">i =I()</span><br><span class="line">i.class_print() # 类方法可以被实例使用，并且被实例使用时，传入的第一个参数还是类</span><br><span class="line">返回</span><br><span class="line">6993224</span><br><span class="line">class method</span><br><span class="line"></span><br><span class="line">I.static_method()           # 返回 -&gt; static method</span><br><span class="line">print(i.static_method())    # 返回 -&gt; static method</span><br><span class="line">print(I.xxx_print())        # 返回 -&gt;this is a function</span><br><span class="line">print(i.xxx_print())        # TypeError  报错</span><br></pre></td></tr></table></figure>
+<h5 id="访问控制-私有属性-方法"><a href="#访问控制-私有属性-方法" class="headerlink" title="访问控制(私有属性 方法)"></a>访问控制(私有属性 方法)</h5><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Door</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, number, status)</span>:</span></span><br><span class="line">        self.number = number</span><br><span class="line">        self.__status = status  <span class="comment"># 双下划线开始， 非双下划綫结尾的都是私有的， 在类外部无法访问</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">open</span><span class="params">(self)</span>:</span>  <span class="comment"># 方法</span></span><br><span class="line">        self.__status = <span class="string">'opening'</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">close</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.__status = <span class="string">'closed'</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">status</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.__status</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__set_number</span><span class="params">(self, number)</span>:</span>  <span class="comment"># 双下滑先开始， 非双下划线结尾的方法也是私有方法</span></span><br><span class="line">        self.number = number</span><br><span class="line"></span><br><span class="line">door =Door(<span class="number">8</span>, <span class="string">'closed'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 报错</span></span><br><span class="line">door.__status <span class="comment"># AttributeError: 'Door' object has no attribute '__status'</span></span><br><span class="line"></span><br><span class="line">print(door.__status) <span class="comment"># a new status cloesd</span></span><br><span class="line"></span><br><span class="line">print(door.status()) <span class="comment"># closed</span></span><br><span class="line">print(door.open()) <span class="comment"># None</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>所有<strong>双下划线开始，非双下划线结尾</strong>的成员，都是私有成员</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#coding:utf8</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Door</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, number, status)</span>:</span></span><br><span class="line">        self.number = number</span><br><span class="line">        self.__status = status  <span class="comment"># 双下划线开始， 非双下划綫结尾的都是私有的， 在类外部无法访问</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">open</span><span class="params">(self)</span>:</span>  <span class="comment"># 方法</span></span><br><span class="line">        self.__status = <span class="string">'opening'</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">close</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.__status = <span class="string">'closed'</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">status</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.__status</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__set_number</span><span class="params">(self, number)</span>:</span>  <span class="comment"># 双下滑先开始， 非双下划线结尾的方法也是私有方法</span></span><br><span class="line">        self.number = number</span><br><span class="line"></span><br><span class="line">door =Door(<span class="number">8</span>, <span class="string">'closed'</span>)</span><br><span class="line"></span><br><span class="line">print(door._Door__status) <span class="comment"># closed</span></span><br><span class="line">door._Door__status = <span class="string">'opennning'</span></span><br><span class="line">print(door.status()) <span class="comment"># opennning</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><p><code>_类名 + 带双下划线的属性</code></p>
+</li>
+<li><p>Python的私有成员是通过改名实现的</p>
+</li>
+<li>严格的说， Python里没有真正私有成员<br><strong>除非真的有必要，并且清除明白的知道会有什么后果，否则不要用这个黑魔法</strong><br><strong>90%的程序员有生之年用不到</strong></li>
+</ul>
+<h5 id="私有方法定义"><a href="#私有方法定义" class="headerlink" title="私有方法定义"></a>私有方法定义</h5><p><strong>是一种惯用法， 标记此成员为私有， 但是解释器不不做任何处理</strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Door</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, number, status)</span>:</span></span><br><span class="line">        self.xxx = <span class="number">3</span></span><br><span class="line">        self.__number = number</span><br><span class="line">        self.__status = status  <span class="comment"># 双下划线开始， 非双下划綫结尾的都是私有的， 在类外部无法访问</span></span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">open</span><span class="params">(self)</span>:</span> <span class="comment"># 方法</span></span><br><span class="line">        self.__status = <span class="string">'opening'</span></span><br><span class="line">        </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">close</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.__status = <span class="string">'closed'</span></span><br><span class="line">    </span><br><span class="line"><span class="meta">    @property    # property 装饰器会把一个仅有self参数的函数，变成一个属性， 属性的值，为方法的返回值</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">status</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.__status</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__set_number</span><span class="params">(self, number)</span>:</span> <span class="comment"># 双下滑先开始， 非双下划线结尾的方法也是私有方法</span></span><br><span class="line">        self.__number = number</span><br><span class="line">        </span><br><span class="line"><span class="comment">#     @property</span></span><br><span class="line"><span class="comment">#     def number(self):</span></span><br><span class="line"><span class="comment">#         return self.__number</span></span><br><span class="line">    </span><br><span class="line"><span class="comment">#     @number.setter  # property setter 装饰器， 可以把一个方法转化为对此赋值，但此方法有一定要求： </span></span><br><span class="line"><span class="comment">#                     # 1.同名 2.必须接收两个参数 self 和 value， value为所赋的值</span></span><br><span class="line"><span class="comment">#     def number(self, number):</span></span><br><span class="line"><span class="comment">#         if isinstance(number, int) and number &gt; 0 and number &lt; 10000:</span></span><br><span class="line"><span class="comment">#             self.__number = number</span></span><br><span class="line">    </span><br><span class="line"><span class="comment">#     @number.deleter</span></span><br><span class="line"><span class="comment">#     def number(self):</span></span><br><span class="line"><span class="comment">#         print('cant remove number property')</span></span><br><span class="line">    number = property(<span class="keyword">lambda</span> self: self.__number, <span class="keyword">lambda</span> self, value: self.__number = value, <span class="keyword">lambda</span> self: print(<span class="string">'cant remove number property'</span>))</span><br></pre></td></tr></table></figure>
+<h4 id="类的继承"><a href="#类的继承" class="headerlink" title="类的继承"></a>类的继承</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Base</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">base_print</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">'base'</span>)</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span><span class="params">(Base)</span>:</span> <span class="comment"># 在类名后加括号 括号中是继承列表， 称之为父类或者基类或者超类</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">a_print</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">'a'</span>)</span><br><span class="line">a = A()</span><br><span class="line"></span><br><span class="line">print(a.a_print()) <span class="comment"># a</span></span><br><span class="line">print(a.base_print()) <span class="comment"># base</span></span><br><span class="line"><span class="comment"># 继承一个明显的好处就是可以获取父类的属性和方法</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Base</span>:</span></span><br><span class="line">    PUBLIC_CALSS_VAR =  <span class="string">'PUBLIC_CLASS_VAR'</span></span><br><span class="line">    __PRIVATE_CLASS_VAR = <span class="string">'PRIVATE_CLASS_VAR'</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.public_instance_var = <span class="string">'public_instance_var'</span></span><br><span class="line">        self.__private_instance_var = <span class="string">'private__instance_var'</span></span><br><span class="line"></span><br><span class="line"><span class="meta">    @classmethod</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">public_class_name</span><span class="params">(cls)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">'public_class_method'</span></span><br><span class="line"></span><br><span class="line"><span class="meta">    @classmethod</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__private_classmethod</span><span class="params">(cls)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">'private_classmethod'</span></span><br><span class="line"></span><br><span class="line"><span class="meta">    @staticmethod</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">public_static_method</span><span class="params">()</span>:</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">'public static method'</span></span><br><span class="line"></span><br><span class="line"><span class="meta">    @staticmethod</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__private_static_method</span><span class="params">()</span>:</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">'private static method'</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">public_instance_method</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">'public_instance_method'</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__private_instance_method</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">'private_instance_method'</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Sub</span><span class="params">(Base)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">print</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(self.PUBLIC_CALSS_VAR)</span><br><span class="line"></span><br><span class="line">sub = Sub()</span><br><span class="line">print(sub.print()) <span class="comment"># PUBLIC_CLASS_VAR</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># -----------------------------------------------</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Sub2</span><span class="params">(Base)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">print</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(self.__PRIVATE_CLASS_VAR)</span><br><span class="line"></span><br><span class="line">sub2 = Sub2()</span><br><span class="line">print(sub2.print()) <span class="comment"># AttributeError: 'Sub2' object has no attribute '_Sub2__PRIVATE_CLASS_VAR'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># -----------------------------------------------</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Sub3</span><span class="params">(Base)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">print</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(self.public_instance_var)</span><br><span class="line">sub3 =Sub3()</span><br><span class="line">print(sub3.print()) <span class="comment"># public_instance_var</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>凡是公有的都能继承</strong></li>
+<li><strong>凡是私有的都不能继承</strong></li>
+<li><strong>原来是什么，继承过来还是什么</strong></li>
+</ul>
+<h5 id="方法重写"><a href="#方法重写" class="headerlink" title="方法重写"></a>方法重写</h5><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Base</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.__a = <span class="number">4</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">print</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">'Base.print'</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">    @classmethod</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">cls_print</span><span class="params">(cls)</span>:</span></span><br><span class="line">        print(<span class="string">'Base.cls_print'</span>)</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Sub</span><span class="params">(Base)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">print</span><span class="params">(self)</span>:</span>  <span class="comment">## 当子类和父类有同名成员的时候， 子类的成员会覆盖父类的同名成员</span></span><br><span class="line">        print(<span class="string">'Sub.print'</span>)</span><br><span class="line"></span><br><span class="line">sub = Sub()</span><br><span class="line">print(sub.print()) <span class="comment"># Sub.print</span></span><br></pre></td></tr></table></figure>
+<p><strong>当子类和父类有同名成员的时候， 子类的成员会覆盖父类的同名成员</strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Base</span>:</span></span><br><span class="line">    NAME = <span class="string">'BASE'</span></span><br><span class="line">    </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Sub</span><span class="params">(Base)</span>:</span></span><br><span class="line">    NAME = <span class="string">'SUB'</span></span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">print</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(self.NAME)</span><br><span class="line">        print(super(Sub, Sub).NAME) <span class="comment"># 获取父类的类变量</span></span><br><span class="line">        print(Base.NAME)</span><br><span class="line">        </span><br><span class="line">Sub().print()</span><br><span class="line"><span class="comment"># 返回</span></span><br><span class="line">SUB</span><br><span class="line">BASE</span><br></pre></td></tr></table></figure>
+<p><strong>super 对象只能获取类的属性</strong></p>
+<h5 id="多继承"><a href="#多继承" class="headerlink" title="多继承"></a>多继承</h5><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Base</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Sub</span><span class="params">(Base)</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Base2</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Sub2</span><span class="params">(Base, Base2)</span>:</span>  <span class="comment"># 多继承 在继承列表里存在多个类的时候表示多继承</span></span><br><span class="line">    <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
+<p><strong>应该尽量避免多继承</strong></p>
+<p>多继承会对程序的心智负担造成非常大的压力</p>
+<p>Python是解释执行的，一段代码只有执行到的时候，才知道有没有错</p>
+<p>多继承是一剂毒药</p>
+<p>类装饰器</p>
+<p>设置一些类变量</p>
+<p>可以给类增加一些方法</p>
+<h5 id="Mixin"><a href="#Mixin" class="headerlink" title="Mixin"></a>Mixin</h5>
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2023-12-11T07:18:57.689Z" itemprop="dateUpdated">2023-12-11 15:18:57</time>
+</span><br>
+
+
+        
+        <a href="/2017/02/20/27-python面向对象/" target="_blank" rel="external">http://zhourudong.cn/2017/02/20/27-python面向对象/</a>
+        
+    </div>
+    <footer>
+        <a href="http://zhourudong.cn">
+            <img src="/img/avatar.png" alt="cucy">
+            cucy
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://zhourudong.cn/2017/02/20/27-python面向对象/&title=《python面向对象》 — Cucy的博客&pic=http://zhourudong.cn/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://zhourudong.cn/2017/02/20/27-python面向对象/&title=《python面向对象》 — Cucy的博客&source=类创建
+class D:    def __init__(self):        print(slef)
+实例化(创建对象)
+class B:    ..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://zhourudong.cn/2017/02/20/27-python面向对象/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《python面向对象》 — Cucy的博客&url=http://zhourudong.cn/2017/02/20/27-python面向对象/&via=http://zhourudong.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://zhourudong.cn/2017/02/20/27-python面向对象/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/02/28/28-python-mysql连接池简略实现/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">python mysql连接池简略实现</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/02/18/26-python文件操作/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">python文件操作</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>cucy &copy; 2016 - 2023</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://zhourudong.cn/2017/02/20/27-python面向对象/&title=《python面向对象》 — Cucy的博客&pic=http://zhourudong.cn/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://zhourudong.cn/2017/02/20/27-python面向对象/&title=《python面向对象》 — Cucy的博客&source=类创建
+class D:    def __init__(self):        print(slef)
+实例化(创建对象)
+class B:    ..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://zhourudong.cn/2017/02/20/27-python面向对象/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《python面向对象》 — Cucy的博客&url=http://zhourudong.cn/2017/02/20/27-python面向对象/&via=http://zhourudong.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://zhourudong.cn/2017/02/20/27-python面向对象/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://zhourudong.cn/2017/02/20/27-python面向对象/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.6.13"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.6.13" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

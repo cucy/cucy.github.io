@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>mysql之连接and参数and用户角色权限篇 | Cucy的博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="mysql">
+    <meta name="description" content="[TOC]
+连接主要登录方式方式一默认是当前登录的系统用户 $USER@localhost[root@mysqlenv_test ~]#mysqlERROR 1045 (28000): Access denied for user &apos;root&apos;@&apos;localhost&apos; (using password: NO)
+方式二 使用socket连接LINUX 系统才有socket连接mysql -S /tm">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mysql之连接and参数and用户角色权限篇">
+<meta property="og:url" content="http://zhourudong.cn/2017/09/16/50-mysql之连接and参数and用户权限篇/index.html">
+<meta property="og:site_name" content="Cucy的博客">
+<meta property="og:description" content="[TOC]
+连接主要登录方式方式一默认是当前登录的系统用户 $USER@localhost[root@mysqlenv_test ~]#mysqlERROR 1045 (28000): Access denied for user &apos;root&apos;@&apos;localhost&apos; (using password: NO)
+方式二 使用socket连接LINUX 系统才有socket连接mysql -S /tm">
+<meta property="og:updated_time" content="2023-12-11T07:18:57.695Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="mysql之连接and参数and用户角色权限篇">
+<meta name="twitter:description" content="[TOC]
+连接主要登录方式方式一默认是当前登录的系统用户 $USER@localhost[root@mysqlenv_test ~]#mysqlERROR 1045 (28000): Access denied for user &apos;root&apos;@&apos;localhost&apos; (using password: NO)
+方式二 使用socket连接LINUX 系统才有socket连接mysql -S /tm">
+    
+        <link rel="alternate" type="application/atom+xml" title="Cucy的博客" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.6.13">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">cucy</h5>
+          <a href="mailto:292016176@qq.com" title="292016176@qq.com" class="mail">292016176@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/cucy" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">mysql之连接and参数and用户角色权限篇</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">mysql之连接and参数and用户角色权限篇</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-09-16T08:13:35.000Z" itemprop="datePublished" class="page-time">
+  2017-09-16
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#连接"><span class="post-toc-number">1.</span> <span class="post-toc-text">连接</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#主要登录方式"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">主要登录方式</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#免密码登录"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">免密码登录</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#参数类型"><span class="post-toc-number">2.</span> <span class="post-toc-text">参数类型</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#参数设置"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">参数设置</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#权限"><span class="post-toc-number">3.</span> <span class="post-toc-text">权限</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#授权"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">授权</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#回收权限"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">回收权限</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#删除用户"><span class="post-toc-number">4.</span> <span class="post-toc-text">删除用户</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#角色"><span class="post-toc-number">5.</span> <span class="post-toc-text">角色</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-50-mysql之连接and参数and用户权限篇"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">mysql之连接and参数and用户角色权限篇</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-09-16 16:13:35" datetime="2017-09-16T08:13:35.000Z"  itemprop="datePublished">2017-09-16</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>[TOC]</p>
+<h1 id="连接"><a href="#连接" class="headerlink" title="连接"></a>连接</h1><h2 id="主要登录方式"><a href="#主要登录方式" class="headerlink" title="主要登录方式"></a>主要登录方式</h2><p><strong>方式一</strong><br><code>默认是当前登录的系统用户 $USER@localhost</code><br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">[root@mysqlenv_test ~]<span class="comment">#mysql</span></span><br><span class="line">ERROR <span class="number">1045</span> (<span class="number">28000</span>): Access denied <span class="keyword">for</span> user <span class="string">'root'</span>@<span class="string">'localhost'</span> (using password: NO)</span><br></pre></td></tr></table></figure></p>
+<p><strong>方式二 使用socket连接</strong><br><code>LINUX 系统才有socket连接</code><br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">mysql -S /tmp/mysql.sock -uroot -p</span><br></pre></td></tr></table></figure></p>
+<p><strong>方式三 指定主机名</strong><br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">mysql -h <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span> -p   </span><br><span class="line"></span><br><span class="line">mysql -h localhost -p </span><br><span class="line"></span><br><span class="line"><span class="comment"># 属于不同的用户,授权时需要指定的host不同</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="免密码登录"><a href="#免密码登录" class="headerlink" title="免密码登录"></a>免密码登录</h2><p>主要是修改<code>my.cnf</code><br><strong>方式一  </strong><br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">cat /etc/my.cnf </span><br><span class="line">[client]</span><br><span class="line">user=<span class="string">"root"</span>  </span><br><span class="line">password=<span class="string">"123456"</span></span><br></pre></td></tr></table></figure></p>
+<p><strong>方式二 </strong><br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#单对定义不同的客户端</span></span><br><span class="line"></span><br><span class="line">[mysql] <span class="comment"># 这个是给/usr/loca/mysql/bin/mysql 使用的</span></span><br><span class="line">user=root</span><br><span class="line">password=<span class="string">"password"</span></span><br><span class="line"></span><br><span class="line">[mysqladmin] <span class="comment"># 给mysqladmin使用</span></span><br><span class="line">user=root</span><br><span class="line">password=<span class="string">"password"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 用户自己家目录设置</span></span><br><span class="line"><span class="comment">#Filename: ~/.my.cnf</span></span><br><span class="line"></span><br><span class="line">[client]</span><br><span class="line">user=<span class="string">"root"</span></span><br><span class="line">password=<span class="string">"你的密码"</span></span><br></pre></td></tr></table></figure></p>
+<p><strong>方式三  使用密文登录</strong><br><code>mysql</code>,<code>mysqladmin</code>，<code>mysqldump</code>都可以使用<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 1. 生成密文</span></span><br><span class="line">[root@mysqlenv_test ~]<span class="comment">#mysql_config_editor set -G login_sert_passwd -h localhost -u root -p</span></span><br><span class="line">Enter password: </span><br><span class="line"></span><br><span class="line">/root/.mylogin.cnf <span class="comment"># 默认会在用户的家目录生成.mylogin.cnf隐藏文件</span></span><br><span class="line"><span class="comment"># 2.查看所有的密文</span></span><br><span class="line">[root@mysqlenv_test ~]<span class="comment">#mysql_config_editor print --all</span></span><br><span class="line">[login_sert_passwd]</span><br><span class="line">user = root</span><br><span class="line">password = *****</span><br><span class="line">host = localhost</span><br><span class="line"></span><br><span class="line"><span class="comment"># 3. 使用密文登录</span></span><br><span class="line">mysql --login-path=login_sert_passwd</span><br><span class="line">mysqladmin  --login-path=login_sert_passwd status</span><br><span class="line">mysqldump  --login-path=login_sert_passwd  --opt mysql</span><br></pre></td></tr></table></figure></p>
+<h1 id="参数类型"><a href="#参数类型" class="headerlink" title="参数类型"></a>参数类型</h1><ul>
+<li>全局参数: <code>GLOBAL</code><ul>
+<li>可修改参数</li>
+<li>不可修改参数</li>
+</ul>
+</li>
+<li>会话参数: <code>SESSION</code><ul>
+<li>可修改参数</li>
+<li>不可修改参数</li>
+</ul>
+</li>
+</ul>
+<p><strong>注意：</strong></p>
+<blockquote>
+<ol>
+<li>用户登录只能<code>在线</code>修改<code>非只读参数</code>,<code>只读参数</code>只能在<code>my.cnf</code>配置文件中预先设置，重启数据库方能生效（例如监听的端口 <code>port</code>,<code>bind</code>等参数）</li>
+<li>在线修改的所有参数（<code>GLOBAL</code>或者<code>SESSION</code>）生效周期是当前正在运行的状态数据库，重启后在线修改的<code>配置作用</code>都会丢失，只有修改<code>my.cnf</code>才能永久生效，（例如<code>set GLOBAL slow_query_log =0;</code>）</li>
+<li>有些参数即存在于<code>GLOBAL</code>又存在于<code>SESSION</code>， （例如<code>autocommit</code> <code>SET GLOBAL autocommit = 0;</code>, <code>SET SESSION autocommit = 1;</code>） </li>
+</ol>
+</blockquote>
+<h2 id="参数设置"><a href="#参数设置" class="headerlink" title="参数设置"></a>参数设置</h2><p><strong>参数查看</strong><br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">mysql&gt; SHOW GLOBAL VARIABLES ; <span class="comment"># 只查看全局的变量参数</span></span><br><span class="line">mysql&gt; SHOW VARIABLES ; <span class="comment"># 查看所有的参数</span></span><br></pre></td></tr></table></figure></p>
+<p><strong>设置<code>GLOBAL</code>或<code>SESSION</code>参数</strong><br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 全局</span></span><br><span class="line">mysql&gt; SET GLOBAL autocommit = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 会话</span></span><br><span class="line">mysql&gt; SET SESSION autocommit = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看</span></span><br><span class="line">mysql&gt; SELECT @@GLOBAL.autocommit;</span><br><span class="line">+---------------------+</span><br><span class="line">| @@GLOBAL.autocommit |</span><br><span class="line">+---------------------+</span><br><span class="line">|                   <span class="number">0</span> |</span><br><span class="line">+---------------------+</span><br><span class="line"></span><br><span class="line">mysql&gt; SELECT @@SESSION.autocommit;  <span class="comment"># 等价于 SELECT @@autocommit;</span></span><br><span class="line">+----------------------+</span><br><span class="line">| @@SESSION.autocommit |</span><br><span class="line">+----------------------+</span><br><span class="line">|                    <span class="number">1</span> |</span><br><span class="line">+----------------------+</span><br></pre></td></tr></table></figure></p>
+<h1 id="权限"><a href="#权限" class="headerlink" title="权限"></a>权限</h1><p><strong>MySQL校验权限流程</strong><br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Title: MySQL校验权限流程</span><br><span class="line">开始 -&gt;&gt; IP和用户名能否访问: 查看mysql.user表 （所有库权限）</span><br><span class="line">IP和用户名能否访问 -&gt;&gt; 指定库权限: 查看mysql.db表</span><br><span class="line">指定库权限 -&gt;&gt; 指定表权限: 查看mysql.tables_priv表</span><br><span class="line">指定表权限 -&gt;&gt;指定列权限:  查看mysql.columns_priv表</span><br><span class="line">指定列权限 --&gt;&gt; 开始 : 没有权限</span><br></pre></td></tr></table></figure></p>
+<p><strong>系统表权限信息:</strong></p>
+<ul>
+<li><strong>a) 用户名和IP是否允许</strong></li>
+<li><strong>b) 查看mysql.user表</strong> <code>// 查看全局所有库的权限</code></li>
+<li><strong>c) 查看mysql.db表</strong> <code>// 查看指定库的权限</code></li>
+<li><strong>d) 查看mysql.table_priv表</strong> <code>// 查看指定表的权限</code></li>
+<li><strong>e) 查看mysql.column_priv表</strong> <code>// 查看指定列的权限</code></li>
+</ul>
+<p><a href="https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html" target="_blank" rel="external">所有权限详情</a></p>
+<p><strong>常用权限：</strong></p>
+<ul>
+<li>SQL语句：SELECT、INSERT、UPDATE、DELETE、INDEX</li>
+<li>存储过程：CREATE ROUTINE、ALTER ROUTINE、EXECUTE、TRIGGER</li>
+<li>管理权限：SUPER、RELOAD、SHOW DATABASE、SHUTDOWN、</li>
+</ul>
+<p><strong>可选资源项，资源限制类型:</strong></p>
+<ul>
+<li>MAX_QUERIES_PER_HOUR <em>count</em></li>
+<li>MAX_UPDATES_PER_HOUR <em>count</em></li>
+<li>MAX_CONNECTIONS_PER_HOUR <em>count</em></li>
+<li>MAX_USER_CONNECTIONS <em>count</em></li>
+</ul>
+<h2 id="授权"><a href="#授权" class="headerlink" title="授权"></a>授权</h2><p><strong>当前用户权限</strong><br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">mysql&gt; SHOW GRANTS ;</span><br><span class="line">+---------------------------------------------------------------------+</span><br><span class="line">| Grants <span class="keyword">for</span> root@localhost                                           |</span><br><span class="line">+---------------------------------------------------------------------+</span><br><span class="line">| GRANT ALL PRIVILEGES ON *.* TO <span class="string">'root'</span>@<span class="string">'localhost'</span> WITH GRANT OPTION |</span><br><span class="line">| GRANT PROXY ON <span class="string">''</span>@<span class="string">''</span> TO <span class="string">'root'</span>@<span class="string">'localhost'</span> WITH GRANT OPTION        |</span><br><span class="line">+---------------------------------------------------------------------+</span><br><span class="line"><span class="number">2</span> rows <span class="keyword">in</span> set (<span class="number">0.00</span> sec)</span><br><span class="line"></span><br><span class="line">mysql&gt; SHOW GRANTS FOR root@<span class="string">'localhost'</span>;</span><br></pre></td></tr></table></figure></p>
+<p><strong>查看详细权限信息</strong><br><code>user, db , tables_priv ,columns_priv</code> 这些表都是权限相关<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mysql&gt; SELECT * from user WHERE User=<span class="string">'root'</span> AND Host=<span class="string">'localhost'</span>\G</span><br><span class="line">*************************** 1. row ***************************</span><br><span class="line">                  Host: localhost</span><br><span class="line">                  User: root</span><br><span class="line">           Select_priv: Y</span><br><span class="line">           Insert_priv: Y</span><br><span class="line">           Update_priv: Y</span><br><span class="line">           Delete_priv: Y</span><br><span class="line">           Create_priv: Y</span><br><span class="line">             Drop_priv: Y</span><br><span class="line">           Reload_priv: Y</span><br><span class="line">         Shutdown_priv: Y</span><br><span class="line">          Process_priv: Y</span><br><span class="line">             File_priv: Y</span><br><span class="line">            Grant_priv: Y</span><br><span class="line">       References_priv: Y</span><br><span class="line">            Index_priv: Y</span><br><span class="line">            Alter_priv: Y</span><br><span class="line">          Show_db_priv: Y</span><br><span class="line">            Super_priv: Y</span><br><span class="line"> Create_tmp_table_priv: Y</span><br><span class="line">      Lock_tables_priv: Y</span><br><span class="line">          Execute_priv: Y</span><br><span class="line">       Repl_slave_priv: Y</span><br><span class="line">      Repl_client_priv: Y</span><br><span class="line">      Create_view_priv: Y</span><br><span class="line">        Show_view_priv: Y</span><br><span class="line">   Create_routine_priv: Y</span><br><span class="line">    Alter_routine_priv: Y</span><br><span class="line">      Create_user_priv: Y</span><br><span class="line">            Event_priv: Y</span><br><span class="line">          Trigger_priv: Y</span><br><span class="line">Create_tablespace_priv: Y</span><br><span class="line">              ssl_type: </span><br><span class="line">            ssl_cipher: </span><br><span class="line">           x509_issuer: </span><br><span class="line">          x509_subject: </span><br><span class="line">         max_questions: 0</span><br><span class="line">           max_updates: 0</span><br><span class="line">       max_connections: 0</span><br><span class="line">  max_user_connections: 0</span><br><span class="line">                plugin: mysql_native_password</span><br><span class="line"> authentication_string: *6BB4837EB74329105EE4568DDA7DC67ED2CA2AD9</span><br><span class="line">      password_expired: N</span><br><span class="line"> password_last_changed: 2017-09-16 15:56:38</span><br><span class="line">     password_lifetime: NULL</span><br><span class="line">        account_locked: N</span><br><span class="line">1 row <span class="keyword">in</span> <span class="built_in">set</span> (0.02 sec)</span><br></pre></td></tr></table></figure></p>
+<p><strong>操作</strong><br><code>将被废弃的授权方式</code><br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mysql&gt; GRANT ALL ON <span class="built_in">test</span>.* TO tomcat@<span class="string">'127.0.0.1'</span> IDENTIFIED BY <span class="string">'123456'</span>;</span><br><span class="line">Query OK, 0 rows affected, 1 warning (0.02 sec)</span><br><span class="line"></span><br><span class="line">mysql&gt; SHOW GRANTS FOR tomcat@<span class="string">'127.0.0.1'</span> ;</span><br><span class="line">+----------------------------------------------------------+</span><br><span class="line">| Grants <span class="keyword">for</span> tomcat@127.0.0.1                              |</span><br><span class="line">+----------------------------------------------------------+</span><br><span class="line">| GRANT USAGE ON *.* TO <span class="string">'tomcat'</span>@<span class="string">'127.0.0.1'</span>               |</span><br><span class="line">| GRANT ALL PRIVILEGES ON `<span class="built_in">test</span>`.* TO <span class="string">'tomcat'</span>@<span class="string">'127.0.0.1'</span> |</span><br><span class="line">+----------------------------------------------------------+</span><br><span class="line">2 rows <span class="keyword">in</span> <span class="built_in">set</span> (0.01 sec)</span><br></pre></td></tr></table></figure></p>
+<p><code>新的授权方式, 先创建用户后授权</code><br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mysql&gt; CREATE USER <span class="string">'nginx'</span>@<span class="string">'127.0.0.1'</span> IDENTIFIED BY <span class="string">'123456'</span>;</span><br><span class="line">Query OK, 0 rows affected (0.01 sec)</span><br><span class="line"></span><br><span class="line">mysql&gt; GRANT ALL ON sys.* TO <span class="string">'nginx'</span>@<span class="string">'127.0.0.1'</span>;</span><br><span class="line">Query OK, 0 rows affected (0.01 sec)</span><br></pre></td></tr></table></figure></p>
+<p><strong>具有再次授权</strong><br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mysql&gt; GRANT ALL   ON <span class="built_in">test</span>.* TO <span class="string">'apache'</span>@<span class="string">'%'</span> IDENTIFIED BY <span class="string">'123456'</span> WITH GRANT OPTION;</span><br><span class="line">mysql&gt; SHOW GRANTS FOR <span class="string">'apache'</span>@<span class="string">'%'</span>;</span><br><span class="line">+--------------------------------------------------------------------+</span><br><span class="line">| Grants <span class="keyword">for</span> apache@%                                                |</span><br><span class="line">+--------------------------------------------------------------------+</span><br><span class="line">| GRANT USAGE ON *.* TO <span class="string">'apache'</span>@<span class="string">'%'</span>                                 |</span><br><span class="line">| GRANT ALL PRIVILEGES ON `<span class="built_in">test</span>`.* TO <span class="string">'apache'</span>@<span class="string">'%'</span> WITH GRANT OPTION |</span><br><span class="line">+--------------------------------------------------------------------+</span><br><span class="line">2 rows <span class="keyword">in</span> <span class="built_in">set</span> (0.00 sec)</span><br></pre></td></tr></table></figure></p>
+<h2 id="回收权限"><a href="#回收权限" class="headerlink" title="回收权限"></a>回收权限</h2><ul>
+<li><code>REVOKE</code> 只收回权限，并不会删除用户</li>
+<li><code>revoke</code> 语法同<code>grant</code>一致, 从<code>grant ... to</code> 变为<code>revoke ... from</code><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 回收SELECT </span></span><br><span class="line">mysql&gt; REVOKE SELECT ON <span class="built_in">test</span>.* FROM  <span class="string">'apache'</span>@<span class="string">'%'</span>;</span><br><span class="line">Query OK, 0 rows affected (0.19 sec)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 回收所有权限</span></span><br><span class="line">mysql&gt; REVOKE ALL  ON <span class="built_in">test</span>.* FROM  <span class="string">'apache'</span>@<span class="string">'%'</span>;</span><br><span class="line">Query OK, 0 rows affected (0.01 sec)</span><br><span class="line"></span><br><span class="line">mysql&gt; SHOW GRANTS FOR <span class="string">'apache'</span>@<span class="string">'%'</span>;</span><br><span class="line">+-----------------------------------------------------------+</span><br><span class="line">| Grants <span class="keyword">for</span> apache@%                                       |</span><br><span class="line">+-----------------------------------------------------------+</span><br><span class="line">| GRANT USAGE ON *.* TO <span class="string">'apache'</span>@<span class="string">'%'</span>                        |</span><br><span class="line">| GRANT USAGE ON `<span class="built_in">test</span>`.* TO <span class="string">'apache'</span>@<span class="string">'%'</span> WITH GRANT OPTION |</span><br><span class="line">+-----------------------------------------------------------+</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="删除用户"><a href="#删除用户" class="headerlink" title="删除用户"></a>删除用户</h1><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mysql&gt; DROP USER  <span class="string">'apache'</span>@<span class="string">'%'</span>;</span><br><span class="line">Query OK, 0 rows affected (0.04 sec)</span><br></pre></td></tr></table></figure>
+<h1 id="角色"><a href="#角色" class="headerlink" title="角色"></a>角色</h1><blockquote>
+<p><code>角色</code>(Role)可以用来批量管理用户，同一个角色下的用户，拥有相同的权限。<br><code>MySQL5.7.X</code>以后可以模拟角色(Role)的功能，通过<code>mysql.proxies_priv</code>模拟实现。<br><code>mysql.proxies_priv</code>在<code>5.5.X</code>和<code>5.6.X</code>的时候就存在，但是<code>无法模拟</code>角色(Role)功能<br>继承关系，方便管理</p>
+</blockquote>
+<p><strong>是否开启权限代理功能</strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">mysql&gt; SHOW VARIABLES LIKE <span class="string">"%proxy%"</span>;</span><br><span class="line">+-----------------------------------+-------+</span><br><span class="line">| Variable_name                     | Value |</span><br><span class="line">+-----------------------------------+-------+</span><br><span class="line">| check_proxy_users                 | ON    |</span><br><span class="line">| mysql_native_password_proxy_users | ON    |</span><br><span class="line">| proxy_user                        |       |</span><br><span class="line">| sha256_password_proxy_users       | ON    |</span><br><span class="line">+-----------------------------------+-------+</span><br><span class="line"><span class="number">4</span> rows <span class="keyword">in</span> set (<span class="number">0.00</span> sec)</span><br></pre></td></tr></table></figure>
+<p><strong>如果为<code>off</code> 需要修改<code>my.cnf</code></strong><br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># cat /etc/my.cnf</span></span><br><span class="line"><span class="comment"># ... ...</span></span><br><span class="line"><span class="comment">### 角色相关参数 ####</span></span><br><span class="line">check_proxy_users = <span class="number">1</span></span><br><span class="line">mysql_native_password_proxy_users = <span class="number">1</span></span><br><span class="line">sha256_password_proxy_users = <span class="number">1</span></span><br></pre></td></tr></table></figure></p>
+<p><strong>操作</strong><br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 创建用户</span></span><br><span class="line">mysql&gt; CREATE USER <span class="string">'web'</span>@<span class="string">'127.0.0.1'</span> IDENTIFIED BY <span class="string">'123456'</span>;</span><br><span class="line">mysql&gt; CREATE USER <span class="string">'tomcat'</span>@<span class="string">'127.%'</span>;</span><br><span class="line">mysql&gt; CREATE USER <span class="string">'nginx'</span>@<span class="string">'127.%'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 权限映射, 将'web'@'127.0.0.1' 所有的权限映射给 nginx，tomcat用户</span></span><br><span class="line">mysql&gt; GRANT PROXY ON <span class="string">'web'</span>@<span class="string">'127.0.0.1'</span> TO <span class="string">'tomcat'</span>@<span class="string">'127.%'</span>,<span class="string">'nginx'</span>@<span class="string">'127.%'</span>;</span><br><span class="line">Query OK, 0 rows affected (0.03 sec)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 授权</span></span><br><span class="line">mysql&gt; GRANT  SELECT ON *.* TO <span class="string">'web'</span>@<span class="string">'127.0.0.1'</span>;</span><br><span class="line">Query OK, 0 rows affected (0.03 sec)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看权限</span></span><br><span class="line">mysql&gt; SHOW GRANTS FOR <span class="string">'web'</span>@<span class="string">'127.0.0.1'</span>;</span><br><span class="line">+------------------------------------------+</span><br><span class="line">| Grants <span class="keyword">for</span> web@127.0.0.1                 |</span><br><span class="line">+------------------------------------------+</span><br><span class="line">| GRANT SELECT ON *.* TO <span class="string">'web'</span>@<span class="string">'127.0.0.1'</span> |</span><br><span class="line">+------------------------------------------+</span><br><span class="line">1 row <span class="keyword">in</span> <span class="built_in">set</span> (0.00 sec)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 虽然nginx用户没有select权限，但是使用了代理模式，nginx用户将继承到了web用户的select权限</span></span><br><span class="line">mysql&gt; SHOW GRANTS FOR <span class="string">'nginx'</span>@<span class="string">'127.%'</span>;</span><br><span class="line">+-----------------------------------------------------+</span><br><span class="line">| Grants <span class="keyword">for</span> nginx@127.%                              |</span><br><span class="line">+-----------------------------------------------------+</span><br><span class="line">| GRANT USAGE ON *.* TO <span class="string">'nginx'</span>@<span class="string">'127.%'</span>               |</span><br><span class="line">| GRANT PROXY ON <span class="string">'web'</span>@<span class="string">'127.0.0.1'</span> TO <span class="string">'nginx'</span>@<span class="string">'127.%'</span> |</span><br><span class="line">+-----------------------------------------------------+</span><br><span class="line">2 rows <span class="keyword">in</span> <span class="built_in">set</span> (0.00 sec)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 验证nginx用户是否有权限</span></span><br><span class="line">mysql&gt; SELECT USER();</span><br><span class="line">+-----------------+</span><br><span class="line">| USER()          |</span><br><span class="line">+-----------------+</span><br><span class="line">| nginx@localhost |</span><br><span class="line">+-----------------+</span><br><span class="line">1 row <span class="keyword">in</span> <span class="built_in">set</span> (0.00 sec)</span><br><span class="line"><span class="comment"># 可以顺利执行</span></span><br><span class="line">mysql&gt; SELECT * FROM user;</span><br></pre></td></tr></table></figure></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2023-12-11T07:18:57.695Z" itemprop="dateUpdated">2023-12-11 15:18:57</time>
+</span><br>
+
+
+        
+        <a href="/2017/09/16/50-mysql之连接and参数and用户权限篇/" target="_blank" rel="external">http://zhourudong.cn/2017/09/16/50-mysql之连接and参数and用户权限篇/</a>
+        
+    </div>
+    <footer>
+        <a href="http://zhourudong.cn">
+            <img src="/img/avatar.png" alt="cucy">
+            cucy
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql/">mysql</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://zhourudong.cn/2017/09/16/50-mysql之连接and参数and用户权限篇/&title=《mysql之连接and参数and用户角色权限篇》 — Cucy的博客&pic=http://zhourudong.cn/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://zhourudong.cn/2017/09/16/50-mysql之连接and参数and用户权限篇/&title=《mysql之连接and参数and用户角色权限篇》 — Cucy的博客&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://zhourudong.cn/2017/09/16/50-mysql之连接and参数and用户权限篇/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《mysql之连接and参数and用户角色权限篇》 — Cucy的博客&url=http://zhourudong.cn/2017/09/16/50-mysql之连接and参数and用户权限篇/&via=http://zhourudong.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://zhourudong.cn/2017/09/16/50-mysql之连接and参数and用户权限篇/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/10/19/51-mongodb副本集搭建/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">mongodb副本集搭建</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/09/16/49-mysql之安装升级篇/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">mysql之安装升级篇</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>cucy &copy; 2016 - 2023</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://zhourudong.cn/2017/09/16/50-mysql之连接and参数and用户权限篇/&title=《mysql之连接and参数and用户角色权限篇》 — Cucy的博客&pic=http://zhourudong.cn/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://zhourudong.cn/2017/09/16/50-mysql之连接and参数and用户权限篇/&title=《mysql之连接and参数and用户角色权限篇》 — Cucy的博客&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://zhourudong.cn/2017/09/16/50-mysql之连接and参数and用户权限篇/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《mysql之连接and参数and用户角色权限篇》 — Cucy的博客&url=http://zhourudong.cn/2017/09/16/50-mysql之连接and参数and用户权限篇/&via=http://zhourudong.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://zhourudong.cn/2017/09/16/50-mysql之连接and参数and用户权限篇/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://zhourudong.cn/2017/09/16/50-mysql之连接and参数and用户权限篇/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.6.13"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.6.13" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

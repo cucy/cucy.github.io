@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>python装饰器 | Cucy的博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="python">
+    <meta name="description" content="简单装饰器实现斐波那契数列">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python装饰器">
+<meta property="og:url" content="http://zhourudong.cn/2017/03/28/32-python装饰器/index.html">
+<meta property="og:site_name" content="Cucy的博客">
+<meta property="og:description" content="简单装饰器实现斐波那契数列">
+<meta property="og:updated_time" content="2023-12-11T07:18:57.690Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="python装饰器">
+<meta name="twitter:description" content="简单装饰器实现斐波那契数列">
+    
+        <link rel="alternate" type="application/atom+xml" title="Cucy的博客" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.6.13">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">cucy</h5>
+          <a href="mailto:292016176@qq.com" title="292016176@qq.com" class="mail">292016176@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/cucy" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">python装饰器</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">python装饰器</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-03-28T06:40:13.000Z" itemprop="datePublished" class="page-time">
+  2017-03-28
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#简单装饰器实现斐波那契数列"><span class="post-toc-number">1.</span> <span class="post-toc-text">简单装饰器实现斐波那契数列</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#保留原函数属性"><span class="post-toc-number">2.</span> <span class="post-toc-text">保留原函数属性</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#带参数的装饰器"><span class="post-toc-number">3.</span> <span class="post-toc-text">带参数的装饰器</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#属性可修改的函数装饰器"><span class="post-toc-number">4.</span> <span class="post-toc-text">属性可修改的函数装饰器</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-32-python装饰器"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">python装饰器</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-03-28 14:40:13" datetime="2017-03-28T06:40:13.000Z"  itemprop="datePublished">2017-03-28</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="简单装饰器实现斐波那契数列"><a href="#简单装饰器实现斐波那契数列" class="headerlink" title="简单装饰器实现斐波那契数列"></a>简单装饰器实现斐波那契数列</h2><a id="more"></a>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># coding:utf8</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">memo</span><span class="params">(func)</span>:</span></span><br><span class="line">    cache = &#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">wrapp</span><span class="params">(*args, **kwargs)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> args <span class="keyword">not</span> <span class="keyword">in</span> cache:</span><br><span class="line">            cache[args] = func(*args)</span><br><span class="line">        <span class="keyword">return</span> cache[args]</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> wrapp</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 语法糖实现 等价于fib=memo(fib)</span></span><br><span class="line"><span class="meta">@memo</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fib</span><span class="params">(n)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> n &lt;= <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> fib(n - <span class="number">1</span>) + fib(n - <span class="number">2</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># fib=memo(fib)</span></span><br><span class="line"><span class="keyword">print</span> fib(<span class="number">10</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="保留原函数属性"><a href="#保留原函数属性" class="headerlink" title="保留原函数属性"></a>保留原函数属性</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># coding:utf8</span></span><br><span class="line"><span class="string">'''</span><br><span class="line">&gt;&gt;&gt;def f (a=1,b=[1,2,3]):</span><br><span class="line">    '''</span> doc <span class="keyword">for</span> f func<span class="string">'''</span><br><span class="line">    g = 100</span><br><span class="line">    return lambda k : g +2</span><br><span class="line"> &gt;&gt;&gt;f.func_</span><br><span class="line">         f.func_closure # 函数闭包 g = f() ; g.__closure__ 访问闭包</span><br><span class="line">         f.func_dict</span><br><span class="line">         f.func_name</span><br><span class="line">         f.func_code     </span><br><span class="line">         f.func_doc</span><br><span class="line">         f.func_defaults #默认参数 (1, [1, 2, 3])</span><br><span class="line">         f.func_globals</span><br><span class="line">'''</span></span><br><span class="line"><span class="comment"># ------------------------</span></span><br><span class="line"><span class="comment"># 保留原来函数的属性</span></span><br><span class="line"><span class="comment"># ------------------------</span></span><br><span class="line"><span class="comment">#coding:utf8</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">w</span><span class="params">(func)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">wapper</span><span class="params">(*args, **kwargs)</span>:</span></span><br><span class="line">        <span class="string">''' wapper function '''</span></span><br><span class="line">        print(<span class="string">'In wapper'</span>)</span><br><span class="line">        func(*args, **kwargs)</span><br><span class="line">    <span class="keyword">return</span> wapper</span><br><span class="line"></span><br><span class="line"><span class="meta">@w</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">example</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="string">''' example function'''</span></span><br><span class="line">    print(<span class="string">"in example"</span>)</span><br><span class="line"></span><br><span class="line">print(example.__doc__) </span><br><span class="line">print(example.__name__) </span><br><span class="line"><span class="string">'''</span><br><span class="line">返回值:</span><br><span class="line">    wapper function</span><br><span class="line">    wapper</span><br><span class="line">函数的属性经过装饰器后属性被修改</span><br><span class="line">'''</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ----------------------</span></span><br><span class="line"><span class="comment"># 简单修改</span></span><br><span class="line"><span class="comment"># ----------------------</span></span><br><span class="line"><span class="comment">#coding:utf8</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">w</span><span class="params">(func)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">wapper</span><span class="params">(*args, **kwargs)</span>:</span></span><br><span class="line">        <span class="string">''' wapper function '''</span></span><br><span class="line">        print(<span class="string">'In wapper'</span>)</span><br><span class="line">        func(*args, **kwargs)</span><br><span class="line">    <span class="comment"># 保留原来函数的属性</span></span><br><span class="line">    wapper.__name__ = func.__name__</span><br><span class="line">    <span class="keyword">return</span> wapper</span><br><span class="line"></span><br><span class="line"><span class="meta">@w</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">example</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="string">''' example function'''</span></span><br><span class="line">    print(<span class="string">"in example"</span>)</span><br><span class="line"></span><br><span class="line">print(example.__doc__)</span><br><span class="line">print(example.__name__)</span><br><span class="line"><span class="string">'''</span><br><span class="line">返回值:</span><br><span class="line">    wapper function</span><br><span class="line">    example</span><br><span class="line">已经修改, 此方法过于繁杂</span><br><span class="line">'''</span></span><br><span class="line"><span class="comment"># ----------------------</span></span><br><span class="line"><span class="comment"># 使用functools</span></span><br><span class="line"><span class="comment"># ----------------------</span></span><br><span class="line"><span class="comment"># update_wrapper</span></span><br><span class="line"><span class="comment">#coding:utf8</span></span><br><span class="line"><span class="keyword">from</span> functools <span class="keyword">import</span> wraps, update_wrapper, WRAPPER_ASSIGNMENTS, WRAPPER_UPDATES</span><br><span class="line"><span class="string">'''</span><br><span class="line">其中wraps是调用update_wrapper</span><br><span class="line"></span><br><span class="line">WRAPPER_ASSIGNMENTS, WRAPPER_UPDATES 分别对应的是update_wrapper中的第三个参数和第四个参数</span><br><span class="line">'''</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">w</span><span class="params">(func)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">wapper</span><span class="params">(*args, **kwargs)</span>:</span></span><br><span class="line">        <span class="string">''' wapper function '''</span></span><br><span class="line">        print(<span class="string">'In wapper'</span>)</span><br><span class="line">        func(*args, **kwargs)</span><br><span class="line">    <span class="comment"># 保留原来函数的属性</span></span><br><span class="line">    <span class="comment"># update_wrapper(wapper, func, ('__name__', '__doc__'), ('__dict__',))</span></span><br><span class="line">    update_wrapper(wapper, func)</span><br><span class="line">    <span class="string">'''</span><br><span class="line">        第一个参数是包裹函数 wapper</span><br><span class="line">        第二个参数为原函数 example(既是func)</span><br><span class="line">        第三个参数为元组 使用原函数的属性替换包裹函数的属性</span><br><span class="line">        第四个参数为元组 用于合并(合并原函数和包裹函数的属性而不是替换)</span><br><span class="line">    '''</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> wapper</span><br><span class="line"></span><br><span class="line"><span class="meta">@w</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">example</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="string">''' example function'''</span></span><br><span class="line">    print(<span class="string">"in example"</span>)</span><br><span class="line"></span><br><span class="line">print(example.__doc__)</span><br><span class="line">print(example.__name__)</span><br><span class="line"></span><br><span class="line"><span class="keyword">print</span> WRAPPER_ASSIGNMENTS <span class="comment"># 返回 ('__module__', '__name__', '__doc__')  从此返回值中 第三个参数可以不填写使用默认</span></span><br><span class="line"><span class="keyword">print</span> WRAPPER_UPDATES <span class="comment"># 返回 ('__dict__',)   从此返回值中 第四个参数可以不填写使用默认</span></span><br><span class="line"><span class="string">''' '''</span></span><br><span class="line"><span class="string">'''</span><br><span class="line">返回值:</span><br><span class="line">    wapper function</span><br><span class="line">    example</span><br><span class="line">已经修改, 此方法过于繁杂</span><br><span class="line">'''</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ----------------------</span></span><br><span class="line"><span class="comment"># 使用functools</span></span><br><span class="line"><span class="comment"># ----------------------</span></span><br><span class="line"><span class="comment"># wraps</span></span><br><span class="line"><span class="comment">#coding:utf8</span></span><br><span class="line"><span class="keyword">from</span> functools <span class="keyword">import</span> wraps, update_wrapper, WRAPPER_ASSIGNMENTS, WRAPPER_UPDATES</span><br><span class="line"><span class="string">'''</span><br><span class="line">其中wraps是调用update_wrapper</span><br><span class="line"></span><br><span class="line">WRAPPER_ASSIGNMENTS, WRAPPER_UPDATES 分别对应的是update_wrapper中的第三个参数和第四个参数</span><br><span class="line">'''</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">w</span><span class="params">(func)</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="string">'''</span><br><span class="line">        1、传入被装饰的函数(必须给定)</span><br><span class="line">        2、第二个参数为元组      WRAPPER_ASSIGNMENTS 不传入则使用默认('__module__', '__name__', '__doc__')</span><br><span class="line">        3、第三个为参数为元组     WRAPPER_UPDATES  不传入则使用默认('__dict__',)</span><br><span class="line">    '''</span></span><br><span class="line"><span class="meta">    @wraps(func)</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">wapper</span><span class="params">(*args, **kwargs)</span>:</span></span><br><span class="line">        <span class="string">''' wapper function '''</span></span><br><span class="line">        print(<span class="string">'In wapper'</span>)</span><br><span class="line">        func(*args, **kwargs)</span><br><span class="line">    <span class="comment"># 保留原来函数的属性</span></span><br><span class="line">    <span class="comment"># update_wrapper(wapper, func, ('__name__', '__doc__'), ('__dict__',))</span></span><br><span class="line">    <span class="comment"># update_wrapper(wapper, func)</span></span><br><span class="line">    <span class="string">'''</span><br><span class="line">        第一个参数是包裹函数 wapper</span><br><span class="line">        第二个参数为原函数 example(既是func)</span><br><span class="line">        第三个参数为元组 使用原函数的属性替换包裹函数的属性</span><br><span class="line">        第四个参数为元组 用于合并(合并原函数和包裹函数的属性而不是替换)</span><br><span class="line">    '''</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> wapper</span><br><span class="line"></span><br><span class="line"><span class="meta">@w</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">example</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="string">''' example function'''</span></span><br><span class="line">    print(<span class="string">"in example"</span>)</span><br><span class="line"></span><br><span class="line">print(example.__doc__)</span><br><span class="line">print(example.__name__)</span><br><span class="line"></span><br><span class="line"><span class="keyword">print</span> WRAPPER_ASSIGNMENTS <span class="comment"># 返回 ('__module__', '__name__', '__doc__')  从此返回值中 第三个参数可以不填写使用默认</span></span><br><span class="line"><span class="keyword">print</span> WRAPPER_UPDATES <span class="comment"># 返回 ('__dict__',)   从此返回值中 第四个参数可以不填写使用默认</span></span><br><span class="line"><span class="string">''' '''</span></span><br><span class="line"><span class="string">'''</span><br><span class="line">返回值:</span><br><span class="line">    wapper function</span><br><span class="line">    example</span><br><span class="line">已经修改, 此方法过于繁杂</span><br><span class="line">'''</span></span><br></pre></td></tr></table></figure>
+<h2 id="带参数的装饰器"><a href="#带参数的装饰器" class="headerlink" title="带参数的装饰器"></a>带参数的装饰器</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># ----------------------</span></span><br><span class="line"><span class="comment"># signature模块</span></span><br><span class="line"><span class="comment"># ----------------------</span></span><br><span class="line"><span class="comment">#coding:utf8</span></span><br><span class="line"><span class="comment"># 检查函数参数的类型</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> inspect <span class="keyword">import</span> signature</span><br><span class="line"><span class="comment"># 3python 以后才有此模块</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">typeassert</span><span class="params">(*ty_args, **ty_kwargs)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">decorator</span><span class="params">(func)</span>:</span></span><br><span class="line">        <span class="comment"># func --》 a.b 获取函数参数类型映射关系</span></span><br><span class="line">        <span class="comment"># d = &#123;'a': int , 'b': str ...&#125;</span></span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">wapper</span><span class="params">(*args, **kwargs)</span>:</span></span><br><span class="line">            <span class="comment"># 迭代 args中的参数 判断其是否在字典中</span></span><br><span class="line">            <span class="comment"># 如果在d字典中则对其值类型进行匹配</span></span><br><span class="line">            <span class="comment"># arg in d, isinstance(arg, d[args])</span></span><br><span class="line">            <span class="keyword">return</span> func(*args, **kwargs)</span><br><span class="line">        <span class="keyword">return</span> wapper</span><br><span class="line">    <span class="keyword">return</span> decorator</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">f</span><span class="params">(a, b, c)</span>:</span> <span class="keyword">pass</span></span><br><span class="line">sig = signature(f) <span class="comment"># 获取f的签名</span></span><br><span class="line">print(sig.parameters)</span><br><span class="line"><span class="string">'''</span><br><span class="line">返回参数的字典</span><br><span class="line">    OrderedDict([('a', &lt;Parameter "a"&gt;), ('b', &lt;Parameter "b"&gt;), ('c', &lt;Parameter "c"&gt;)])</span><br><span class="line">'''</span></span><br><span class="line">a = sig.parameters[<span class="string">'a'</span>]</span><br><span class="line">print(a.name) <span class="comment">#参数名</span></span><br><span class="line">print(a.kind) <span class="comment"># 参数类型 POSITIONAL_OR_KEYWORD</span></span><br><span class="line">print(a.default) <span class="comment"># &lt;class 'inspect._empty'&gt; 参数a的默认值</span></span><br><span class="line"></span><br><span class="line">print(sig.bind) <span class="comment"># 可以绑定属性类型</span></span><br><span class="line"><span class="string">''' &lt;bound method Signature.bind of &lt;Signature (a, b, c)&gt;&gt; '''</span></span><br><span class="line"><span class="comment"># 绑定属性</span></span><br><span class="line">bargs = sig.bind(str, int, int)</span><br><span class="line">print(bargs)</span><br><span class="line">print(bargs.arguments)</span><br><span class="line"><span class="string">'''</span><br><span class="line">&lt;BoundArguments (a=&lt;class 'str'&gt;, b=&lt;class 'int'&gt;, c=&lt;class 'int'&gt;)&gt;</span><br><span class="line">OrderedDict([('a', &lt;class 'str'&gt;), ('b', &lt;class 'int'&gt;), ('c', &lt;class 'int'&gt;)])</span><br><span class="line">'''</span></span><br><span class="line">print(bargs.arguments[<span class="string">'a'</span>]) <span class="comment"># &lt;class 'str'&gt;</span></span><br><span class="line">print(bargs.arguments[<span class="string">'b'</span>]) <span class="comment"># &lt;class 'int'&gt;</span></span><br><span class="line">print(bargs.arguments[<span class="string">'c'</span>]) <span class="comment"># &lt;class 'int'&gt;</span></span><br><span class="line">bargs.bind_partial() <span class="comment"># 某些参数不做类型检查不会报错</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># coding:utf8</span></span><br><span class="line"><span class="comment"># 检查函数参数的类型</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> inspect <span class="keyword">import</span> signature</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 3python 以后才有此模块</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">typeassert</span><span class="params">(*ty_args, **ty_kwargs)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">decorator</span><span class="params">(func)</span>:</span></span><br><span class="line">        <span class="comment"># func --》 a.b 获取函数参数类型映射关系</span></span><br><span class="line">        <span class="comment"># d = &#123;'a': int , 'b': str ...&#125;</span></span><br><span class="line">        sig = signature(func)</span><br><span class="line">        btypes = sig.bind_partial(*ty_args, **ty_kwargs).arguments</span><br><span class="line">        <span class="string">'''绑定的类型 某些参数不做类型检查不会报错 '''</span></span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">wapper</span><span class="params">(*args, **kwargs)</span>:</span></span><br><span class="line">            <span class="comment"># 迭代 args中的参数 判断其是否在字典中</span></span><br><span class="line">            <span class="comment"># 如果在d字典中则对其值类型进行匹配</span></span><br><span class="line">            <span class="comment"># arg in d, isinstance(arg, d[args])</span></span><br><span class="line">            <span class="keyword">for</span> name, obj <span class="keyword">in</span> sig.bind(*args, **kwargs).arguments.items():</span><br><span class="line">                <span class="string">'''</span><br><span class="line">                获得到绑定的参数 类型对其进行迭代</span><br><span class="line">              '''</span></span><br><span class="line">                <span class="keyword">if</span> name <span class="keyword">in</span> btypes:</span><br><span class="line">                    <span class="keyword">if</span> <span class="keyword">not</span> isinstance(obj, btypes[name]):</span><br><span class="line">                        <span class="keyword">raise</span> TypeError(<span class="string">"&#123;&#125; must be &#123;&#125;"</span>.format(name, btypes[name]))</span><br><span class="line">            <span class="keyword">return</span> func(*args, **kwargs)</span><br><span class="line">        <span class="keyword">return</span> wapper</span><br><span class="line">    <span class="keyword">return</span> decorator</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@typeassert(int, str, list)</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">f</span><span class="params">(a, b, c)</span>:</span></span><br><span class="line">    print(a, b, c)</span><br><span class="line">f(<span class="number">1</span>, <span class="string">'2'</span>, []) <span class="comment"># 1 2 []</span></span><br><span class="line">f(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>)</span><br><span class="line"><span class="string">'''</span><br><span class="line">raise TypeError("&#123;&#125; must be &#123;&#125;".format(name, btypes[name]))</span><br><span class="line">TypeError: b must be &lt;class 'str'&gt;</span><br><span class="line">'''</span></span><br></pre></td></tr></table></figure>
+<h2 id="属性可修改的函数装饰器"><a href="#属性可修改的函数装饰器" class="headerlink" title="属性可修改的函数装饰器"></a>属性可修改的函数装饰器</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># coding:utf8</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="keyword">from</span> functools <span class="keyword">import</span> wraps</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">import</span> logging</span><br><span class="line"><span class="keyword">from</span>  random <span class="keyword">import</span> randint</span><br><span class="line"></span><br><span class="line"><span class="comment"># 统计函数的运行时间 运行时间超时则记录日志</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">warm</span><span class="params">(timeout)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">decorator</span><span class="params">(func)</span>:</span></span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">wapper</span><span class="params">(*args, **kwargs)</span>:</span></span><br><span class="line">            start = time.time()</span><br><span class="line">            res = func(*args, **kwargs)</span><br><span class="line">            <span class="string">''' 记录返回值 '''</span></span><br><span class="line">            used = time.time() - start</span><br><span class="line">            <span class="keyword">if</span> used &gt; timeout:</span><br><span class="line">                msg = <span class="string">"&#123;&#125;:&#123;&#125; &gt; &#123;&#125;"</span>.format(func.__name__, used, timeout) <span class="comment"># 哪个函数运行了多长时间 当前timeout</span></span><br><span class="line">                logging.warning(msg)</span><br><span class="line">            <span class="keyword">return</span> res</span><br><span class="line">        <span class="keyword">return</span> wapper</span><br><span class="line">    <span class="keyword">return</span> decorator</span><br><span class="line"></span><br><span class="line"><span class="meta">@warm(1.5)</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test</span><span class="params">()</span>:</span></span><br><span class="line">    print(<span class="string">'In test'</span>)</span><br><span class="line">    <span class="keyword">while</span> randint(<span class="number">0</span>,<span class="number">1</span>):</span><br><span class="line">        <span class="comment"># 百分之50的几率记录睡眠</span></span><br><span class="line">        time.sleep(<span class="number">0.5</span>)</span><br><span class="line"><span class="keyword">for</span> _ <span class="keyword">in</span> range(<span class="number">30</span>):</span><br><span class="line">    <span class="string">''' 日志中是否有超过1.5秒的函数 '''</span></span><br><span class="line">    test()</span><br><span class="line"><span class="string">'''</span><br><span class="line">In test</span><br><span class="line">WARNING:root:test:1.5000858306884766 &gt; 1.5</span><br><span class="line">In test</span><br><span class="line">'''</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># ------------------</span></span><br><span class="line"><span class="comment"># 动态修改tiemout</span></span><br><span class="line"><span class="comment"># -----------------</span></span><br><span class="line"><span class="comment"># coding:utf8</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">import</span> logging</span><br><span class="line"><span class="keyword">from</span>  random <span class="keyword">import</span> randint</span><br><span class="line"></span><br><span class="line"><span class="comment"># 统计函数的运行时间 运行时间超时则记录日志</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">warm</span><span class="params">(timeout)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">decorator</span><span class="params">(func)</span>:</span></span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">wapper</span><span class="params">(*args, **kwargs)</span>:</span></span><br><span class="line">            start = time.time()</span><br><span class="line">            res = func(*args, **kwargs)</span><br><span class="line">            <span class="string">''' 记录返回值 '''</span></span><br><span class="line">            used = time.time() - start</span><br><span class="line">            <span class="keyword">if</span> used &gt; timeout:</span><br><span class="line">                msg = <span class="string">"&#123;&#125;:&#123;&#125; &gt; &#123;&#125;"</span>.format(func.__name__, used, timeout) <span class="comment"># 哪个函数运行了多长时间 当前timeout</span></span><br><span class="line">                logging.warning(msg)</span><br><span class="line">            <span class="keyword">return</span> res</span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">setTimeout</span><span class="params">(k)</span>:</span></span><br><span class="line">            <span class="keyword">nonlocal</span> timeout</span><br><span class="line">            timeout = k</span><br><span class="line">        wapper.setTimeout = setTimeout <span class="comment"># 给函数设置一个属性设置超时的时间</span></span><br><span class="line">        <span class="keyword">return</span> wapper</span><br><span class="line">    <span class="keyword">return</span> decorator</span><br><span class="line"></span><br><span class="line"><span class="meta">@warm(1.5)</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test</span><span class="params">()</span>:</span></span><br><span class="line">    print(<span class="string">'In test'</span>)</span><br><span class="line">    <span class="keyword">while</span> randint(<span class="number">0</span>,<span class="number">1</span>):</span><br><span class="line">        <span class="comment"># 百分之50的几率记录睡眠</span></span><br><span class="line">        time.sleep(<span class="number">0.5</span>)</span><br><span class="line"><span class="keyword">for</span> _ <span class="keyword">in</span> range(<span class="number">5</span>):</span><br><span class="line">    <span class="string">''' 日志中是否有超过1.5秒的函数 '''</span></span><br><span class="line">    test()</span><br><span class="line">print(<span class="string">"$"</span>*<span class="number">20</span>)</span><br><span class="line">test.setTimeout(<span class="number">1</span>)</span><br><span class="line"><span class="keyword">for</span> _ <span class="keyword">in</span> range(<span class="number">5</span>):</span><br><span class="line">    test()</span><br><span class="line"></span><br><span class="line"><span class="string">'''</span><br><span class="line">In test</span><br><span class="line">In test</span><br><span class="line">In test</span><br><span class="line">In test</span><br><span class="line">In test</span><br><span class="line">WARNING:root:test:2.0001144409179688 &gt; 1.5</span><br><span class="line">$$$$$$$$$$$$$$$$$$$$</span><br><span class="line">In test</span><br><span class="line">In test</span><br><span class="line">In test</span><br><span class="line">WARNING:root:test:1.0000574588775635 &gt; 1</span><br><span class="line">In test</span><br><span class="line">In test</span><br><span class="line">'''</span></span><br><span class="line"></span><br><span class="line"><span class="comment">################</span></span><br><span class="line"><span class="comment"># python2 中实现</span></span><br><span class="line"><span class="comment">################</span></span><br><span class="line"><span class="comment"># coding:utf8</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">import</span> logging</span><br><span class="line"><span class="keyword">from</span>  random <span class="keyword">import</span> randint</span><br><span class="line"></span><br><span class="line"><span class="comment"># 统计函数的运行时间 运行时间超时则记录日志</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">warm</span><span class="params">(timeout)</span>:</span></span><br><span class="line">    timeout = [timeout]</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">decorator</span><span class="params">(func)</span>:</span></span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">wapper</span><span class="params">(*args, **kwargs)</span>:</span></span><br><span class="line">            start = time.time()</span><br><span class="line">            res = func(*args, **kwargs)</span><br><span class="line">            <span class="string">''' 记录返回值 '''</span></span><br><span class="line">            used = time.time() - start</span><br><span class="line">            <span class="keyword">if</span> used &gt; timeout[<span class="number">0</span>]:</span><br><span class="line">                msg = <span class="string">"&#123;&#125;:&#123;&#125; &gt; &#123;&#125;"</span>.format(func.__name__, used, timeout[<span class="number">0</span>]) <span class="comment"># 哪个函数运行了多长时间 当前timeout</span></span><br><span class="line">                logging.warning(msg)</span><br><span class="line">            <span class="keyword">return</span> res</span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">setTimeout</span><span class="params">(k)</span>:</span></span><br><span class="line">            <span class="comment"># nonlocal timeout</span></span><br><span class="line">            timeout[<span class="number">0</span>] = k</span><br><span class="line">        wapper.setTimeout = setTimeout <span class="comment"># 给函数设置一个属性设置超时的时间</span></span><br><span class="line">        <span class="keyword">return</span> wapper</span><br><span class="line">    <span class="keyword">return</span> decorator</span><br><span class="line"></span><br><span class="line"><span class="meta">@warm(1.5)</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test</span><span class="params">()</span>:</span></span><br><span class="line">    print(<span class="string">'In test'</span>)</span><br><span class="line">    <span class="keyword">while</span> randint(<span class="number">0</span>,<span class="number">1</span>):</span><br><span class="line">        <span class="comment"># 百分之50的几率记录睡眠</span></span><br><span class="line">        time.sleep(<span class="number">0.5</span>)</span><br><span class="line"><span class="keyword">for</span> _ <span class="keyword">in</span> range(<span class="number">5</span>):</span><br><span class="line">    <span class="string">''' 日志中是否有超过1.5秒的函数 '''</span></span><br><span class="line">    test()</span><br><span class="line">print(<span class="string">"$"</span>*<span class="number">20</span>)</span><br><span class="line">test.setTimeout(<span class="number">1</span>)</span><br><span class="line"><span class="keyword">for</span> _ <span class="keyword">in</span> range(<span class="number">5</span>):</span><br><span class="line">    test()</span><br><span class="line"></span><br><span class="line"><span class="string">'''</span><br><span class="line">In test</span><br><span class="line">In test</span><br><span class="line">In test</span><br><span class="line">In test</span><br><span class="line">In test</span><br><span class="line">WARNING:root:test:2.0001144409179688 &gt; 1.5</span><br><span class="line">$$$$$$$$$$$$$$$$$$$$</span><br><span class="line">In test</span><br><span class="line">In test</span><br><span class="line">In test</span><br><span class="line">WARNING:root:test:1.0000574588775635 &gt; 1</span><br><span class="line">In test</span><br><span class="line">In test</span><br><span class="line">'''</span></span><br></pre></td></tr></table></figure>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2023-12-11T07:18:57.690Z" itemprop="dateUpdated">2023-12-11 15:18:57</time>
+</span><br>
+
+
+        
+        <a href="/2017/03/28/32-python装饰器/" target="_blank" rel="external">http://zhourudong.cn/2017/03/28/32-python装饰器/</a>
+        
+    </div>
+    <footer>
+        <a href="http://zhourudong.cn">
+            <img src="/img/avatar.png" alt="cucy">
+            cucy
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://zhourudong.cn/2017/03/28/32-python装饰器/&title=《python装饰器》 — Cucy的博客&pic=http://zhourudong.cn/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://zhourudong.cn/2017/03/28/32-python装饰器/&title=《python装饰器》 — Cucy的博客&source=简单装饰器实现斐波那契数列" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://zhourudong.cn/2017/03/28/32-python装饰器/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《python装饰器》 — Cucy的博客&url=http://zhourudong.cn/2017/03/28/32-python装饰器/&via=http://zhourudong.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://zhourudong.cn/2017/03/28/32-python装饰器/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/03/28/33-基础算法/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">基础算法</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/03/16/31-python-logger/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">python logger</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>cucy &copy; 2016 - 2023</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://zhourudong.cn/2017/03/28/32-python装饰器/&title=《python装饰器》 — Cucy的博客&pic=http://zhourudong.cn/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://zhourudong.cn/2017/03/28/32-python装饰器/&title=《python装饰器》 — Cucy的博客&source=简单装饰器实现斐波那契数列" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://zhourudong.cn/2017/03/28/32-python装饰器/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《python装饰器》 — Cucy的博客&url=http://zhourudong.cn/2017/03/28/32-python装饰器/&via=http://zhourudong.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://zhourudong.cn/2017/03/28/32-python装饰器/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://zhourudong.cn/2017/03/28/32-python装饰器/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.6.13"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.6.13" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

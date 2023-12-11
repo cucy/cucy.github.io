@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>常用 | Cucy的博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="linux">
+    <meta name="description" content="查找文件大小sudo find / -size +20M ! -path &apos;/proc/*&apos; ! -path &apos;/home/*&apos;  -type f -mtime +20 | xargs sudo ls -lh# cp mvsudo find / -size +20M ! -path &apos;/proc/*&apos; ! -path &apos;/home/*&apos;  -type f -mtime +90 -size +200">
+<meta property="og:type" content="article">
+<meta property="og:title" content="常用">
+<meta property="og:url" content="http://zhourudong.cn/2016/11/17/9-shell-常用/index.html">
+<meta property="og:site_name" content="Cucy的博客">
+<meta property="og:description" content="查找文件大小sudo find / -size +20M ! -path &apos;/proc/*&apos; ! -path &apos;/home/*&apos;  -type f -mtime +20 | xargs sudo ls -lh# cp mvsudo find / -size +20M ! -path &apos;/proc/*&apos; ! -path &apos;/home/*&apos;  -type f -mtime +90 -size +200">
+<meta property="og:updated_time" content="2023-12-11T07:18:57.702Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="常用">
+<meta name="twitter:description" content="查找文件大小sudo find / -size +20M ! -path &apos;/proc/*&apos; ! -path &apos;/home/*&apos;  -type f -mtime +20 | xargs sudo ls -lh# cp mvsudo find / -size +20M ! -path &apos;/proc/*&apos; ! -path &apos;/home/*&apos;  -type f -mtime +90 -size +200">
+    
+        <link rel="alternate" type="application/atom+xml" title="Cucy的博客" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.6.13">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">cucy</h5>
+          <a href="mailto:292016176@qq.com" title="292016176@qq.com" class="mail">292016176@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/cucy" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">常用</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">常用</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2016-11-17T10:10:42.000Z" itemprop="datePublished" class="page-time">
+  2016-11-17
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#查找文件大小"><span class="post-toc-number">1.</span> <span class="post-toc-text">查找文件大小</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#快速创建一个大文件"><span class="post-toc-number">2.</span> <span class="post-toc-text">快速创建一个大文件</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#shell-子串截取"><span class="post-toc-number">3.</span> <span class="post-toc-text">shell 子串截取</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#重定向-EOF"><span class="post-toc-number">4.</span> <span class="post-toc-text">重定向 EOF</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#PS1"><span class="post-toc-number">5.</span> <span class="post-toc-text">PS1</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#python"><span class="post-toc-number">6.</span> <span class="post-toc-text">python</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#yum本地"><span class="post-toc-number">7.</span> <span class="post-toc-text">yum本地</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#sed批量替换-目录下所有文件"><span class="post-toc-number">8.</span> <span class="post-toc-text">sed批量替换 目录下所有文件</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#rsync同步文件"><span class="post-toc-number">9.</span> <span class="post-toc-text">rsync同步文件</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#每次读取文件一行"><span class="post-toc-number">10.</span> <span class="post-toc-text">每次读取文件一行</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-9-shell-常用"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">常用</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2016-11-17 18:10:42" datetime="2016-11-17T10:10:42.000Z"  itemprop="datePublished">2016-11-17</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="查找文件大小"><a href="#查找文件大小" class="headerlink" title="查找文件大小"></a>查找文件大小</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">sudo find / -size +<span class="number">20</span>M ! -path <span class="string">'/proc/*'</span> ! -path <span class="string">'/home/*'</span>  -type f -mtime +<span class="number">20</span> | xargs sudo ls -lh</span><br><span class="line"><span class="comment"># cp mv</span></span><br><span class="line">sudo find / -size +<span class="number">20</span>M ! -path <span class="string">'/proc/*'</span> ! -path <span class="string">'/home/*'</span>  -type f -mtime +<span class="number">90</span> -size +<span class="number">200</span>M | xargs -I &#123;&#125; sudo mv &#123;&#125;  /home/ops_zhourudong</span><br></pre></td></tr></table></figure>
+<h2 id="快速创建一个大文件"><a href="#快速创建一个大文件" class="headerlink" title="快速创建一个大文件"></a>快速创建一个大文件</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">fallocate -l <span class="number">1</span>G zrd.img</span><br></pre></td></tr></table></figure>
+<h2 id="shell-子串截取"><a href="#shell-子串截取" class="headerlink" title="shell 子串截取"></a>shell 子串截取</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">a=ab_cd_ef</span><br><span class="line"><span class="meta"></span><br><span class="line">#</span><span class="bash"> 截取最后的子串</span></span><br><span class="line">echo $&#123;a##*_&#125;</span><br><span class="line">ef</span><br><span class="line"><span class="meta"></span><br><span class="line">#</span><span class="bash"> 截取前边的子串</span></span><br><span class="line">echo $&#123;a#*_&#125;</span><br><span class="line">cd_ef</span><br><span class="line"><span class="meta"></span><br><span class="line"></span><br><span class="line">#</span><span class="bash"> 从右边起截取最后的子串</span></span><br><span class="line">echo $&#123;a%%_*&#125;</span><br><span class="line">ab</span><br><span class="line"><span class="meta"></span><br><span class="line">#</span><span class="bash"> 从右边起放弃第一个子串后的结果</span></span><br><span class="line">echo $&#123;a%_*&#125;</span><br><span class="line">ab_cd</span><br></pre></td></tr></table></figure>
+<h2 id="重定向-EOF"><a href="#重定向-EOF" class="headerlink" title="重定向 EOF"></a>重定向 EOF</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">cat &lt;&lt;EOF | tee /etc/yum.repos.d/influxdb.repo</span><br><span class="line">[influxdb]</span><br><span class="line">name = InfluxDB Repository - RHEL \$releasever</span><br><span class="line">baseurl = https://repos.influxdata.com/rhel/\$releasever/\$basearch/stable</span><br><span class="line">enabled = <span class="number">1</span></span><br><span class="line">gpgcheck = <span class="number">1</span></span><br><span class="line">gpgkey = https://repos.influxdata.com/influxdb.key</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
+<h2 id="PS1"><a href="#PS1" class="headerlink" title="PS1"></a>PS1</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">PS1=\e[1m\e[31m[\h] \e[32m($(docker-prompt)) \e[34m\u@$(hostname -i)\e[35m \w\e[0m\n$</span><br></pre></td></tr></table></figure>
+<h2 id="python"><a href="#python" class="headerlink" title="python"></a>python</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">pip install pymongo -i http://pypi.douban.com/simple/ --trusted-host pypi.douban.com</span><br><span class="line"></span><br><span class="line">pip instll  requests -i http://mirrors.aliyun.com/pypi/simple/ --trusted-host mirrors.aliyun.com</span><br><span class="line"></span><br><span class="line">pip instll  requests -i http://mirrorscs.aliyun.com/pypi/simple/ --trusted-host mirrors.aliyuncs.com</span><br></pre></td></tr></table></figure>
+<h2 id="yum本地"><a href="#yum本地" class="headerlink" title="yum本地"></a>yum本地</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">mount -o loop /dev/sr0 /mnt/</span><br><span class="line"></span><br><span class="line">cd /etc/yum.repos.d/</span><br><span class="line">vi Centos-Media.repo</span><br><span class="line">[c7-media]</span><br><span class="line">name=centos7-local-iso</span><br><span class="line">baseurl=file:///mnt</span><br><span class="line">gpgcheck=<span class="number">0</span></span><br></pre></td></tr></table></figure>
+<h2 id="sed批量替换-目录下所有文件"><a href="#sed批量替换-目录下所有文件" class="headerlink" title="sed批量替换 目录下所有文件"></a>sed批量替换 目录下所有文件</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">sed -i <span class="string">"s/dial_cross.enabled=True/dial_cross.enabled=False/g"</span>  $( grep <span class="string">'tower.enabled'</span> -rl .)</span><br></pre></td></tr></table></figure>
+<h2 id="rsync同步文件"><a href="#rsync同步文件" class="headerlink" title="rsync同步文件"></a>rsync同步文件</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 从18.2.9.6主机/var/www/webdir目录(webdir目录)  同步到当前目录</span></span><br><span class="line">rsync -avzP root@<span class="number">18.2</span><span class="number">.9</span><span class="number">.6</span>:/var/www/webdir  .</span><br></pre></td></tr></table></figure>
+<h2 id="每次读取文件一行"><a href="#每次读取文件一行" class="headerlink" title="每次读取文件一行"></a>每次读取文件一行</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="keyword">while</span> <span class="built_in">read</span> line</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">      <span class="built_in">echo</span> <span class="variable">$line</span>     <span class="comment">#这里可根据实际用途变化</span></span><br><span class="line"><span class="keyword">done</span> &lt; urfile</span><br></pre></td></tr></table></figure>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2023-12-11T07:18:57.702Z" itemprop="dateUpdated">2023-12-11 15:18:57</time>
+</span><br>
+
+
+        
+        <a href="/2016/11/17/9-shell-常用/" target="_blank" rel="external">http://zhourudong.cn/2016/11/17/9-shell-常用/</a>
+        
+    </div>
+    <footer>
+        <a href="http://zhourudong.cn">
+            <img src="/img/avatar.png" alt="cucy">
+            cucy
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://zhourudong.cn/2016/11/17/9-shell-常用/&title=《常用》 — Cucy的博客&pic=http://zhourudong.cn/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://zhourudong.cn/2016/11/17/9-shell-常用/&title=《常用》 — Cucy的博客&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://zhourudong.cn/2016/11/17/9-shell-常用/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《常用》 — Cucy的博客&url=http://zhourudong.cn/2016/11/17/9-shell-常用/&via=http://zhourudong.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://zhourudong.cn/2016/11/17/9-shell-常用/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2016/11/18/11-算法复杂度/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">算法复杂度</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2016/11/14/8-groovy基本语法/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">groovy基本语法</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>cucy &copy; 2016 - 2023</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://zhourudong.cn/2016/11/17/9-shell-常用/&title=《常用》 — Cucy的博客&pic=http://zhourudong.cn/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://zhourudong.cn/2016/11/17/9-shell-常用/&title=《常用》 — Cucy的博客&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://zhourudong.cn/2016/11/17/9-shell-常用/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《常用》 — Cucy的博客&url=http://zhourudong.cn/2016/11/17/9-shell-常用/&via=http://zhourudong.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://zhourudong.cn/2016/11/17/9-shell-常用/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://zhourudong.cn/2016/11/17/9-shell-常用/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.6.13"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.6.13" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

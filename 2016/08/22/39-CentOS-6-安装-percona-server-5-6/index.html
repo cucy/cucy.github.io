@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>CentOS 6 安装 percona server 5.6 | Cucy的博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="mysql">
+    <meta name="description" content="1.卸载系统自带库rpm -qa | egrep   &amp;quot;mysql|mariadb&amp;quot;yum remove  mysql*yum remove  mariadb-libs-*">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CentOS 6 安装 percona server 5.6">
+<meta property="og:url" content="http://zhourudong.cn/2016/08/22/39-CentOS-6-安装-percona-server-5-6/index.html">
+<meta property="og:site_name" content="Cucy的博客">
+<meta property="og:description" content="1.卸载系统自带库rpm -qa | egrep   &amp;quot;mysql|mariadb&amp;quot;yum remove  mysql*yum remove  mariadb-libs-*">
+<meta property="og:updated_time" content="2023-12-11T07:18:57.692Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CentOS 6 安装 percona server 5.6">
+<meta name="twitter:description" content="1.卸载系统自带库rpm -qa | egrep   &amp;quot;mysql|mariadb&amp;quot;yum remove  mysql*yum remove  mariadb-libs-*">
+    
+        <link rel="alternate" type="application/atom+xml" title="Cucy的博客" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.6.13">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">cucy</h5>
+          <a href="mailto:292016176@qq.com" title="292016176@qq.com" class="mail">292016176@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/cucy" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">CentOS 6 安装 percona server 5.6</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">CentOS 6 安装 percona server 5.6</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2016-08-22T09:51:53.000Z" itemprop="datePublished" class="page-time">
+  2016-08-22
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-卸载系统自带库"><span class="post-toc-number">1.</span> <span class="post-toc-text">1.卸载系统自带库</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-修改文件句柄"><span class="post-toc-number">2.</span> <span class="post-toc-text">2.修改文件句柄</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-添加用户"><span class="post-toc-number">3.</span> <span class="post-toc-text">3.添加用户</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-创建数据目录"><span class="post-toc-number">4.</span> <span class="post-toc-text">4.创建数据目录</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5-安装依赖包"><span class="post-toc-number">5.</span> <span class="post-toc-text">5.安装依赖包</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5-1-下载二进制通用包"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">5.1 下载二进制通用包</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5-2-percona-yum源安装"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">5.2 percona yum源安装</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#6-解压压缩包"><span class="post-toc-number">6.</span> <span class="post-toc-text">6.解压压缩包</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#7-配置my-cnf"><span class="post-toc-number">7.</span> <span class="post-toc-text">7. 配置my.cnf</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#8-初始化percona-server"><span class="post-toc-number">8.</span> <span class="post-toc-text">8.初始化percona server</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#9-配置启动脚本"><span class="post-toc-number">9.</span> <span class="post-toc-text">9.配置启动脚本</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#10-配置环境变量"><span class="post-toc-number">10.</span> <span class="post-toc-text">10.配置环境变量</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#11-启动percona-server"><span class="post-toc-number">11.</span> <span class="post-toc-text">11.启动percona server</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-39-CentOS-6-安装-percona-server-5-6"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">CentOS 6 安装 percona server 5.6</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2016-08-22 17:51:53" datetime="2016-08-22T09:51:53.000Z"  itemprop="datePublished">2016-08-22</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="1-卸载系统自带库"><a href="#1-卸载系统自带库" class="headerlink" title="1.卸载系统自带库"></a>1.卸载系统自带库</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">rpm -qa | egrep   &quot;mysql|mariadb&quot;</span><br><span class="line">yum remove  mysql*</span><br><span class="line">yum remove  mariadb-libs-*</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h2 id="2-修改文件句柄"><a href="#2-修改文件句柄" class="headerlink" title="2.修改文件句柄"></a>2.修改文件句柄</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">vim /etc/security/limits.conf</span><br><span class="line"># 修改</span><br><span class="line">* soft nofile 65535</span><br><span class="line">* hard nofile 65535</span><br></pre></td></tr></table></figure>
+<h2 id="3-添加用户"><a href="#3-添加用户" class="headerlink" title="3.添加用户"></a>3.添加用户</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">useradd  -r -s /usr/sbin/nologin mysql</span><br></pre></td></tr></table></figure>
+<h2 id="4-创建数据目录"><a href="#4-创建数据目录" class="headerlink" title="4.创建数据目录"></a>4.创建数据目录</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mkdir -p /home/mysql_data</span><br><span class="line">chown -R mysql:mysql /home/mysql_data</span><br></pre></td></tr></table></figure>
+<h2 id="5-安装依赖包"><a href="#5-安装依赖包" class="headerlink" title="5.安装依赖包"></a>5.安装依赖包</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">yum install -y jemalloc perl-Data-Dumper  perl-Test-Harness perl-Test-Simple openssl098e</span><br></pre></td></tr></table></figure>
+<h3 id="5-1-下载二进制通用包"><a href="#5-1-下载二进制通用包" class="headerlink" title="5.1 下载二进制通用包"></a>5.1 下载二进制通用包</h3><p>percona-Server-5.6.31-77.0-r5c1061c-el7-x86_64-bundle.tar<br><a href="https://www.percona.com/downloads/Percona-Server-5.6/LATEST/" target="_blank" rel="external">percona地址</a></p>
+<h3 id="5-2-percona-yum源安装"><a href="#5-2-percona-yum源安装" class="headerlink" title="5.2 percona yum源安装"></a>5.2 percona yum源安装</h3><p>yum install <a href="http://www.percona.com/downloads/percona-release/redhat/0.1-3/percona-release-0.1-3.noarch.rpm" target="_blank" rel="external">http://www.percona.com/downloads/percona-release/redhat/0.1-3/percona-release-0.1-3.noarch.rpm</a></p>
+<h2 id="6-解压压缩包"><a href="#6-解压压缩包" class="headerlink" title="6.解压压缩包"></a>6.解压压缩包</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">tar xf Percona-Server-5.6.31-rel77.0-Linux.x86_64.ssl101.tar.gz -C /opt/</span><br><span class="line">ln -sv /opt/Percona-Server-5.6.31-rel77.0-Linux.x86_64.ssl101 /opt/mysql</span><br><span class="line">chown -R mysql:mysql /opt/Percona-Server* /opt/mysql</span><br></pre></td></tr></table></figure>
+<h2 id="7-配置my-cnf"><a href="#7-配置my-cnf" class="headerlink" title="7. 配置my.cnf"></a>7. 配置my.cnf</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cat &gt;&gt;  /etc/my.cnf &lt;&lt; EOF</span><br><span class="line"># --------------------------- Start -----------------------</span><br><span class="line">#my.cnf</span><br><span class="line">[client]</span><br><span class="line">port            = 3306</span><br><span class="line">socket          = /tmp/mysql.sock</span><br><span class="line"></span><br><span class="line">[mysql]</span><br><span class="line">prompt=&quot;\u@\h \D [\d] \n--&gt;&quot;</span><br><span class="line"># pager=&quot;less -i -n -S&quot;</span><br><span class="line"># tee=/home/mysql_data/query.log</span><br><span class="line"># no-auto-rehash # 不使用自动补全</span><br><span class="line">auto-rehash  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">[mysqld]</span><br><span class="line">user = mysql</span><br><span class="line">basedir = /opt/mysql</span><br><span class="line">datadir = /home/mysql_data</span><br><span class="line">port = 3306</span><br><span class="line">socket = /tmp/mysql.sock</span><br><span class="line"># bind_address = 0.0.0.0</span><br><span class="line"></span><br><span class="line"># 线程池</span><br><span class="line">thread_handling=pool-of-threads</span><br><span class="line">thread_pool_size=50  </span><br><span class="line"># timeout</span><br><span class="line">interactive_timeout = 3000</span><br><span class="line">wait_timeout = 3000</span><br><span class="line"></span><br><span class="line"># character set</span><br><span class="line">character-set-server = utf8</span><br><span class="line"></span><br><span class="line">open_files_limit = 65535</span><br><span class="line">max_connections = 1000</span><br><span class="line">max_connect_errors = 100000</span><br><span class="line"></span><br><span class="line">#logs</span><br><span class="line">log-output=file</span><br><span class="line">slow_query_log = 1</span><br><span class="line">slow_query_log_file = /home/mysql_data/slow.log</span><br><span class="line">log-error = /home/mysql_data/error.log</span><br><span class="line">log_warnings = 2</span><br><span class="line">pid-file = /home/mysql_data/mysql.pid</span><br><span class="line">long_query_time = 1</span><br><span class="line">#log-slow-admin-statements = 1</span><br><span class="line">#log-queries-not-using-indexes = 1</span><br><span class="line">log-slow-slave-statements = 1</span><br><span class="line"></span><br><span class="line"># binlog</span><br><span class="line">binlog_format = mixed</span><br><span class="line">server-id = 1</span><br><span class="line">log-bin = mybinlog</span><br><span class="line">binlog_cache_size = 4M</span><br><span class="line">max_binlog_size = 512M</span><br><span class="line">innodb_log_files_in_group = 2</span><br><span class="line">max_binlog_cache_size = 512M</span><br><span class="line">sync_binlog = 1</span><br><span class="line">expire_logs_days = 10</span><br><span class="line">skip_name_resolve = 1</span><br><span class="line"># for 5.6</span><br><span class="line">explicit_defaults_for_timestamp = 1</span><br><span class="line"></span><br><span class="line"># buffers &amp; cache</span><br><span class="line">table_open_cache = 2048</span><br><span class="line">table_definition_cache = 2048</span><br><span class="line">table_open_cache = 2048</span><br><span class="line">max_heap_table_size = 96M</span><br><span class="line">sort_buffer_size = 2M</span><br><span class="line">join_buffer_size = 2M</span><br><span class="line">thread_cache_size = 256</span><br><span class="line">query_cache_size = 0</span><br><span class="line">query_cache_type = 0</span><br><span class="line">query_cache_limit = 256K</span><br><span class="line">query_cache_min_res_unit = 512</span><br><span class="line">thread_stack = 192K</span><br><span class="line">tmp_table_size = 96M</span><br><span class="line">key_buffer_size = 8M</span><br><span class="line">read_buffer_size = 2M</span><br><span class="line">read_rnd_buffer_size = 16M</span><br><span class="line">bulk_insert_buffer_size = 32M</span><br><span class="line"></span><br><span class="line"># myisam</span><br><span class="line">myisam_sort_buffer_size = 128M</span><br><span class="line">myisam_max_sort_file_size = 1G</span><br><span class="line">myisam_repair_threads = 1</span><br><span class="line"></span><br><span class="line"># innodb</span><br><span class="line"># 注意修改 buffer pool大小 </span><br><span class="line">innodb_buffer_pool_size = 1G</span><br><span class="line">innodb_buffer_pool_instances = 1</span><br><span class="line">innodb_data_file_path = ibdata1:1G:autoextend</span><br><span class="line">innodb_flush_log_at_trx_commit = 1</span><br><span class="line">innodb_log_buffer_size = 64M</span><br><span class="line">innodb_log_file_size = 256M</span><br><span class="line">innodb_max_dirty_pages_pct = 50</span><br><span class="line">innodb_file_per_table = 1</span><br><span class="line">innodb_rollback_on_timeout</span><br><span class="line">innodb_status_file = 1</span><br><span class="line">innodb_io_capacity = 2000</span><br><span class="line">transaction_isolation = READ-COMMITTED</span><br><span class="line">innodb_flush_method = O_DIRECT</span><br><span class="line"># --------------------------- End -----------------------</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
+<h2 id="8-初始化percona-server"><a href="#8-初始化percona-server" class="headerlink" title="8.初始化percona server"></a>8.初始化percona server</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">/opt/mysql/scripts/mysql_install_db --user=mysql --basedir=/opt/mysql --datadir=/home/mysql_data --defaults-file=/etc/my.cnf</span><br></pre></td></tr></table></figure>
+<h2 id="9-配置启动脚本"><a href="#9-配置启动脚本" class="headerlink" title="9.配置启动脚本"></a>9.配置启动脚本</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cp /opt/mysql/support-files/mysql.server /etc/init.d/mysqld</span><br><span class="line"></span><br><span class="line">vim /etc/init.d/mysqld</span><br><span class="line"># 修改 46 47 行</span><br><span class="line">basedir=/opt/mysql</span><br><span class="line">datadir=/home/mysql_data</span><br><span class="line"></span><br><span class="line">chmod +x /etc/init.d/mysqld</span><br><span class="line">chkconfig --add mysqld</span><br><span class="line">chkconfig mysqld on</span><br></pre></td></tr></table></figure>
+<h2 id="10-配置环境变量"><a href="#10-配置环境变量" class="headerlink" title="10.配置环境变量"></a>10.配置环境变量</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">vim  /etc/profile.d/mysql.sh</span><br><span class="line">export PATH=/opt/mysql/bin:$PATH</span><br><span class="line"></span><br><span class="line">source /etc/profile.d/mysql.sh</span><br><span class="line"># 导出头文件</span><br><span class="line">cat &gt;&gt; /etc/ld.so.conf.d/mysql.conf &lt;&lt;EOF</span><br><span class="line">/opt/mysql/lib</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line">ldconfig</span><br></pre></td></tr></table></figure>
+<h2 id="11-启动percona-server"><a href="#11-启动percona-server" class="headerlink" title="11.启动percona server"></a>11.启动percona server</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">chown -R mysql:mysql /opt/mysql /home/mysql_data /opt/Percona-Server*</span><br><span class="line">/etc/init.d/mysqld start # 启动数据库</span><br><span class="line">/etc/init.d/mysqld stop  # 停止数据库</span><br></pre></td></tr></table></figure>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2023-12-11T07:18:57.692Z" itemprop="dateUpdated">2023-12-11 15:18:57</time>
+</span><br>
+
+
+        
+        <a href="/2016/08/22/39-CentOS-6-安装-percona-server-5-6/" target="_blank" rel="external">http://zhourudong.cn/2016/08/22/39-CentOS-6-安装-percona-server-5-6/</a>
+        
+    </div>
+    <footer>
+        <a href="http://zhourudong.cn">
+            <img src="/img/avatar.png" alt="cucy">
+            cucy
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql/">mysql</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://zhourudong.cn/2016/08/22/39-CentOS-6-安装-percona-server-5-6/&title=《CentOS 6 安装 percona server 5.6》 — Cucy的博客&pic=http://zhourudong.cn/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://zhourudong.cn/2016/08/22/39-CentOS-6-安装-percona-server-5-6/&title=《CentOS 6 安装 percona server 5.6》 — Cucy的博客&source=1.卸载系统自带库rpm -qa | egrep   &quot;mysql|mariadb&quot;yum remove  mysql*yum rem..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://zhourudong.cn/2016/08/22/39-CentOS-6-安装-percona-server-5-6/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《CentOS 6 安装 percona server 5.6》 — Cucy的博客&url=http://zhourudong.cn/2016/08/22/39-CentOS-6-安装-percona-server-5-6/&via=http://zhourudong.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://zhourudong.cn/2016/08/22/39-CentOS-6-安装-percona-server-5-6/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2016/08/22/42-MySQL-简单主从配置/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">MySQL 简单主从配置</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2016/08/22/6-迭代器与生成器/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">6.迭代器与生成器</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>cucy &copy; 2016 - 2023</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://zhourudong.cn/2016/08/22/39-CentOS-6-安装-percona-server-5-6/&title=《CentOS 6 安装 percona server 5.6》 — Cucy的博客&pic=http://zhourudong.cn/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://zhourudong.cn/2016/08/22/39-CentOS-6-安装-percona-server-5-6/&title=《CentOS 6 安装 percona server 5.6》 — Cucy的博客&source=1.卸载系统自带库rpm -qa | egrep   &quot;mysql|mariadb&quot;yum remove  mysql*yum rem..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://zhourudong.cn/2016/08/22/39-CentOS-6-安装-percona-server-5-6/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《CentOS 6 安装 percona server 5.6》 — Cucy的博客&url=http://zhourudong.cn/2016/08/22/39-CentOS-6-安装-percona-server-5-6/&via=http://zhourudong.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://zhourudong.cn/2016/08/22/39-CentOS-6-安装-percona-server-5-6/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://zhourudong.cn/2016/08/22/39-CentOS-6-安装-percona-server-5-6/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.6.13"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.6.13" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
